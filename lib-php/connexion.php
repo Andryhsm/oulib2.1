@@ -33,6 +33,7 @@
                                                 $_SESSION['type-soinI3'] = utf8_encode($val["type-soinI3"]);
                                                 $_SESSION['type-soinI4'] = utf8_encode($val["type-soinI4"]);
                                                 $_SESSION['lieu-intervention'] = utf8_encode($val["lieu-intervention"]);
+												$_SESSION['latLng'] = utf8_encode($val["latLng"]);
 						$_SESSION['photo'] = utf8_encode($val['photo']);
 
 

@@ -60,6 +60,7 @@
                                 {$data['commentaire']}
                             <br><br><br>
                             <div class='pull-right'>
+                                <a class='btn btn-info accepter' onClick='itineraire(\"{$data['latLng']}\");'>Voir itinéraire</a>&nbsp;&nbsp
                                 <a class='btn btn-success accepter' onClick='accepter({$data['id']});'>Accepter</a>&nbsp;&nbsp
                                 <a class='btn btn-danger refuser' onClick='refuser({$data['id']});'>Réfuser</a>
                             </div>

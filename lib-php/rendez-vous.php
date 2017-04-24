@@ -7,6 +7,7 @@
 	$date_soin1 = ($_POST["date_soin"]);
 	$heure_soin = ($_POST["heure_soin"]);
 	$commentaire = ($_POST["commentaire"]);
+	$latLng = ($_POST["latLng"]) ? $_POST["latLng"] : "null";
 
 //        echo $emailI;
 	
@@ -63,7 +64,7 @@
 				$frequenceSoinP = $frequenceSoin1. " - ". $frequenceSoin2 . " - ". $frequenceSoin3 ." - ". $frequenceSoin4;
 
 			$date = "heure";
-			$q = "INSERT INTO `oulib_liste_demande` (`photo`, `emailI`, `nomP`, `prenomP`, `telP`, `adresseP`, `typeSoinP`, `commentaire`, `frequenceSoin`, `status`, `emailP`, `date_soin`, `heure_soin`) VALUES('$photo', '$emailI', '$nomP', '$prenomP', '$telP' , '$adresse',  '$typeSoinP', '$commentaire', '$frequenceSoinP', '$status', '$emailP', '$date_soin1', '$heure_soin')";
+			$q = "INSERT INTO `oulib_liste_demande` (`photo`, `emailI`, `nomP`, `prenomP`, `telP`, `adresseP`, `typeSoinP`, `commentaire`, `frequenceSoin`, `status`, `emailP`, `date_soin`, `heure_soin`, `latLng`) VALUES('$photo', '$emailI', '$nomP', '$prenomP', '$telP' , '$adresse',  '$typeSoinP', '$commentaire', '$frequenceSoinP', '$status', '$emailP', '$date_soin1', '$heure_soin', '$latLng')";
 
 			//echo $q;
 

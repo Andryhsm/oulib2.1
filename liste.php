@@ -75,14 +75,9 @@ include_once "./lib-php/cnx.php";
             .logo
             {
                 position: absolute;
+                width: 10%;
                 z-index: 9;
                 left: 5%;
-            }
-
-            .logo_footer
-            {
-                width: 10%;
-                height: 20%;
             }
 
             li>a:hover
@@ -103,6 +98,9 @@ include_once "./lib-php/cnx.php";
                 margin-top: 5rem;
             }
 
+            #modalC{
+                width: 95%;
+            }
 
             .liste
             {
@@ -110,9 +108,24 @@ include_once "./lib-php/cnx.php";
                 height: 550px;
                 overflow: auto;
             }
+
+            #carteItineraire {
+                position: fixed;
+                margin: -43% 0% 0% 38%;
+            }
+
+            #map {
+                width: 92vw;
+                height: 63vh;
+                position: relative;
+                overflow: hidden;
+                margin: 0% 0% 0% 0%;
+            }
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
-        </style></head>
+        </style>
+</head>
+
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
         <div class="wrapper ">
             <nav class="navbar navbar-default navbar-fixed-top">
@@ -125,14 +138,14 @@ include_once "./lib-php/cnx.php";
                       <span class="icon-bar"></span>
                     </button>
                       <div class="logo">
-                          <a href="#"><img src="img/log.png"></a>
+                          <a href="#"><img src="img/logo.png"></a>
                       </div>
                   </div>
           
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="./rendez-vous.php">Mes rendez-vous</a></li>
-                      <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
+                      <li><a href="./lib-php/renouvellement.php">Commander du matériel</a></li>
                       <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="./contact2.php">Contact</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
@@ -153,26 +166,125 @@ include_once "./lib-php/cnx.php";
                             <div class="liste">
 
                                 <?php
-                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'attente'");
-                                $b = FALSE;
-                                while ($data = $req->fetch()) {
-                                    $b = TRUE;
-                                    ?>
-                                    <table class="table table-hover">
-                                        <tbody id="content">
-                                            
-                                        </tbody>
-                                    </table>
-                                    <?php
-                                } if ($b == FALSE) {
-                                    echo '<center><h3>Vous n\'avez pas encore de demande</h3></center>';
-                                }
+                                        $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'attente'");
+                                        $b = FALSE;
+                                        while ($data = $req->fetch()) {
+                                            $b = TRUE;
+                                            ?>
+                                            <table class="table table-hover">
+                                                <tbody id="content">
+                                                    
+                                                </tbody>
+                                            </table>
+                                            <?php
+                                        } if ($b == FALSE) {
+                                            echo '<center><h3>Vous n\'avez pas encore de demande</h3></center>';
+                                        }
                                 ?>
 
-                            </div>
+                                <!-- a class="btn btn-primary" data-toggle="modal" id="modalCarte" href='#modal-id'>Trigger modal</a>
+                                <div class="modal fade" id="modal-id">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="map" style="width: 60vw; height: 40vh;"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div -->
+
+ 
+                                  <button class="btn hidden" id="modalCarte" data-toggle="modal" data-target="#carte"></button>
+                                    <div class="modal" style="background: none;  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); box-shadow: 0 0px 0px rgba(0, 0, 0, 0);" id="carte">
+                                        <div id="modalCa"  class="modal-dialog" style="background: none; -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); box-shadow: 0 0px 0px rgba(0, 0, 0, 0); margin: 0%; width:100%">
+                                            <div class="modal-content alert alert-dismissible alert-info col-lg-12" style="background: none;  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); box-shadow: 0 0px 0px rgba(0, 0, 0, 0); width: 160%;">
+                                                <div class="modal-header" style="margin-top: 0%; width: 61%;">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="fermeCarte">&times;</button>
+                                                </div>
+                                                <div class="modal-body" style="background: none;">
+                                                   <div id="map"></div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                              
+                           </div>
                         </div>
+                         <div id="carteItineraire" class="panel panel-info" style="display: none;">
+                                    <div class="panel-body">
+                                      
+                                     </div>
+                                    <div class="panel-footer">
+
+                                     </div>
+                        </div>
+
                     </div>
                 </section>
+
+            </div>
+
+            
+            <div class="modal fade" id="modalCarte">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body">
+                            Je suis le contenu
+                             <!-- div id="map" style="width: 60vw; height: 68vh;"></div-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+             <div class="modal fade" id="modal-id">
+                 <div class="modal-dialog">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                             <h4 class="modal-title">Modal title</h4>
+                         </div>
+                         <div class="modal-body">
+                             
+                         </div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             <button type="button" class="btn btn-primary">Save changes</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+            <div class="modal fade" id="modal-id">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
@@ -181,7 +293,7 @@ include_once "./lib-php/cnx.php";
                     <div class="modal-content alert alert-dismissible alert-info col-lg-12">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
-                            <h4 class="modal-title" style="text-align: center;">Que s'est-il passé ?</h4>
+                            <h4 class="modal-title" style="text-align: center;">Information</h4>
                         </div>
                         <div class="modal-body">
                             <div class="warning" id="erreur_inscription"></div>
@@ -195,6 +307,7 @@ include_once "./lib-php/cnx.php";
             <div class="btn_up">
                 <img src="img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
             </div>
+             
 
             <!--Footer-->
             <footer class="fixed">
@@ -202,16 +315,21 @@ include_once "./lib-php/cnx.php";
                     <div class="container text-center alchem_footer_social_icon_1"> 
                         <div class="clearfix"></div>
                         <div class="site-info">
-                            <img src="./img/logo2.png" class = "logo_footer">
-                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
-                        </div>
+                            <a href="#" >OUSOFT SAS</a>. 38 Rue de la convention, 94270, Le Kremlin-Bicêtre.</div>
                     </div>
                 </div>          
             </footer>
         </div>  
+        
         <script type="text/javascript" src="./js/jquery.js"></script>
         <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+       
+     
         <script type="text/javascript">
+            var latPat;
+            var lngPat;
+            var DSLscript;
+
             function accepter(id)
             {
                 var status = "accepter";
@@ -339,6 +457,34 @@ include_once "./lib-php/cnx.php";
                     }, 2000);
             });
 
+            function itineraire(latLng){
+
+                if(latLng == "null"){
+                    $('#erreur_inscription').html("<p>Désolé, </p><p>Ce patient n'a pas partager sa localisation !</p>");
+                            $('#triggerwarning').trigger('click');
+                            setTimeout(function () {
+                                $('#ferme').trigger('click');
+                    }, 4000);
+                }else{
+                    var latLng2 = latLng.split(',');
+                    
+                    latPat = latLng2[0];
+                    lngPat = latLng2[1];
+
+                    $("#modalCarte").trigger('click');
+
+                    DSLscript = document.createElement("script");
+                    DSLscript.type = "text/javascript";
+                    DSLscript.id = "map";
+                    DSLscript.src = "http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=init";
+                    document.body.appendChild(DSLscript);
+                }
+            }
+
+            $("#fermeCarte").click(function(event) {
+                document.removeChild(DSLscript);
+            });
+
             $(window).scroll(function ()
             {
                 if ($(window).scrollTop() === 0)
@@ -346,6 +492,72 @@ include_once "./lib-php/cnx.php";
                 else
                     $('#returnOnTop').fadeIn();
             });
+        </script>
+           <script type="text/javascript">
+
+              var directionsService = new google.maps.DirectionsService();
+                  var map, directionsDisplay;
+                  
+                  function init() {
+                    directionsDisplay = new google.maps.DirectionsRenderer();
+                        
+                        <?php echo "var latLngI1 = \"".$_SESSION["latLng"]."\";";?>
+                        var latLngI2 = latLngI1.replace('(', '');
+                        var latLngI3 = latLngI2.replace(')', '');
+                        var latLngInf = latLngI3.split(',')
+                        var latInf = latLngInf[0];
+                        var lngInf = latLngInf[1];
+
+                        var posInf = new google.maps.LatLng(latInf, lngInf);
+                        var posPat = new google.maps.LatLng(latPat, lngPat);
+
+                       
+                        /*
+                         var lieu1 = {
+                            lat : latInf,
+                            lng : lngInf
+                          };
+                          
+                          var lieu2 = {
+                            lat: latPat,
+                            lng: lngPat
+                          };
+                        */
+
+                    var maison = new google.maps.LatLng(-19.874104, 47.028093);
+
+                    var myOptions = {
+                      zoom:18,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP,
+                      center: maison
+                    }
+                    map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+                    directionsDisplay.setMap(map);
+
+                    trouveRoute(posPat, posInf);
+                    }
+                    
+                  
+                  function trouveRoute(depart, arrivee) {
+                        var directionsService = new google.maps.DirectionsService();
+                    if (depart && arrivee)
+                    {
+                    var choixMode = "DRIVING";
+                    
+                    var request = {
+                        origin:depart, 
+                        destination:arrivee,
+                        travelMode: google.maps.DirectionsTravelMode[choixMode]
+                    };
+                    
+                    directionsService.route(request, function(response, status) {
+                      if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                      }
+                    });
+                    }
+                  }
         </script>
     </body>
 </html>

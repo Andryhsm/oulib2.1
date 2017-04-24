@@ -71,6 +71,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             .logo
             {
                 position: absolute;
+                width: 10%;
                 z-index: 9;
                 left: 5%;
             }
@@ -82,6 +83,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             }
 
             #map {
+                margin: 0% 0% 0% 0%;
                 width: 100%;
                 height: 80vh;
                 background: white;
@@ -100,7 +102,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             #pac-input {
                 position: absolute;
                 z-index: 1;
-                margin: 0.7% 0% 0% 10%;
+                margin: 1% 0% 0% 10%;
                 background-color: #fff;
                 font-family: Roboto;
                 font-size: 15px;
@@ -199,12 +201,6 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 font-size: 1.2em;
             }
 
-            .logo_footer
-            {
-                width: 10%;
-                height: 20%;
-            }
-
 
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
@@ -221,7 +217,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo">
-                            <a href="#"><img src="img/log.png"></a>
+                            <a href="#"><img src="img/logo.png"></a>
                         </div>
                     </div>
 
@@ -399,9 +395,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                     <div class="container text-center alchem_footer_social_icon_1">
                         <!--<input type="text" class="form-control date datepicker">-->
                         <div class="site-info">
-                            <img src="./img/logo2.png" class = "logo_footer">
-                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
-                        </div>
+                            <a href="#" >OUSOFT SAS</a>. 38 Rue de la convention, 94270, Le Kremlin-Bicêtre.</div>
                         <input type="hidden" id="emailP" value="<?php echo($_SESSION['email']); ?>">
                     </div>
                 </div>          
@@ -453,6 +447,12 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
         <script type="text/javascript">
             var map;
             var tab_marqueur = [];
+         
+        /************************************/
+            var markeur_lieu ;
+            var pos_pat;
+        /****************************************/
+
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 48.862226, lng: 2.340173},
@@ -491,7 +491,9 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             lat: position.coords.latitude,
                             lng: position.coords.longitude
                         };
-
+                        /******************************/
+                        pos_pat = pos;                  
+                        /******************************/
                         var marker = new google.maps.Marker({
                             map: map,
                             position: pos
@@ -540,14 +542,15 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 autocomplete.bindTo('bounds', map);
 
                 var infowindow = new google.maps.InfoWindow();
+               /*
                 var marker = new google.maps.Marker({
                     map: map,
                     anchorPoint: new google.maps.Point(0, -29)
-                });
+                });*/
 
                 autocomplete.addListener('place_changed', function () {
                     infowindow.close();
-                    marker.setVisible(false);
+                    //marker.setVisible(false);
                     var place = autocomplete.getPlace();
                     if (!place.geometry) {
                         var addr = $("#pac-input").val();
@@ -561,16 +564,25 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                         map.setCenter(place.geometry.location);
                         map.setZoom(17);  // Why 17? Because it looks good.
                     }
-                    marker.setIcon(/** @type {google.maps.Icon} */({
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(35, 35)
-                    }));
-                    marker.setPosition(place.geometry.location);
-                    marker.setVisible(true);
 
+                    //Definir la marqueur bleu du lieu
+                    if(markeur_lieu){
+                        markeur_lieu.setMap(null);
+                    }
+
+                    /*
+                            Code avec une variable marqueur a commenter
+                    */
+
+
+                    /****************** 1 nouveau ***************/
+                    markeur_lieu = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location
+                    });
+                        markeur_lieu.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+                    
+                    /**************** 1 *****************/
                     var address = '';
                     if (place.address_components) {
                         address = [
@@ -580,8 +592,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                         ].join(' ');
                     }
 
-                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-                    infowindow.open(map, marker);
+                   
                 });
 
                 // Sets a listener on a radio button to change the filter type on Places
@@ -602,17 +613,25 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
 
             function rendezVous() {
-
 //                alert ($( "#emailI1" ).val());
+                var posPat;
+                
+                if(typeof(pos_pat) !== "undefined"){
+                    posPat = pos_pat.lat +"," + pos_pat.lng;
+                }else{
+                    posPat = "null";
+                }
 
+                console.log(pos_pat);
+                
                 var emailI = $("#emailI1").val();
                 var commentaire = $("#commentaire").val();
                 var heure_soin = $("#heure_soin").val();
                 var date_soin = $("#date_soin").val();
 
-//                alert (emailI +" ---- "+commentaire+" ---- "+heure_soin+" --- "+date_soin);
+//              alert (emailI +" ---- "+commentaire+" ---- "+heure_soin+" --- "+date_soin);
 
-                var dataString = "emailI=" + emailI + "&commentaire=" + commentaire + "&heure_soin=" + heure_soin + "&date_soin=" + date_soin;
+                var dataString = "emailI=" + emailI + "&commentaire=" + commentaire + "&heure_soin=" + heure_soin + "&date_soin=" + date_soin + "&latLng="+ posPat;
 
 //                alert (dataString);
                 $.ajax({
@@ -623,7 +642,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                     success: function (data) {
                         if (data === "reussi") {
                             $('#modal-id').modal('hide');
-                            $('#info').html('<p> Votre demande est bien envoyer . </p>');
+                            $('#info').html('<p> Votre demande est bien envoyer !</p>');
                             $('#triggerwarning').trigger('click');
                             setTimeout(function () {
                                 $('#ferme').trigger('click');
@@ -674,6 +693,8 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                         });
                         var latLng = results[0].geometry.location.lat;
                         var position = marker.getPosition();
+        
+
                         // alert(results[0].geometry.location);
                         var infoBull = new google.maps.InfoWindow({
                             content: "Votre lieu d'intervention est ici ?"
