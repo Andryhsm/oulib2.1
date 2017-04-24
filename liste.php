@@ -133,7 +133,7 @@ include_once "./lib-php/cnx.php";
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="./rendez-vous.php">Mes rendez-vous</a></li>
-                      <li><a href="./lib-php/renouvellement.php">Commander du matériel</a></li>
+                      <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
                       <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="./contact2.php">Contact</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>

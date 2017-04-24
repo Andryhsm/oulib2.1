@@ -133,7 +133,7 @@ $data = $req->fetch();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="../liste.php"><span id="badges">Liste</span></a></li>
-                            <li><a href="renouvellement.php">Commander matériel</a></li>
+                            <li><a href="renouvellement.php">Passer une commande</a></li>
                             <li><a href="modifierprofil_inf.php">Modifier mon profil</a></li>
                             <li><a href="../contact2.php">Contact</a></li>
                             <li><a href="deconnexion.php">Deconnexion</a></li>
