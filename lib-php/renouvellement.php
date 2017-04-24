@@ -56,7 +56,6 @@ $data = $req->fetch();
             .logo
             {
                 position: absolute;
-                width: 10%;
                 z-index: 9;
                 left: 5%;
             }
@@ -106,7 +105,7 @@ $data = $req->fetch();
                       <span class="icon-bar"></span>
                     </button>
                       <div class="logo">
-                          <a href="#"><img src="../img/logo.png"></a>
+                          <a href="#"><img src="../img/log.png"></a>
                       </div>
                   </div>
           

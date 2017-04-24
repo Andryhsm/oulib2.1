@@ -75,7 +75,6 @@ include_once "./lib-php/cnx.php";
             .logo
             {
                 position: absolute;
-                width: 10%;
                 z-index: 9;
                 left: 5%;
             }
@@ -118,27 +117,27 @@ include_once "./lib-php/cnx.php";
 
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <div class="logo">
-                            <a href="#"><img src="img/logo.png"></a>
-                        </div>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="./liste.php"><span id="badges">Liste</span></a></li>
-                            <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
-                            <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
-                            <li><a href="./contact2.html">Contact</a></li>
-                            <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
-                        </ul>
-                    </div>
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                      <div class="logo">
+                          <a href="#"><img src="img/log.png"></a>
+                      </div>
+                  </div>
+          
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="./liste.php">Liste</a></li>
+                      <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
+                      <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
+                      <li><a href="./contact2.php">Contact</a></li>
+                      <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
+                    </ul>
+                  </div>
                 </div>
             </nav>
             <div class="clear"></div>
@@ -237,6 +236,7 @@ include_once "./lib-php/cnx.php";
             </footer>
         </div>  
         <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+        <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
 
         <script type="text/javascript" src="./others/main.js.téléchargement"></script>

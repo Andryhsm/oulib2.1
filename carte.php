@@ -71,7 +71,6 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             .logo
             {
                 position: absolute;
-                width: 10%;
                 z-index: 9;
                 left: 5%;
             }
@@ -222,7 +221,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo">
-                            <a href="#"><img src="img/logo.png"></a>
+                            <a href="#"><img src="img/log.png"></a>
                         </div>
                     </div>
 
