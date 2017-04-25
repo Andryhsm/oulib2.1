@@ -59,7 +59,17 @@ if ($num > 0) {
                                 {$data['commentaire']}
                             <br><br><br>
                             <div class='pull-right'>
-                                <a class='btn btn-info accepter' onClick='itineraire(\"{$data['latLng']}\");'>Voir itinéraire</a>&nbsp;&nbsp
+                                <div class=\"btn-group\">
+                                      <button type=\"button\" class=\"btn btn-info\">Voir itinéraire</button>
+                                      <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\">
+                                        <span class=\"caret\"></span>
+                                      </button>
+                                      <ul class=\"dropdown-menu\" role=\"menu\">
+                                        <li><a href=\"#\" onClick='itineraire(\"{$data['latLng']}\", \"DRIVING\");'>Voiture</a></li>
+                                        <li><a href=\"#\" onClick='itineraire(\"{$data['latLng']}\", \"WALKING\");'>Marche</a></li>
+                                      </ul>
+                                    </div>
+                                &nbsp;&nbsp
                                 <a class='btn btn-success accepter' onClick='accepter({$data['id']});'>Accepter</a>&nbsp;&nbsp
                                 <a class='btn btn-danger refuser' onClick='refuser({$data['id']});'>Réfuser</a>
                             </div>

@@ -71,7 +71,6 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             .logo
             {
                 position: absolute;
-                width: 10%;
                 z-index: 9;
                 left: 5%;
             }
@@ -83,11 +82,11 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             }
 
             #map {
-                margin: 0% 0% 0% 0%;
-                width: 100%;
-                height: 80vh;
+                width: 100vw;
+                height: 102vh;
                 background: white;
             }
+
 
             .controls {
                 margin-top: 10px;
@@ -102,7 +101,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             #pac-input {
                 position: absolute;
                 z-index: 1;
-                margin: 1% 0% 0% 10%;
+                margin: 0.7% 0% 0% 10%;
                 background-color: #fff;
                 font-family: Roboto;
                 font-size: 15px;
@@ -170,7 +169,13 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             }
             footer .footer-info-area {
                 background-color: rgba(84, 46, 90, 0.66);
+                z-index: 1000;
+                position: fixed;
+                margin-top: -8vh;
+                height: 20vh;
             }
+
+
             .navbar
             {
                 background-color: rgba(84, 46, 90, 0.66);
@@ -201,6 +206,15 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 font-size: 1.2em;
             }
 
+            .logo_footer
+            {
+                width: 10%;
+                height: 20%;
+            }
+
+            .gmnoprint{
+                margin-top: 10%;
+            }
 
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
@@ -217,7 +231,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo">
-                            <a href="#"><img src="img/logo.png"></a>
+                            <a href="#"><img src="img/log.png"></a>
                         </div>
                     </div>
 
@@ -376,34 +390,35 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
 
                 <section class="section magee-section alchem-home-section-4 alchem-home-style-0" id="section-5" style="padding:0%;">
-                    <input id="pac-input" class="controls" type="text" placeholder="Entrer adresse, lieu, Ville">
-                    <div id="type-selector" class="controls">  
-                        <label>Ici pour chercher un lieu</label>
+                    <div id="input-pac">
+                        <input id="pac-input" class="controls" type="text" style="margin-top: 6%;" placeholder="Entrer adresse, lieu, Ville">
+                        <div id="type-selector" class="controls" style="margin-top: 6%;">  
+                            <label>Ici pour chercher un lieu</label>
+                        </div>
                     </div>
 
-
-                    <div id="map"></div>
+                    <div id="map" style="margin-top: -5%; z-index: 2;  "></div>
 
                 </section>
 
 
             </div>
 
-            <div class="btn_up">
-                <img src="img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
-            </div>
-
-
-            <footer class="">
+             <footer class="">
                 <div class="footer-info-area">
                     <div class="container text-center alchem_footer_social_icon_1">
                         <!--<input type="text" class="form-control date datepicker">-->
                         <div class="site-info">
-                            <a href="#" >OUSOFT SAS</a>. 38 Rue de la convention, 94270, Le Kremlin-Bicêtre.</div>
+                            <img src="./img/logo2.png" class = "logo_footer">
+                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                        </div>
                         <input type="hidden" id="emailP" value="<?php echo($_SESSION['email']); ?>">
                     </div>
                 </div>          
             </footer>
+
+
+           
         </div>  
 
 
@@ -448,7 +463,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                                         });
         </script>
 
-        <script type="text/javascript">
+          <script type="text/javascript">
             var map;
             var tab_marqueur = [];
          
@@ -460,7 +475,19 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 48.862226, lng: 2.340173},
-                    zoom: 13
+                    zoom: 18, 
+                    mapTypeControl: true,
+                    mapTypeControlOptions: {
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                        position: google.maps.ControlPosition.LEFT_CENTER
+                    },
+                    zoomControlOptions: {
+                        position: google.maps.ControlPosition.RIGHT_CENTER
+                    },
+                    streetViewControlOptions: {
+                        position: google.maps.ControlPosition.RIGHT_CENTER
+                    }
+
                 });
 
                 //Affichage des infirmiers sur la carte
@@ -566,7 +593,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                         map.fitBounds(place.geometry.viewport);
                     } else {
                         map.setCenter(place.geometry.location);
-                        map.setZoom(17);  // Why 17? Because it looks good.
+                      
                     }
 
                     //Definir la marqueur bleu du lieu
@@ -695,14 +722,14 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             map: resultsMap,
                             position: results[0].geometry.location
                         });
+                        
                         var latLng = results[0].geometry.location.lat;
                         var position = marker.getPosition();
         
-
-                        // alert(results[0].geometry.location);
                         var infoBull = new google.maps.InfoWindow({
                             content: "Votre lieu d'intervention est ici ?"
                         });
+                        
                         infoBull.open(map, marker);
                         $("#latLng").val(position);
                     } else {
@@ -777,6 +804,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
                 marqueur.addListener('click', function () {
                     // infoWindow.open(Smap, marqueur);
+                    $("#map").css("position", "relative");
 
                     var emailP = "<?php echo $_SESSION["email"]; ?>";
 
@@ -860,6 +888,5 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
 
         </script>
-
     </body>
 </html>

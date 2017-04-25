@@ -200,7 +200,8 @@ include_once "./lib-php/cnx.php";
                                     </div>
                                 </div -->
 
- 
+                                
+
                                   <button class="btn hidden" id="modalCarte" data-toggle="modal" data-target="#carte"></button>
                                     <div class="modal" style="background: none;  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); box-shadow: 0 0px 0px rgba(0, 0, 0, 0);" id="carte">
                                         <div id="modalCa"  class="modal-dialog" style="background: none; -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0); box-shadow: 0 0px 0px rgba(0, 0, 0, 0); margin: 0%; width:100%">
@@ -217,6 +218,24 @@ include_once "./lib-php/cnx.php";
                                         </div>
                                     </div>
                               
+                              <a class="btn btn-primary hide" data-toggle="modal" id="modalResult" href='#modal-id'>Trigger modal</a>
+                                <div class="modal fade" id="modal-id">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Information de lieu</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="result">Je suis le text par default, il faut me supprimer !</div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                            </div>
                         </div>
                          <div id="carteItineraire" class="panel panel-info" style="display: none;">
@@ -329,6 +348,7 @@ include_once "./lib-php/cnx.php";
             var latPat;
             var lngPat;
             var DSLscript;
+            var mode;
 
             function accepter(id)
             {
@@ -457,8 +477,8 @@ include_once "./lib-php/cnx.php";
                     }, 2000);
             });
 
-            function itineraire(latLng){
-
+            function itineraire(latLng, modeI){
+                mode = modeI;
                 if(latLng == "null"){
                     $('#erreur_inscription').html("<p>Désolé, </p><p>Ce patient n'a pas partager sa localisation !</p>");
                             $('#triggerwarning').trigger('click');
@@ -534,8 +554,15 @@ include_once "./lib-php/cnx.php";
                     map = new google.maps.Map(document.getElementById("map"), myOptions);
 
                     directionsDisplay.setMap(map);
-
+                    $("#result").html('');
+                    directionsDisplay.setPanel(document.getElementById('result'));
                     trouveRoute(posPat, posInf);
+
+                    setTimeout(function(){
+                        $("#modalResult").trigger('click');
+                    }, 4000);
+
+
                     }
                     
                   
@@ -543,7 +570,7 @@ include_once "./lib-php/cnx.php";
                         var directionsService = new google.maps.DirectionsService();
                     if (depart && arrivee)
                     {
-                    var choixMode = "DRIVING";
+                    var choixMode = mode;
                     
                     var request = {
                         origin:depart, 
