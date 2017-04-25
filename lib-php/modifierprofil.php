@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
-        header("Location: ../login.html");
+session_start();
+if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
+    header("Location: ../login.html");
 }
 
 include_once "cnx.php";
@@ -117,27 +117,27 @@ $data = $req->fetch();
         <div class="wrapper ">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                      <div class="logo">
-                          <a href="#"><img src="../img/log.png"></a>
-                      </div>
-                  </div>
-          
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="../carte.php">Carte</a></li>
-                      <li><a href="../notification.php"><span id="badges">Notification</span></a></li>
-                      <li><a href="modifierprofil.php">Modifier mon profil</a></li>
-                      <li><a href="../contact1.php">Contact</a></li>
-                      <li><a href="./deconnexion.php">Deconnexion</a></li>
-                    </ul>
-                  </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo">
+                            <a href="#"><img src="../img/log.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../carte.php">Carte</a></li>
+                            <li><a href="../notification.php"><span id="badges">Notification</span></a></li>
+                            <li><a href="modifierprofil.php">Modifier mon profil</a></li>
+                            <li><a href="../contact1.php">Contact</a></li>
+                            <li><a href="./deconnexion.php">Deconnexion</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>    
 
@@ -236,22 +236,22 @@ $data = $req->fetch();
                                                                 <div class="">
                                                                     <?php if ($data['type-soinP1'] != "") { ?>
                                                                         <p>
-                                                                            <b><?php echo(utf8_encode($data['type-soinP1'])); ?></b> : <?php echo($data['frequence-soin1']) ?> fois par jour
+                                                                            <b><?php echo(utf8_encode($data['type-soinP1'])); ?></b> : <?php echo($data['frequence-soin1']); ?> fois par <?php echo($data['par1']); ?>
                                                                         </p>
                                                                     <?php } ?>
                                                                     <?php if ($data['type-soinP2'] != "") { ?>
                                                                         <p>
-                                                                            <b><?php echo(utf8_encode($data['type-soinP2'])); ?></b> : <?php echo($data['frequence-soin2']) ?> fois par jour
+                                                                            <b><?php echo(utf8_encode($data['type-soinP2'])); ?></b> : <?php echo($data['frequence-soin2']); ?> fois par <?php echo($data['par2']); ?>
                                                                         </p>
                                                                     <?php } ?>
                                                                     <?php if ($data['type-soinP3'] != "") { ?>
                                                                         <p>
-                                                                            <b><?php echo(utf8_encode($data['type-soinP3'])); ?></b> : <?php echo($data['frequence-soin3']) ?> fois par jour
+                                                                            <b><?php echo(utf8_encode($data['type-soinP3'])); ?></b> : <?php echo($data['frequence-soin3']); ?> fois par <?php echo($data['par3']); ?>
                                                                         </p>
                                                                     <?php } ?>
                                                                     <?php if ($data['type-soinP4'] != "") { ?>
                                                                         <p>
-                                                                            <b><?php echo(utf8_encode($data['type-soinP4'])); ?></b> : <u><?php echo($data['frequence-soin4']) ?> fois par jour
+                                                                            <b><?php echo(utf8_encode($data['type-soinP4'])); ?></b> : <u><?php echo($data['frequence-soin4']); ?> fois par <?php echo($data['par4']); ?>
                                                                             </p>
                                                                         <?php } ?>
                                                                 </div>
@@ -261,37 +261,45 @@ $data = $req->fetch();
 
                                                         <div class="hidden" id="infosSoins">
                                                             <h4>Changer vos informations de soins :</h4><br>
-
-                                                            <div class="form-group col-sm-6">
-                                                                <label for="tel" class="col-sm-5 control-label">Type de soin:</label>
-                                                                <div class="col-sm-7">
-                                                                    <select name="type-soinP1" required="" onchange="autre()" class="form-control" id="select1">
-                                                                        <option value="">-----choisir-----</option>
-                                                                        <option value="Cicatrisation">Cicatrisation</option>
-                                                                        <option value="Stomarhérapie">Stomathérapie</option>
-                                                                        <option value="Perfusion">Perfusion</option>
-                                                                        <option value="Sondage">Sondage</option>
-                                                                    </select>                    
+                                                            <div class="row">
+                                                                <div class="form-group col-sm-5">
+                                                                    <label for="tel" class="col-sm-5 control-label">Type de soin:</label>
+                                                                    <div class="col-sm-7">
+                                                                        <select name="type-soinP1" required="" onchange="autre()" class="form-control" id="select1">
+                                                                            <option value="">-----choisir-----</option>
+                                                                            <option value="Cicatrisation">Cicatrisation</option>
+                                                                            <option value="Stomarhérapie">Stomathérapie</option>
+                                                                            <option value="Perfusion">Perfusion</option>
+                                                                            <option value="Sondage">Sondage</option>
+                                                                        </select>                    
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group col-sm-6">
-                                                                <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                                <div class="col-sm-7">
-                                                                    <select name="frequence-soin1" required="" class="form-control">
-                                                                        <option value="">-----choisir-----</option>
-                                                                        <option value="1">X 1</option>
-                                                                        <option value="2">X 2</option>
-                                                                        <option value="3">X 3</option>
-                                                                        <option value="4">X 4</option>
-                                                                        <option value="5">X 5</option>
-                                                                        <option value="6">X 6</option>
-                                                                        <option value="7">X 7</option>
-                                                                        <option value="8">X 8</option>
-                                                                        <option value="9">X 9</option>
-                                                                        <option value="10">X 10</option>
-                                                                        <option value="11">X 11</option>
-                                                                        <option value="12">X 12</option>
-                                                                    </select>                    
+                                                                <div class="form-group col-sm-7">
+                                                                    <label for="tel" class="col-sm-3 control-label">Fréquence:</label>
+                                                                    <div class="col-sm-3">
+                                                                        <select name="frequence-soin1" required="" class="form-control">
+                                                                            <option value="">-----choisir-----</option>
+                                                                            <option value="1">X 1</option>
+                                                                            <option value="2">X 2</option>
+                                                                            <option value="3">X 3</option>
+                                                                            <option value="4">X 4</option>
+                                                                            <option value="5">X 5</option>
+                                                                            <option value="6">X 6</option>
+                                                                            <option value="7">X 7</option>
+                                                                            <option value="8">X 8</option>
+                                                                            <option value="9">X 9</option>
+                                                                            <option value="10">X 10</option>
+                                                                            <option value="11">X 11</option>
+                                                                            <option value="12">X 12</option>
+                                                                        </select>                    
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <select name="par1" class="form-control">
+                                                                            <option value="">-----choisir-----</option>
+                                                                            <option value="jour"> / jour</option>
+                                                                            <option value="semaine"> / semaine</option>
+                                                                        </select>                    
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <script>
@@ -301,9 +309,9 @@ $data = $req->fetch();
                                                                 });
                                                             </script>
                                                             <!--                                                            <div class="form-group">
-                                                                                                                            <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                                                                                            <label for="par" class="col-sm-2 control-label">Heure des soins:</label>
                                                                                                                             <div class="col-sm-9">
-                                                                                                                                <input type="text" required="" placeholder="heure par fréquence de soin" class="form-control" name="heure1" id="heure1">
+                                                                                                                                <input type="text" required="" placeholder="par par fréquence de soin" class="form-control" name="par1" id="par1">
                                                                                                                             </div>
                                                                                                                         </div>-->
 
@@ -352,42 +360,51 @@ $data = $req->fetch();
 
                                                             </script>
                                                             <div id="autre" style="display: none;">
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="type-soinP2" onchange="autre1()" class="form-control" id="select2">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="Cicatrisation" id="cica1">Cicatrisation</option>
-                                                                            <option value="Stomarhérapie" id="stoma1">Stomathérapie</option>
-                                                                            <option value="Perfusion" id="perf1">Perfusion</option>
-                                                                            <option value="Sondage" id="sondage1">Sondage</option>
-                                                                        </select>                    
+                                                                <div class="row">
+                                                                    <div class="form-group col-sm-5">
+                                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                                        <div class="col-sm-7">
+                                                                            <select name="type-soinP2" onchange="autre1()" class="form-control" id="select2">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="Cicatrisation" id="cica1">Cicatrisation</option>
+                                                                                <option value="Stomarhérapie" id="stoma1">Stomathérapie</option>
+                                                                                <option value="Perfusion" id="perf1">Perfusion</option>
+                                                                                <option value="Sondage" id="sondage1">Sondage</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="frequence-soin2" class="form-control">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="1">X 1</option>
-                                                                            <option value="2">X 2</option>
-                                                                            <option value="3">X 3</option>
-                                                                            <option value="4">X 4</option>
-                                                                            <option value="5">X 5</option>
-                                                                            <option value="6">X 6</option>
-                                                                            <option value="7">X 7</option>
-                                                                            <option value="8">X 8</option>
-                                                                            <option value="9">X 9</option>
-                                                                            <option value="10">X 10</option>
-                                                                            <option value="11">X 11</option>
-                                                                            <option value="12">X 12</option>
-                                                                        </select>                    
+                                                                    <div class="form-group col-sm-7">
+                                                                        <label for="tel" class="col-sm-3 control-label">Fréquence:</label>
+                                                                        <div class="col-sm-3">
+                                                                            <select name="frequence-soin2" required="" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="1">X 1</option>
+                                                                                <option value="2">X 2</option>
+                                                                                <option value="3">X 3</option>
+                                                                                <option value="4">X 4</option>
+                                                                                <option value="5">X 5</option>
+                                                                                <option value="6">X 6</option>
+                                                                                <option value="7">X 7</option>
+                                                                                <option value="8">X 8</option>
+                                                                                <option value="9">X 9</option>
+                                                                                <option value="10">X 10</option>
+                                                                                <option value="11">X 11</option>
+                                                                                <option value="12">X 12</option>
+                                                                            </select>                    
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <select name="par2" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="jour"> / jour</option>
+                                                                                <option value="semaine"> / semaine</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!--                                                                <div class="form-group">
-                                                                                                                                    <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                                                                                                    <label for="par" class="col-sm-2 control-label">Heure des soins:</label>
                                                                                                                                     <div class="col-sm-9">
-                                                                                                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure2" id="heure2">
+                                                                                                                                        <input type="text" placeholder="par par fréquence de soin" class="form-control" name="par2" id="par2">
                                                                                                                                     </div>
                                                                                                                                 </div>-->
                                                             </div>
@@ -428,42 +445,52 @@ $data = $req->fetch();
 
                                                             </script>
                                                             <div id="autre1" style="display: none;">
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="type-soinP3" onchange="autre2()" class="form-control" id="select3">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="Cicatrisation" id="cica2">Cicatrisation</option>
-                                                                            <option value="Stomarhérapie" id="stoma2">Stomathérapie</option>
-                                                                            <option value="Perfusion" id="perf2">Perfusion</option>
-                                                                            <option value="Sondage" id="sondage2">Sondage</option>
-                                                                        </select>                    
+                                                                <div class="row">
+                                                                    <div class="form-group col-sm-5">
+                                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                                        <div class="col-sm-7">
+                                                                            <select name="type-soinP3" onchange="autre2()" class="form-control" id="select3">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="Cicatrisation" id="cica2">Cicatrisation</option>
+                                                                                <option value="Stomarhérapie" id="stoma2">Stomathérapie</option>
+                                                                                <option value="Perfusion" id="perf2">Perfusion</option>
+                                                                                <option value="Sondage" id="sondage2">Sondage</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="frequence-soin3" class="form-control">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="1">X 1</option>
-                                                                            <option value="2">X 2</option>
-                                                                            <option value="3">X 3</option>
-                                                                            <option value="4">X 4</option>
-                                                                            <option value="5">X 5</option>
-                                                                            <option value="6">X 6</option>
-                                                                            <option value="7">X 7</option>
-                                                                            <option value="8">X 8</option>
-                                                                            <option value="9">X 9</option>
-                                                                            <option value="10">X 10</option>
-                                                                            <option value="11">X 11</option>
-                                                                            <option value="12">X 12</option>
-                                                                        </select>                    
+                                                                    <div class="form-group col-sm-7">
+
+                                                                        <label for="tel" class="col-sm-3 control-label">Fréquence:</label>
+                                                                        <div class="col-sm-3">
+                                                                            <select name="frequence-soin3" required="" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="1">X 1</option>
+                                                                                <option value="2">X 2</option>
+                                                                                <option value="3">X 3</option>
+                                                                                <option value="4">X 4</option>
+                                                                                <option value="5">X 5</option>
+                                                                                <option value="6">X 6</option>
+                                                                                <option value="7">X 7</option>
+                                                                                <option value="8">X 8</option>
+                                                                                <option value="9">X 9</option>
+                                                                                <option value="10">X 10</option>
+                                                                                <option value="11">X 11</option>
+                                                                                <option value="12">X 12</option>
+                                                                            </select>                    
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <select name="par3" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="jour"> / jour</option>
+                                                                                <option value="semaine"> / semaine</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!--                                                                <div class="form-group">
-                                                                                                                                    <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                                                                                                    <label for="par" class="col-sm-2 control-label">Heure des soins:</label>
                                                                                                                                     <div class="col-sm-9">
-                                                                                                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure3" id="heure3">
+                                                                                                                                        <input type="text" placeholder="par par fréquence de soin" class="form-control" name="par3" id="par3">
                                                                                                                                     </div>
                                                                                                                                 </div>-->
                                                             </div>
@@ -495,43 +522,53 @@ $data = $req->fetch();
                                                                 }
 
                                                             </script>
+
                                                             <div id="autre2" style="display: none;">
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="type-soinP4" class="form-control">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="Cicatrisation" id="cica3">Cicatrisation</option>
-                                                                            <option value="Stomarhérapie" id="stoma3">Stomathérapie</option>
-                                                                            <option value="Perfusion" id="perf3">Perfusion</option>
-                                                                            <option value="Sondage" id="sondage3">Sondage</option>
-                                                                        </select>                    
+                                                                <div class="row">
+                                                                    <div class="form-group col-sm-5">
+                                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                                        <div class="col-sm-7">
+                                                                            <select name="type-soinP4" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="Cicatrisation" id="cica3">Cicatrisation</option>
+                                                                                <option value="Stomarhérapie" id="stoma3">Stomathérapie</option>
+                                                                                <option value="Perfusion" id="perf3">Perfusion</option>
+                                                                                <option value="Sondage" id="sondage3">Sondage</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group col-sm-6">
-                                                                    <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                                    <div class="col-sm-7">
-                                                                        <select name="frequence-soin4" class="form-control">
-                                                                            <option value="">-----choisir-----</option>
-                                                                            <option value="1">X 1</option>
-                                                                            <option value="2">X 2</option>
-                                                                            <option value="3">X 3</option>
-                                                                            <option value="4">X 4</option>
-                                                                            <option value="5">X 5</option>
-                                                                            <option value="6">X 6</option>
-                                                                            <option value="7">X 7</option>
-                                                                            <option value="8">X 8</option>
-                                                                            <option value="9">X 9</option>
-                                                                            <option value="10">X 10</option>
-                                                                            <option value="11">X 11</option>
-                                                                            <option value="12">X 12</option>
-                                                                        </select>                    
+                                                                    <div class="form-group col-sm-7">
+                                                                        <label for="tel" class="col-sm-3 control-label">Fréquence:</label>
+                                                                        <div class="col-sm-3">
+                                                                            <select name="frequence-soin4" required="" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="1">X 1</option>
+                                                                                <option value="2">X 2</option>
+                                                                                <option value="3">X 3</option>
+                                                                                <option value="4">X 4</option>
+                                                                                <option value="5">X 5</option>
+                                                                                <option value="6">X 6</option>
+                                                                                <option value="7">X 7</option>
+                                                                                <option value="8">X 8</option>
+                                                                                <option value="9">X 9</option>
+                                                                                <option value="10">X 10</option>
+                                                                                <option value="11">X 11</option>
+                                                                                <option value="12">X 12</option>
+                                                                            </select>                    
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <select name="par4" class="form-control">
+                                                                                <option value="">-----choisir-----</option>
+                                                                                <option value="jour"> / jour</option>
+                                                                                <option value="semaine"> / semaine</option>
+                                                                            </select>                    
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <!--                                                                <div class="form-group">
-                                                                                                                                    <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                                                                                                    <label for="par" class="col-sm-2 control-label">Heure des soins:</label>
                                                                                                                                     <div class="col-sm-9">
-                                                                                                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure4" id="heure4">
+                                                                                                                                        <input type="text" placeholder="par par fréquence de soin" class="form-control" name="par4" id="par4">
                                                                                                                                     </div>
                                                                                                                                 </div>-->
                                                             </div>
@@ -624,87 +661,87 @@ $data = $req->fetch();
         <script type="text/javascript" src="../bootstrap/js/jquery.js"></script>
         <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript">
-            function change()
-            {
-                $('#photo').trigger('click');
-            }
-            ;
+                                                                        function change()
+                                                                        {
+                                                                            $('#photo').trigger('click');
+                                                                        }
+                                                                        ;
 
-            function changeSoins()
-            {
-                $('#listeSoins').addClass('hidden');
-                $('#infosSoins').removeClass('hidden');
-                $('[name="type-soinP1"]').val("");
-                $('[name="type-soinP2"]').val("");
-                $('[name="type-soinP3"]').val("");
-                $('[name="type-soinP4"]').val("");
+                                                                        function changeSoins()
+                                                                        {
+                                                                            $('#listeSoins').addClass('hidden');
+                                                                            $('#infosSoins').removeClass('hidden');
+                                                                            $('[name="type-soinP1"]').val("");
+                                                                            $('[name="type-soinP2"]').val("");
+                                                                            $('[name="type-soinP3"]').val("");
+                                                                            $('[name="type-soinP4"]').val("");
 
-                $('[name="frequence-soin1"]').val("");
-                $('[name="frequence-soin2"]').val("");
-                $('[name="frequence-soin3"]').val("");
-                $('[name="frequence-soin4"]').val("");
+                                                                            $('[name="frequence-soin1"]').val("");
+                                                                            $('[name="frequence-soin2"]').val("");
+                                                                            $('[name="frequence-soin3"]').val("");
+                                                                            $('[name="frequence-soin4"]').val("");
 
-//                $('[name="heure1"]').val("");
-//                $('[name="heure2"]').val("");
-//                $('[name="heure3"]').val("");
-//                $('[name="heure4"]').val("");
-            }
-            ;
+                                                                            $('[name="par1"]').val("");
+                                                                            $('[name="par2"]').val("");
+                                                                            $('[name="par3"]').val("");
+                                                                            $('[name="par4"]').val("");
+                                                                        }
+                                                                        ;
 
-            $(function () {
-                // A chaque sélection de fichier
-                $('#form-filter').find('input[name="photo"]').on('change', function (e)
-                {
-                    var files = $(this)[0].files;
+                                                                        $(function () {
+                                                                            // A chaque sélection de fichier
+                                                                            $('#form-filter').find('input[name="photo"]').on('change', function (e)
+                                                                            {
+                                                                                var files = $(this)[0].files;
 
-                    if (files.length > 0) {
-                        var file = files[0],
-                                $image_preview = $('#image_preview');
+                                                                                if (files.length > 0) {
+                                                                                    var file = files[0],
+                                                                                            $image_preview = $('#image_preview');
 
-                        // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
-                        $image_preview.find('.thumbnail').removeClass('hidden');
-                        $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
-                        $image_preview.find('h4').html(file.name);
-                        $image_preview.find('#titre').html(file.name);
-                    }
-                });
-            });
+                                                                                    // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+                                                                                    $image_preview.find('.thumbnail').removeClass('hidden');
+                                                                                    $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+                                                                                    $image_preview.find('h4').html(file.name);
+                                                                                    $image_preview.find('#titre').html(file.name);
+                                                                                }
+                                                                            });
+                                                                        });
 
-            $('#insert').click(function (e)
-            {
-                e.preventDefault();
+                                                                        $('#insert').click(function (e)
+                                                                        {
+                                                                            e.preventDefault();
 
-                var form = $('#form-filter').get(0);
-                var formData = new FormData(form);// get the form data
-                // on envoi formData vers mail.php
-                $.ajax({
-                    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                    url: 'update-profil-patient.php', // the url where we want to POST
-                    data: formData, // our data object
-                    dataType: 'text', // what type of data do we expect back from the server
-                    processData: false,
-                    contentType: false,
-                    success: function (server_response)
-                    {
-                        if (server_response === "succes")
-                        {
-                            window.location.href = "carte.php";
-                        }
-                        else
-                        {
-                            $('#erreur_inscription').html('<p>' + server_response + '</p>');
-                            $('#triggerwarning').trigger('click');
-                            setTimeout(function () {
-                                $('#ferme').trigger('click');
-                            }, 4000);
-                        }
-                    },
-                    error: function (server_response)
-                    {
-                        alert(server_response);
-                    }
-                });
-            });
+                                                                            var form = $('#form-filter').get(0);
+                                                                            var formData = new FormData(form);// get the form data
+                                                                            // on envoi formData vers mail.php
+                                                                            $.ajax({
+                                                                                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                                url: 'update-profil-patient.php', // the url where we want to POST
+                                                                                data: formData, // our data object
+                                                                                dataType: 'text', // what type of data do we expect back from the server
+                                                                                processData: false,
+                                                                                contentType: false,
+                                                                                success: function (server_response)
+                                                                                {
+                                                                                    if (server_response === "succes")
+                                                                                    {
+                                                                                        window.location.href = "carte.php";
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        $('#erreur_inscription').html('<p>' + server_response + '</p>');
+                                                                                        $('#triggerwarning').trigger('click');
+                                                                                        setTimeout(function () {
+                                                                                            $('#ferme').trigger('click');
+                                                                                        }, 4000);
+                                                                                    }
+                                                                                },
+                                                                                error: function (server_response)
+                                                                                {
+                                                                                    alert(server_response);
+                                                                                }
+                                                                            });
+                                                                        });
         </script>
         <script type="text/javascript">
             $(document).ready(function ()
@@ -719,10 +756,10 @@ $data = $req->fetch();
                 $('[name="frequence-soin3"]').val("<?php echo($data['frequence-soin3']); ?>");
                 $('[name="frequence-soin4"]').val("<?php echo($data['frequence-soin4']); ?>");
 
-//                $('[name="heure1"]').val("<?php // echo($data['heure1']);  ?>");
-//                $('[name="heure2"]').val("<?php // echo($data['heure2']);  ?>");
-//                $('[name="heure3"]').val("<?php // echo($data['heure3']);  ?>");
-//                $('[name="heure4"]').val("<?php // echo($data['heure4']);  ?>");
+                $('[name="par1"]').val("<?php echo($data['par1']); ?>");
+                $('[name="par2"]').val("<?php echo($data['par2']); ?>");
+                $('[name="par3"]').val("<?php echo($data['par3']); ?>");
+                $('[name="par4"]').val("<?php echo($data['par4']); ?>");
 
                 $('#returnOnTop').hide();
                 $('#returnOnTop').click(function () {
@@ -731,34 +768,34 @@ $data = $req->fetch();
                 });
 
                 var auto_refresh = setInterval(
-                    function() 
-                    {
-                        var status = "lu";
-                        var email = $('#emailP').val();
+                        function ()
+                        {
+                            var status = "lu";
+                            var email = $('#emailP').val();
 
-                        $.ajax({
-                            url: "../badges.php",
-                            type: "POST",
-                            data: "email="+email,
-                            success: function(server_response) 
-                            {  
-                                $('#badges').html(server_response);
-                            },
-                            error: function(server_response) 
-                            {  
-                              alert('Erreur :' + server_response);
-                            }
-                        });
-                    }, 1000);
-                });
+                            $.ajax({
+                                url: "../badges.php",
+                                type: "POST",
+                                data: "email=" + email,
+                                success: function (server_response)
+                                {
+                                    $('#badges').html(server_response);
+                                },
+                                error: function (server_response)
+                                {
+                                    alert('Erreur :' + server_response);
+                                }
+                            });
+                        }, 1000);
+            });
 
-                $(window).scroll(function ()
-                {
-                    if ($(window).scrollTop() > 400)
-                        $('#returnOnTop').fadeIn();
-                    else
-                        $('#returnOnTop').fadeOut();
-                });
+            $(window).scroll(function ()
+            {
+                if ($(window).scrollTop() > 400)
+                    $('#returnOnTop').fadeIn();
+                else
+                    $('#returnOnTop').fadeOut();
+            });
         </script>
     </body>
 </html>

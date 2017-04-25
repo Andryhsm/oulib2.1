@@ -20,15 +20,8 @@
         <link rel="stylesheet" id="parent-style-css" href="./others/style.css" type="text/css" media="all">
 
         <link href="./bootstrap/css/paper.css" rel="stylesheet">
-        <script src="./bootstrap/js/bootstrap.min.js"></script>
 
-        <script type="text/javascript" src="./others/jquery.js.téléchargement"></script>
 
-        <script type="text/javascript">
-            /* <![CDATA[ */
-            var object = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php"};
-            /* ]]> */
-        </script>
 
         <script src="js/jssor.slider-22.2.10.min.js" type="text/javascript"></script>
 
@@ -150,14 +143,14 @@
                     </div>
                 </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="./index.html">Accueil</a></li>
-                <li><a href="./login.html">Trouver une infirmière</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="login.html">Connexion</a></li>
-              </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./index.html">Accueil</a></li>
+                        <li><a href="./login.html">Trouver une infirmière</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="login.html">Connexion</a></li>
+                    </ul>
+                </div>
         </nav>
 
         <div id="alchem-home-sections">
@@ -233,33 +226,29 @@
                                             <div class="form-group">
                                                 <label for="adresse" class="col-sm-2 control-label">Adresse:</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" id="adresse" required="" placeholder="numéro et nom de rue" class="form-control" name="rueI" id="rueI">
+                                                    <input type="text" id="rueI" required="" placeholder="numéro et nom de rue" class="form-control" name="rueI">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="number" id="cp" required="" placeholder="code postal" class="form-control" name="code-postalI" id="code-postalI">
+                                                    <input type="number" id="code-postalI" required="" placeholder="code postal" class="form-control" name="code-postalI">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="text" id="ville" required="" placeholder="ville" class="form-control" name="villeI" id="villeI">
+                                                    <input type="text" id="villeI" required="" placeholder="ville" class="form-control" name="villeI">
                                                 </div>
                                             </div>
 
                                             <div class="form-group" style="display: none;">
                                                 <label for="adresse" class="col-sm-2 control-label">LatLng:</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" id="latLng" required="" placeholder="lat and lng" class="form-control" name="latLng" id="rueI">
+                                                    <input type="text" id="latLng" required="" placeholder="lat and lng" class="form-control" name="latLng">
                                                 </div>
                                             </div>
 
-                                            <script>
 
-            var liste
-
-                                            </script>
 
                                             <div class="form-group">
-                                                <label for="tel" class="col-sm-2 control-label">Numéro FINESS:</label>
+                                                <label for="finess" class="col-sm-2 control-label">Numéro FINESS:</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" placeholder="numéro FINESS" required="" class="form-control" name="telI" id="telI">
+                                                    <input type="text" placeholder="numéro FINESS" required="" class="form-control" name="finess" id="finess">
                                                 </div>
                                             </div>
 
@@ -484,184 +473,179 @@
                 </div>
             </div>          
         </footer>
-    </div>  
-    <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-    <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
-    <script type="text/javascript">
-                                                /* <![CDATA[ */
-                                                var alchem_params = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "themeurl": "http:\/\/localhost\/wordpress\/wp-content\/themes\/alchem", "responsive": "yes", "site_width": "1170px", "sticky_header": "yes", "show_search_icon": "yes", "slider_autoplay": "yes", "slideshow_speed": "3000", "portfolio_grid_pagination_type": "pagination", "blog_pagination_type": "pagination", "global_color": "#fdd200", "admin_ajax_nonce": "2ed3a22947", "admin_ajax": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "isMobile": "0", "footer_sticky": "0"};
-                                                /* ]]> */
-    </script>
+        <script type="text/javascript" src="./bootstrap/js/jquery.js"></script>
+        <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
 
 
 
-    <!-- TOUS CE QUI CONCERNE LA CARTE GOOGLE MAP -->
+        <!-- TOUS CE QUI CONCERNE LA CARTE GOOGLE MAP -->
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap&libraries=places" async defer></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap&libraries=places" async defer></script>
 
-    <script type="text/javascript">
-                                                var map;
-                                                var marker;
+        <script type="text/javascript">
+                                                        var map;
+                                                        var marker;
 
-                                                function initMap() {
-                                                    map = new google.maps.Map(document.getElementById('map'), {
-                                                        zoom: 18,
-                                                        center: {lat: 48.862226, lng: 2.340173},
-                                                    });
+                                                        function initMap() {
+                                                            map = new google.maps.Map(document.getElementById('map'), {
+                                                                zoom: 18,
+                                                                center: {lat: 48.862226, lng: 2.340173},
+                                                            });
 
-                                                    var element = document.getElementById('lieu_interv');
-                                                    if (element) {
-                                                        var autocomplete = new google.maps.places.Autocomplete(element, {types: ['geocode']});
-                                                        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-                                                    }
-                                                }
-
-                                                $("#lieu_interv").change(function () {
-                                                    setTimeout(function(){
-                                                    	geocodeAddress(map);
-                                                    }, 1000);
-                                                });
-
-                                                //Geocodage des adresses
-                                                function geocodeAddress(resultsMap) {
-                                                    var address = $("#lieu_interv").val();
-                                                    var geocoder = new google.maps.Geocoder();
-                                                    geocoder.geocode({'address': address}, function (results, status) {
-                                                        if (status === google.maps.GeocoderStatus.OK) {
-                                                            resultsMap.panTo(results[0].geometry.location);
-                                                            if (marker) {
-                                                                marker.setMap(null);
+                                                            var element = document.getElementById('lieu_interv');
+                                                            if (element) {
+                                                                var autocomplete = new google.maps.places.Autocomplete(element, {types: ['geocode']});
+                                                                google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
                                                             }
-                                                            marker = new google.maps.Marker({
-                                                                map: resultsMap,
-                                                                position: results[0].geometry.location,
-                                                                draggable: true
-                                                            });
-
-                                                            var latLng = results[0].geometry.location.lat;
-                                                            var position = marker.getPosition();
-
-                                                            var contentString = "Votre emplacement est il vraiment ici ? <br/>";
-                                                            contentString += " Si non, veuillez deplacer le maqueur s'il vous plaît";
-
-                                                            var position = marker.getPosition();
-                                                            $("#latLng").val(position);
-
-                                                            google.maps.event.addListener(marker, "dragend", function (evenement) {
-                                                                var lat = evenement.latLng.lat(),
-                                                                        lng = evenement.latLng.lng();
-                                                                var pos = marker.getPosition();
-                                                                $("#latLng").val(pos);
-
-                                                            });
-
-                                                            var infoBull = new google.maps.InfoWindow({
-                                                                content: contentString
-                                                            });
-                                                            infoBull.open(map, marker);
-                                                        } else {
-                                                            alert('Geocode was not successful for the following reason: ' + status);
                                                         }
-                                                    });
-                                                }
 
+                                                        $("#lieu_interv").change(function () {
+                                                            setTimeout(function () {
+                                                                geocodeAddress(map);
+                                                            }, 1000);
+                                                        });
 
-                                                function refuserToucheEntree(event)
-                                                {		
-                                                    // Compatibilité IE / Firefox
-                                                    if (!event && window.event) {
-                                                        event = window.event;
-                                                    }
-                                                    // IE
-                                                    if (event.keyCode == 13) {
-                                                        event.returnValue = false;
-                                                        event.cancelBubble = true;
-                                                        geocodeAddress(map);
-                                                    }
-                                                    // DOM
-                                                    if (event.which == 13) {
-                                                        event.preventDefault();
-                                                        event.stopPropagation();
-                                                        geocodeAddress(map);
-                                                    }
-                                                }
-    </script>
+                                                        //Geocodage des adresses
+                                                        function geocodeAddress(resultsMap) {
+                                                            var address = $("#lieu_interv").val();
+                                                            var geocoder = new google.maps.Geocoder();
+                                                            geocoder.geocode({'address': address}, function (results, status) {
+                                                                if (status === google.maps.GeocoderStatus.OK) {
+                                                                    resultsMap.panTo(results[0].geometry.location);
+                                                                    if (marker) {
+                                                                        marker.setMap(null);
+                                                                    }
+                                                                    marker = new google.maps.Marker({
+                                                                        map: resultsMap,
+                                                                        position: results[0].geometry.location,
+                                                                        draggable: true
+                                                                    });
 
-    <script type="text/javascript" src="./others/main.js.téléchargement"></script>
-    <script type="text/javascript">
-                                                $(function ()
-                                                {
-                                                    // A chaque sélection de fichier
-                                                    $('#form-filter').find('input[name="photo"]').on('change', function (e) {
-                                                        var files = $(this)[0].files;
+                                                                    var latLng = results[0].geometry.location.lat;
+                                                                    var position = marker.getPosition();
 
-                                                        if (files.length > 0) {
-                                                            var file = files[0],
-                                                                    $image_preview = $('#image_preview');
+                                                                    var contentString = "Votre emplacement est il vraiment ici ? <br/>";
+                                                                    contentString += " Si non, veuillez deplacer le maqueur s'il vous plaît";
 
-                                                            // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
-                                                            $image_preview.find('.thumbnail').removeClass('hidden');
-                                                            $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
-                                                            $image_preview.find('h4').html(file.name);
-                                                            $image_preview.find('#titre').html(file.name);
+                                                                    var position = marker.getPosition();
+                                                                    $("#latLng").val(position);
+
+                                                                    google.maps.event.addListener(marker, "dragend", function (evenement) {
+                                                                        var lat = evenement.latLng.lat(),
+                                                                                lng = evenement.latLng.lng();
+                                                                        var pos = marker.getPosition();
+                                                                        $("#latLng").val(pos);
+
+                                                                    });
+
+                                                                    var infoBull = new google.maps.InfoWindow({
+                                                                        content: contentString
+                                                                    });
+                                                                    infoBull.open(map, marker);
+                                                                } else {
+                                                                    alert('Geocode was not successful for the following reason: ' + status);
+                                                                }
+                                                            });
                                                         }
-                                                    });
-                                                });
 
-                                                $('#insert').click(function (e)
-                                                {
-                                                    e.preventDefault();
 
-                                                    var form = $('#form-filter').get(0);
-                                                    var formData = new FormData(form);// get the form data
-                                                    // on envoi formData vers mail.php
-
-                                                    $.ajax({
-                                                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                                                        url: 'lib-php/insert-infirmiere.php', // the url where we want to POST
-                                                        data: formData, // our data object
-                                                        dataType: 'text', // what type of data do we expect back from the server
-                                                        processData: false,
-                                                        contentType: false,
-                                                        success: function (server_response)
+                                                        function refuserToucheEntree(event)
                                                         {
-                                                            if (server_response === "succes  ")
-                                                            {
-                                                                window.location.replace("liste.php");
-                                                            } else
-                                                            {
-                                                                $('#erreur_inscription').html('<p>' + server_response + '</p>');
-                                                                $('#triggerwarning').trigger('click');
-                                                                setTimeout(function ()
+                                                            // Compatibilité IE / Firefox
+                                                            if (!event && window.event) {
+                                                                event = window.event;
+                                                            }
+                                                            // IE
+                                                            if (event.keyCode == 13) {
+                                                                event.returnValue = false;
+                                                                event.cancelBubble = true;
+                                                                geocodeAddress(map);
+                                                            }
+                                                            // DOM
+                                                            if (event.which == 13) {
+                                                                event.preventDefault();
+                                                                event.stopPropagation();
+                                                                geocodeAddress(map);
+                                                            }
+                                                        }
+        </script>
+
+        <script type="text/javascript" src="./others/main.js.téléchargement"></script>
+        <script type="text/javascript">
+                                                        $(function ()
+                                                        {
+                                                            // A chaque sélection de fichier
+                                                            $('#form-filter').find('input[name="photo"]').on('change', function (e) {
+                                                                var files = $(this)[0].files;
+
+                                                                if (files.length > 0) {
+                                                                    var file = files[0],
+                                                                            $image_preview = $('#image_preview');
+
+                                                                    // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+                                                                    $image_preview.find('.thumbnail').removeClass('hidden');
+                                                                    $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+                                                                    $image_preview.find('h4').html(file.name);
+                                                                    $image_preview.find('#titre').html(file.name);
+                                                                }
+                                                            });
+                                                        });
+
+                                                        $('#insert').click(function (e)
+                                                        {
+                                                            e.preventDefault();
+
+                                                            var form = $('#form-filter').get(0);
+                                                            var formData = new FormData(form);// get the form data
+                                                            // on envoi formData vers mail.php
+
+                                                            $.ajax({
+                                                                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                url: 'lib-php/insert-infirmiere.php', // the url where we want to POST
+                                                                data: formData, // our data object
+                                                                dataType: 'text', // what type of data do we expect back from the server
+                                                                processData: false,
+                                                                contentType: false,
+                                                                success: function (server_response)
                                                                 {
-                                                                    $('#ferme').trigger('click');
-                                                                }, 4000);
-                                                            }
-                                                        },
-                                                        error: function (server_response)
-                                                        {
-                                                            console.log(server_response);
-                                                        }
-                                                    });
-                                                });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            $('#returnOnTop').hide();
-            $('#returnOnTop').click(function () {
-                //e.preventDefault();
-                $('html,body').animate({scrollTop: 0}, 'slow');
+                                                                    if (server_response === "succes  ")
+                                                                    {
+                                                                        window.location.replace("liste.php");
+                                                                    } else
+                                                                    {
+                                                                        $('#erreur_inscription').html('<p>' + server_response + '</p>');
+                                                                        $('#triggerwarning').trigger('click');
+                                                                        setTimeout(function ()
+                                                                        {
+                                                                            $('#ferme').trigger('click');
+                                                                        }, 4000);
+                                                                    }
+                                                                },
+                                                                error: function (server_response)
+                                                                {
+                                                                    console.log(server_response);
+                                                                }
+                                                            });
+                                                        });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $('#returnOnTop').hide();
+                $('#returnOnTop').click(function () {
+                    //e.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
             });
-        });
 
-        $(window).scroll(function ()
-        {
-            if ($(window).scrollTop() == 0)
-                $('#returnOnTop').fadeOut();
-            else
-                $('#returnOnTop').fadeIn();
-        });
-    </script>
-</body>
+            $(window).scroll(function ()
+            {
+                if ($(window).scrollTop() == 0)
+                    $('#returnOnTop').fadeOut();
+                else
+                    $('#returnOnTop').fadeIn();
+            });
+        </script>
+    </body>
 </html>

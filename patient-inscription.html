@@ -24,7 +24,7 @@
 
         <script type="text/javascript" src="./others/jquery.js.téléchargement"></script>
 
-      
+
 
         <script src="js/jssor.slider-22.2.10.min.js" type="text/javascript"></script>
 
@@ -109,143 +109,234 @@
         <style type="text/css">
         </style></head>
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
-        
+
 
         <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-                <div class="logo">
-                    <a href="#"><img src="img/log.png"></a>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a href="#"><img src="img/log.png"></a>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./index.html">Accueil</a></li>
+                        <li><a href="./login.html">Trouver une infirmière</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="login.html">Connexion</a></li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="./index.html">Accueil</a></li>
-                <li><a href="./login.html">Trouver une infirmière</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="login.html">Connexion</a></li>
-              </ul>
-            </div>
-          </div>
         </nav>
 
 
-            <div id="alchem-home-sections">
+        <div id="alchem-home-sections">
 
-                <section class="section magee-section alchem-home-section-1 alchem-home-style-0" id="section-2">
-                    <div class="section-content">
-                        <div class="container">
-                            <div class="alchem-animated animated fadeInRight" data-animationduration="0.9" data-animationtype="fadeInRight" data-imageanimation="no" style="visibility: visible; animation-duration: 0.9s;">
-                                <div class="magee-promo-box">
-                                    <div class="promo-info">
-                                        <h2 style="text-align: center" class="section-title alchem_section_4_title"><strong>Inscription du patient</strong></h2>
-
-
-                                        <form method="POST" action="./lib-php/insert-patient.php" id="form-filter" class="form-horizontal" enctype="multipart/form-data">
-                                            <fieldset>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" id="label-photo">Photo:</label>
-                                                    <div class="col-md-9">
-                                                        <input name="photo" id="photo" type="file">
-                                                        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-                                                        <span class="help-block"></span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row col-lg-offset-2">
-                                                    <div id="image_preview">
-                                                        <img class="thumbnail img-responsive hidden" style="vertical-align: center;" width="300px" heigth="300px">
-                                                        <blockqoute id="titre"></blockqoute>
-                                                    </div>
-                                                </div>
+            <section class="section magee-section alchem-home-section-1 alchem-home-style-0" id="section-2">
+                <div class="section-content">
+                    <div class="container">
+                        <div class="alchem-animated animated fadeInRight" data-animationduration="0.9" data-animationtype="fadeInRight" data-imageanimation="no" style="visibility: visible; animation-duration: 0.9s;">
+                            <div class="magee-promo-box">
+                                <div class="promo-info">
+                                    <h2 style="text-align: center" class="section-title alchem_section_4_title"><strong>Inscription du patient</strong></h2>
 
 
-                                                <div class="form-group">
-                                                    <label for="nom" class="col-sm-2 control-label">Nom:</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP">
-                                                    </div>
+                                    <form method="POST" action="./lib-php/insert-patient.php" id="form-filter" class="form-horizontal" enctype="multipart/form-data">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2" id="label-photo">Photo:</label>
+                                                <div class="col-md-9">
+                                                    <input name="photo" id="photo" type="file">
+                                                    <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+                                                    <span class="help-block"></span>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="prenom" class="col-sm-2 control-label">Prénom:</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" placeholder="prénom" required="" class="form-control" name="prenomP" id="prenomP">
-                                                    </div>
-                                                </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="email" class="col-sm-2 control-label">Email:</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="email" required="" placeholder="email" class="form-control" name="emailP" id="emailP">
-                                                    </div>
+                                            <div class="row col-lg-offset-2">
+                                                <div id="image_preview">
+                                                    <img class="thumbnail img-responsive hidden" style="vertical-align: center;" width="300px" heigth="300px">
+                                                    <blockqoute id="titre"></blockqoute>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="mdp" class="col-sm-2 control-label">Mot de passe:</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="password" required="" placeholder="mot de passe" class="form-control" name="mdpP" id="mdpP">
-                                                    </div>
-                                                </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <label for="conf-mdp" class="col-sm-2 control-label"></label>
-                                                    <div class="col-sm-9">
-                                                        <input type="password" required="" placeholder="confirmation du mot de passe" class="form-control" name="conf-mdp" id="conf-mdp">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="tel" class="col-sm-2 control-label">Téléphone:</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="number" required="" placeholder="téléphone" class="form-control" name="telP" id="telP">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="tel" class="col-sm-2 control-label">Adresse:</label>
-                                                    <div class="col-sm-3">
-                                                        <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <input type="number" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <input type="text" required="" placeholder="ville" class="form-control" name="villeP" id="villeP">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="tel" class="col-sm-2 control-label"></label>
-                                                    <div class="col-sm-3">
-                                                        <input type="text" placeholder="code d'accès" class="form-control" name="code-acces" id="code-acces">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <input type="text" placeholder="etage" class="form-control" name="etage" id="etage">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <input type="text" placeholder="info supplémentaire" class="form-control" name="info-sup" id="info-sup">
-                                                    </div>
-                                                </div>
 
+                                            <div class="form-group">
+                                                <label for="nom" class="col-sm-2 control-label">Nom:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="prenom" class="col-sm-2 control-label">Prénom:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" placeholder="prénom" required="" class="form-control" name="prenomP" id="prenomP">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email" class="col-sm-2 control-label">Email:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" required="" placeholder="email" class="form-control" name="emailP" id="emailP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mdp" class="col-sm-2 control-label">Mot de passe:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" required="" placeholder="mot de passe" class="form-control" name="mdpP" id="mdpP">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="conf-mdp" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" required="" placeholder="confirmation du mot de passe" class="form-control" name="conf-mdp" id="conf-mdp">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel" class="col-sm-2 control-label">Téléphone:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="number" required="" placeholder="téléphone" class="form-control" name="telP" id="telP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel" class="col-sm-2 control-label">Adresse:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="number" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="text" required="" placeholder="ville" class="form-control" name="villeP" id="villeP">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" placeholder="code d'accès" class="form-control" name="code-acces" id="code-acces">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="text" placeholder="etage" class="form-control" name="etage" id="etage">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="text" placeholder="info supplémentaire" class="form-control" name="info-sup" id="info-sup">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <label for="tel" class="col-sm-5 control-label">Type de soin:</label>
+                                                <div class="col-sm-7">
+                                                    <select name="type-soinP1" required="" onchange="autre()" class="form-control" id="select1">
+                                                        <option value="">-----choisir-----</option>
+                                                        <option value="Cicatrisation">Cicatrisation</option>
+                                                        <option value="Stomarhérapie">Stomathérapie</option>
+                                                        <option value="Perfusion">Perfusion</option>
+                                                        <option value="Sondage">Sondage</option>
+                                                    </select>                    
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
+                                                <div class="col-sm-4">
+                                                    <select name="frequence-soin1" required="" class="form-control">
+                                                        <option value="">-----choisir-----</option>
+                                                        <option value="1">X 1</option>
+                                                        <option value="2">X 2</option>
+                                                        <option value="3">X 3</option>
+                                                        <option value="4">X 4</option>
+                                                        <option value="5">X 5</option>
+                                                        <option value="6">X 6</option>
+                                                        <option value="7">X 7</option>
+                                                        <option value="8">X 8</option>
+                                                        <option value="9">X 9</option>
+                                                        <option value="10">X 10</option>
+                                                        <option value="11">X 11</option>
+                                                        <option value="12">X 12</option>
+                                                    </select>                    
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <select name="par1" required="" class="form-control">
+                                                        <option value="">-----choisir-----</option>
+                                                        <option value="jour"> / jour</option>
+                                                        <option value="semaine"> / semaine</option>
+                                                    </select>                    
+                                                </div>
+                                            </div>
+                                            <!--<div class="form-group">
+                                                <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" required="" placeholder="heure par fréquence de soin" class="form-control" name="heure1" id="heure1">
+                                                </div>
+                                            </div>-->
+
+                                            <script>
+
+                                                function autre() {
+                                                    var selection = document.getElementById("select1").value;
+                                                    if (selection === "Cicatrisation")
+                                                    {
+                                                        var element = document.getElementById("cica1");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("cica2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("cica3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    else if (selection === "Stomarhérapie")
+                                                    {
+                                                        var element = document.getElementById("stoma1");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("stoma2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("stoma3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    else if (selection === "Perfusion")
+                                                    {
+                                                        var element = document.getElementById("perf1");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("perf2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("perf3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    else if (selection === "Sondage")
+                                                    {
+                                                        var element = document.getElementById("sondage1");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("sondage2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("sondage3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    document.querySelector("#autre").style.display = (window.getComputedStyle(document.querySelector('#autre')).display == 'none') ? "block" : "hide";
+                                                }
+
+                                            </script>
+                                            <div id="autre" style="display: none;">
                                                 <div class="form-group col-sm-6">
-                                                    <label for="tel" class="col-sm-5 control-label">Type de soin:</label>
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                     <div class="col-sm-7">
-                                                        <select name="type-soinP1" required="" onchange="autre()" class="form-control" id="select1">
+                                                        <select name="type-soinP2" onchange="autre1()" class="form-control" id="select2">
                                                             <option value="">-----choisir-----</option>
-                                                            <option value="Cicatrisation">Cicatrisation</option>
-                                                            <option value="Stomarhérapie">Stomathérapie</option>
-                                                            <option value="Perfusion">Perfusion</option>
-                                                            <option value="Sondage">Sondage</option>
+                                                            <option value="Cicatrisation" id="cica1">Cicatrisation</option>
+                                                            <option value="Stomarhérapie" id="stoma1">Stomathérapie</option>
+                                                            <option value="Perfusion" id="perf1">Perfusion</option>
+                                                            <option value="Sondage" id="sondage1">Sondage</option>
                                                         </select>                    
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
                                                     <div class="col-sm-4">
-                                                        <select name="frequence-soin1" required="" class="form-control">
+                                                        <select name="frequence-soin2" class="form-control">
                                                             <option value="">-----choisir-----</option>
                                                             <option value="1">X 1</option>
                                                             <option value="2">X 2</option>
@@ -262,398 +353,315 @@
                                                         </select>                    
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <select name="#" required="" class="form-control">
-                                                            <option value=""> / jour</option>
-                                                            <option value="1"> / semaine</option>
+                                                        <select name="par2" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="jour"> / jour</option>
+                                                            <option value="semaine"> / semaine</option>
                                                         </select>                    
                                                     </div>
                                                 </div>
                                                 <!--<div class="form-group">
                                                     <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" required="" placeholder="heure par fréquence de soin" class="form-control" name="heure1" id="heure1">
+                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure2" id="heure2">
                                                     </div>
                                                 </div>-->
+                                            </div>
+                                            <script>
 
-                                                <script>
-
-                                                    function autre() {
-                                                        var selection = document.getElementById("select1").value;
-                                                        if (selection === "Cicatrisation")
-                                                        {
-                                                            var element = document.getElementById("cica1");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("cica2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("cica3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        else if (selection === "Stomarhérapie")
-                                                        {
-                                                            var element = document.getElementById("stoma1");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("stoma2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("stoma3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        else if (selection === "Perfusion")
-                                                        {
-                                                            var element = document.getElementById("perf1");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("perf2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("perf3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        else if (selection === "Sondage")
-                                                        {
-                                                            var element = document.getElementById("sondage1");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("sondage2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("sondage3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        document.querySelector("#autre").style.display = (window.getComputedStyle(document.querySelector('#autre')).display == 'none') ? "block" : "hide";
+                                                function autre1() {
+                                                    var selection = document.getElementById("select2").value;
+                                                    if (selection === "Cicatrisation")
+                                                    {
+                                                        var element = document.getElementById("cica2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("cica3");
+                                                        element.parentNode.removeChild(element);
                                                     }
-
-                                                </script>
-                                                <div id="autre" style="display: none;">
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="type-soinP2" onchange="autre1()" class="form-control" id="select2">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="Cicatrisation" id="cica1">Cicatrisation</option>
-                                                                <option value="Stomarhérapie" id="stoma1">Stomathérapie</option>
-                                                                <option value="Perfusion" id="perf1">Perfusion</option>
-                                                                <option value="Sondage" id="sondage1">Sondage</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="frequence-soin2" class="form-control">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="1">X 1</option>
-                                                                <option value="2">X 2</option>
-                                                                <option value="3">X 3</option>
-                                                                <option value="4">X 4</option>
-                                                                <option value="5">X 5</option>
-                                                                <option value="6">X 6</option>
-                                                                <option value="7">X 7</option>
-                                                                <option value="8">X 8</option>
-                                                                <option value="9">X 9</option>
-                                                                <option value="10">X 10</option>
-                                                                <option value="11">X 11</option>
-                                                                <option value="12">X 12</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <!--<div class="form-group">
-                                                        <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure2" id="heure2">
-                                                        </div>
-                                                    </div>-->
-                                                </div>
-                                                <script>
-
-                                                    function autre1() {
-                                                        var selection = document.getElementById("select2").value;
-                                                        if (selection === "Cicatrisation")
-                                                        {
-                                                            var element = document.getElementById("cica2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("cica3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Stomarhérapie")
-                                                        {
-                                                            var element = document.getElementById("stoma2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("stoma3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Perfusion")
-                                                        {
-                                                            var element = document.getElementById("perf2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("perf3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Sondage")
-                                                        {
-                                                            var element = document.getElementById("sondage2");
-                                                            element.parentNode.removeChild(element);
-                                                            var element = document.getElementById("sondage3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        document.querySelector("#autre1").style.display = (window.getComputedStyle(document.querySelector('#autre1')).display == 'none') ? "block" : "hide";
+                                                    if (selection === "Stomarhérapie")
+                                                    {
+                                                        var element = document.getElementById("stoma2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("stoma3");
+                                                        element.parentNode.removeChild(element);
                                                     }
-
-                                                </script>
-                                                <div id="autre1" style="display: none;">
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="type-soinP3" onchange="autre2()" class="form-control" id="select3">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="Cicatrisation" id="cica2">Cicatrisation</option>
-                                                                <option value="Stomarhérapie" id="stoma2">Stomathérapie</option>
-                                                                <option value="Perfusion" id="perf2">Perfusion</option>
-                                                                <option value="Sondage" id="sondage2">Sondage</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="frequence-soin3" class="form-control">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="1">X 1</option>
-                                                                <option value="2">X 2</option>
-                                                                <option value="3">X 3</option>
-                                                                <option value="4">X 4</option>
-                                                                <option value="5">X 5</option>
-                                                                <option value="6">X 6</option>
-                                                                <option value="7">X 7</option>
-                                                                <option value="8">X 8</option>
-                                                                <option value="9">X 9</option>
-                                                                <option value="10">X 10</option>
-                                                                <option value="11">X 11</option>
-                                                                <option value="12">X 12</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <!--<div class="form-group">
-                                                        <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure3" id="heure3">
-                                                        </div>
-                                                    </div>-->
-                                                </div>
-                                                <script>
-
-                                                    function autre2() {
-                                                        var selection = document.getElementById("select3").value;
-                                                        if (selection === "Cicatrisation")
-                                                        {
-                                                            var element = document.getElementById("cica3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Stomarhérapie")
-                                                        {
-                                                            var element = document.getElementById("stoma3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Perfusion")
-                                                        {
-                                                            var element = document.getElementById("perf3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        if (selection === "Sondage")
-                                                        {
-                                                            var element = document.getElementById("sondage3");
-                                                            element.parentNode.removeChild(element);
-                                                        }
-                                                        document.querySelector("#autre2").style.display = (window.getComputedStyle(document.querySelector('#autre2')).display == 'none') ? "block" : "hide";
+                                                    if (selection === "Perfusion")
+                                                    {
+                                                        var element = document.getElementById("perf2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("perf3");
+                                                        element.parentNode.removeChild(element);
                                                     }
+                                                    if (selection === "Sondage")
+                                                    {
+                                                        var element = document.getElementById("sondage2");
+                                                        element.parentNode.removeChild(element);
+                                                        var element = document.getElementById("sondage3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    document.querySelector("#autre1").style.display = (window.getComputedStyle(document.querySelector('#autre1')).display == 'none') ? "block" : "hide";
+                                                }
 
-                                                </script>
-                                                <div id="autre2" style="display: none;">
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="type-soinP4" class="form-control">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="Cicatrisation" id="cica3">Cicatrisation</option>
-                                                                <option value="Stomarhérapie" id="stoma3">Stomathérapie</option>
-                                                                <option value="Perfusion" id="perf3">Perfusion</option>
-                                                                <option value="Sondage" id="sondage3">Sondage</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="tel" class="col-sm-5 control-label">Fréquence des soins:</label>
-                                                        <div class="col-sm-7">
-                                                            <select name="frequence-soin4" class="form-control">
-                                                                <option value="">-----choisir-----</option>
-                                                                <option value="1">X 1</option>
-                                                                <option value="2">X 2</option>
-                                                                <option value="3">X 3</option>
-                                                                <option value="4">X 4</option>
-                                                                <option value="5">X 5</option>
-                                                                <option value="6">X 6</option>
-                                                                <option value="7">X 7</option>
-                                                                <option value="8">X 8</option>
-                                                                <option value="9">X 9</option>
-                                                                <option value="10">X 10</option>
-                                                                <option value="11">X 11</option>
-                                                                <option value="12">X 12</option>
-                                                            </select>                    
-                                                        </div>
-                                                    </div>
-                                                    <!--<div class="form-group">
-                                                        <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure4" id="heure4">
-                                                        </div>
-                                                    </div>-->
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label for="ajout" class="col-sm-2 control-label"></label>
-                                                    <div class="col-sm-8">
-                                                        <button type="submit" id="insert" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Valider </button>
+                                            </script>
+                                            <div id="autre1" style="display: none;">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                    <div class="col-sm-7">
+                                                        <select name="type-soinP3" onchange="autre2()" class="form-control" id="select3">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="Cicatrisation" id="cica2">Cicatrisation</option>
+                                                            <option value="Stomarhérapie" id="stoma2">Stomathérapie</option>
+                                                            <option value="Perfusion" id="perf2">Perfusion</option>
+                                                            <option value="Sondage" id="sondage2">Sondage</option>
+                                                        </select>                    
                                                     </div>
                                                 </div>
-                                            </fieldset>
-                                        </form>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
+                                                    <div class="col-sm-4">
+                                                        <select name="frequence-soin3" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="1">X 1</option>
+                                                            <option value="2">X 2</option>
+                                                            <option value="3">X 3</option>
+                                                            <option value="4">X 4</option>
+                                                            <option value="5">X 5</option>
+                                                            <option value="6">X 6</option>
+                                                            <option value="7">X 7</option>
+                                                            <option value="8">X 8</option>
+                                                            <option value="9">X 9</option>
+                                                            <option value="10">X 10</option>
+                                                            <option value="11">X 11</option>
+                                                            <option value="12">X 12</option>
+                                                        </select>                    
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <select name="par3" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="jour"> / jour</option>
+                                                            <option value="semaine"> / semaine</option>
+                                                        </select>                    
+                                                    </div>
+                                                </div>
+                                                <!--<div class="form-group">
+                                                    <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure3" id="heure3">
+                                                    </div>
+                                                </div>-->
+                                            </div>
+                                            <script>
 
-                                    </div>
+                                                function autre2() {
+                                                    var selection = document.getElementById("select3").value;
+                                                    if (selection === "Cicatrisation")
+                                                    {
+                                                        var element = document.getElementById("cica3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    if (selection === "Stomarhérapie")
+                                                    {
+                                                        var element = document.getElementById("stoma3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    if (selection === "Perfusion")
+                                                    {
+                                                        var element = document.getElementById("perf3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    if (selection === "Sondage")
+                                                    {
+                                                        var element = document.getElementById("sondage3");
+                                                        element.parentNode.removeChild(element);
+                                                    }
+                                                    document.querySelector("#autre2").style.display = (window.getComputedStyle(document.querySelector('#autre2')).display == 'none') ? "block" : "hide";
+                                                }
+
+                                            </script>
+                                            <div id="autre2" style="display: none;">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                    <div class="col-sm-7">
+                                                        <select name="type-soinP4" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="Cicatrisation" id="cica3">Cicatrisation</option>
+                                                            <option value="Stomarhérapie" id="stoma3">Stomathérapie</option>
+                                                            <option value="Perfusion" id="perf3">Perfusion</option>
+                                                            <option value="Sondage" id="sondage3">Sondage</option>
+                                                        </select>                    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
+                                                    <div class="col-sm-4">
+                                                        <select name="frequence-soin4" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="1">X 1</option>
+                                                            <option value="2">X 2</option>
+                                                            <option value="3">X 3</option>
+                                                            <option value="4">X 4</option>
+                                                            <option value="5">X 5</option>
+                                                            <option value="6">X 6</option>
+                                                            <option value="7">X 7</option>
+                                                            <option value="8">X 8</option>
+                                                            <option value="9">X 9</option>
+                                                            <option value="10">X 10</option>
+                                                            <option value="11">X 11</option>
+                                                            <option value="12">X 12</option>
+                                                        </select>                    
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <select name="par4" class="form-control">
+                                                            <option value="">-----choisir-----</option>
+                                                            <option value="jour"> / jour</option>
+                                                            <option value="semaine"> / semaine</option>
+                                                        </select>                    
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+                                                    <label for="heure" class="col-sm-2 control-label">Heure des soins:</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" placeholder="heure par fréquence de soin" class="form-control" name="heure4" id="heure4">
+                                                    </div>
+                                                </div>-->
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="ajout" class="col-sm-2 control-label"></label>
+                                                <div class="col-sm-8">
+                                                    <button type="submit" id="insert" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Valider </button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section class="section magee-section alchem-home-section-10 alchem-home-style-0" id="section-11">
-                    <div class="section-content" style="color:#ffffff;">
-                        <div class="container alchem_section_10_model">
-                            <div class="alchem-animated animated fadeInDown" data-animationduration="1.2" data-animationtype="fadeInDown" data-imageanimation="no" style="visibility: visible; animation-duration: 1.2s;">
-                                <h2 style="text-align: center" class="section-title alchem_section_10_title">Trouver facilement les libéraux autour de vous</h2>
-                                <div class="divider divider-border center" style="margin-top: 30px;margin-bottom:50px;width:80px;">
-                                    <div class="divider-inner light" style="border-bottom-width:3px; "></div>
-                                </div>
-                                <div style="text-align: center" class="alchem_section_10_button_text">
-                                    <a href="./login.html"  style="" class=" magee-btn-normal btn-md btn-line btn-light">Trouver une infirmière</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
-            <div class="modal" id="loginerror">
-                <div class="modal-dialog">
-                    <div class="modal-content alert alert-dismissible alert-info col-lg-12">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
-                            <h4 class="modal-title" style="text-align: center;">Erreur !</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="warning" id="erreur_inscription"></div>
-                        </div>
-                        <div class="modal-footer">
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
 
-            <div class="btn_up">
-                <img src="img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
-            </div>
-            <!--Footer-->
-            <footer class="">
 
-                <div class="footer-info-area">
-                    <div class="container text-center alchem_footer_social_icon_1"> 
-                        <!-- <ul class="footer-sns"><li><a  rel="" href="http://localhost/wordpress/#" data-placemeynt="top" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="YouTube"><i class="fa fa-youtube"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Email"><i class="fa fa-envelope"></i></a></li></ul>                    <div class="clearfix"></div>
-                        -->
-                        <div class="site-info">
-                            <img src="./img/logo2.png" class = "logo_footer">
-                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
-                        </div>
+        </div>
+
+        <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
+        <div class="modal" id="loginerror">
+            <div class="modal-dialog">
+                <div class="modal-content alert alert-dismissible alert-info col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
+                        <h4 class="modal-title" style="text-align: center;">Erreur !</h4>
                     </div>
-                </div>          
-            </footer>
-        </div>  
+                    <div class="modal-body">
+                        <div class="warning" id="erreur_inscription"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
-        <script type="text/javascript" src="./others/main.js.téléchargement"></script>
-        <script type="text/javascript">
-                                                    $(function () {
-                                                        // A chaque sélection de fichier
-                                                        $('#form-filter').find('input[name="photo"]').on('change', function (e)
-                                                        {
-                                                            var files = $(this)[0].files;
 
-                                                            if (files.length > 0) {
-                                                                var file = files[0],
-                                                                        $image_preview = $('#image_preview');
+        <div class="btn_up">
+            <img src="img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
+        </div>
+        <!--Footer-->
+        <footer class="">
 
-                                                                // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
-                                                                $image_preview.find('.thumbnail').removeClass('hidden');
-                                                                $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
-                                                                $image_preview.find('h4').html(file.name);
-                                                                $image_preview.find('#titre').html(file.name);
-                                                            }
-                                                        });
-                                                    });
+            <div class="footer-info-area">
+                <div class="container text-center alchem_footer_social_icon_1"> 
+                    <!-- <ul class="footer-sns"><li><a  rel="" href="http://localhost/wordpress/#" data-placemeynt="top" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="YouTube"><i class="fa fa-youtube"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Email"><i class="fa fa-envelope"></i></a></li></ul>                    <div class="clearfix"></div>
+                    -->
+                    <div class="site-info">
+                        <img src="./img/logo2.png" class = "logo_footer">
+                        © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                    </div>
+                </div>
+            </div>          
+        </footer>
+    </div>  
 
-                                                    $('#insert').click(function (e)
+    <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
+    <script type="text/javascript" src="./others/main.js.téléchargement"></script>
+    <script type="text/javascript">
+                                                $(function () {
+                                                    // A chaque sélection de fichier
+                                                    $('#form-filter').find('input[name="photo"]').on('change', function (e)
                                                     {
-                                                        e.preventDefault();
+                                                        var files = $(this)[0].files;
 
-                                                        var form = $('#form-filter').get(0);
-                                                        var formData = new FormData(form);// get the form data
-                                                        // on envoi formData vers mail.php
-                                                        $.ajax({
-                                                            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                                                            url: 'lib-php/insert-patient.php', // the url where we want to POST
-                                                            data: formData, // our data object
-                                                            dataType: 'text', // what type of data do we expect back from the server
-                                                            processData: false,
-                                                            contentType: false,
-                                                            success: function (server_response)
-                                                            {
-                                                                if (server_response === "succes  ")
-                                                                {
-                                                                    window.location.replace("carte.php");
-                                                                }
-                                                                else
-                                                                {   
-                                                                    $('#erreur_inscription').html('<p>' + server_response + '</p>');
-                                                                    $('#triggerwarning').trigger('click');
-                                                                    setTimeout(function () {
-                                                                        $('#ferme').trigger('click');
-                                                                    }, 4000);
-                                                                }
-                                                            },
-                                                            error: function (server_response)
-                                                            {
-                                                                alert(server_response.statusText);
-                                                            }
-                                                        });
+                                                        if (files.length > 0) {
+                                                            var file = files[0],
+                                                                    $image_preview = $('#image_preview');
+
+                                                            // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+                                                            $image_preview.find('.thumbnail').removeClass('hidden');
+                                                            $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+                                                            $image_preview.find('h4').html(file.name);
+                                                            $image_preview.find('#titre').html(file.name);
+                                                        }
                                                     });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function ()
-            {
-                $('#returnOnTop').hide();
-                $('#returnOnTop').click(function () {
-                    //e.preventDefault();
-                    $('html,body').animate({scrollTop: 0}, 'slow');
-                });
-            });
+                                                });
 
-            $(window).scroll(function ()
-            {
-                if ($(window).scrollTop() == 0)
-                    $('#returnOnTop').fadeOut();
-                else
-                    $('#returnOnTop').fadeIn();
+                                                $('#insert').click(function (e)
+                                                {
+                                                    e.preventDefault();
+
+                                                    var form = $('#form-filter').get(0);
+                                                    var formData = new FormData(form);// get the form data
+                                                    // on envoi formData vers mail.php
+                                                    $.ajax({
+                                                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                        url: 'lib-php/insert-patient.php', // the url where we want to POST
+                                                        data: formData, // our data object
+                                                        dataType: 'text', // what type of data do we expect back from the server
+                                                        processData: false,
+                                                        contentType: false,
+                                                        success: function (server_response)
+                                                        {
+                                                            if (server_response === "succes  ")
+                                                            {
+                                                                window.location.replace("carte.php");
+                                                            }
+                                                            else
+                                                            {
+                                                                $('#erreur_inscription').html('<p>' + server_response + '</p>');
+                                                                $('#triggerwarning').trigger('click');
+                                                                setTimeout(function () {
+                                                                    $('#ferme').trigger('click');
+                                                                }, 4000);
+                                                            }
+                                                        },
+                                                        error: function (server_response)
+                                                        {
+                                                            alert(server_response.statusText);
+                                                        }
+                                                    });
+                                                });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $('#returnOnTop').hide();
+            $('#returnOnTop').click(function () {
+                //e.preventDefault();
+                $('html,body').animate({scrollTop: 0}, 'slow');
             });
-        </script>
-    </body>
+        });
+
+        $(window).scroll(function ()
+        {
+            if ($(window).scrollTop() == 0)
+                $('#returnOnTop').fadeOut();
+            else
+                $('#returnOnTop').fadeIn();
+        });
+    </script>
+</body>
 </html>
