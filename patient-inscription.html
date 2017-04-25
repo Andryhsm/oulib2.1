@@ -208,7 +208,7 @@
                                                 <div class="form-group">
                                                     <label for="tel" class="col-sm-2 control-label">Adresse:</label>
                                                     <div class="col-sm-3">
-                                                        <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
+                                                        <input type="text" onkeypress="refuserToucheEntree(event);" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <input type="number" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP">
@@ -581,7 +581,54 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
         <script type="text/javascript" src="./others/main.js.téléchargement"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&libraries=places"></script>
         <script type="text/javascript">
+
+                                                    var element = document.getElementById('rueP');
+                                                    if (element) {
+                                                        var autocomplete2 = new google.maps.places.Autocomplete(element, {types:['geocode']});
+                                                    }
+
+                                                      google.maps.event.addListener(autocomplete2, 'place_changed', function(){
+                                            
+                                                        place = autocomplete2.getPlace();       //On obtient un objet PlaceResult
+                                                        console.log("Le resultat doit être ici ! ");
+                                                      
+                                                        console.log(place);
+
+                           
+                                                        var addressType = {};
+            
+                                                        for(var i= 0; i < place.address_components.length; i++){
+                                                            addressType[place.address_components[i].types[0]] = place.address_components[i].long_name;
+                                                        }
+                                                    
+                                                        var adresses_pat = (addressType['street_number']) ? addressType['street_number'] + ", " : '';
+
+                                                        adresses_pat += (addressType['route']) ? addressType['route'] + ", " : '';
+                                                        adresses_pat += (addressType['locality']) ? addressType['locality'] : '';
+
+                                                        $("#rueP").val(adresses_pat);
+
+                                                        var codePostal = (addressType['postal_code']) ? addressType['postal_code'] : '';
+
+                                                        $('#code-postalP').val(codePostal);
+
+                                                        if(addressType['administrative_area_level_1']){
+                                                            var ville = (addressType['administrative_area_level_1']) ? addressType['administrative_area_level_1'] : '';
+                                                        }else{
+                                                            var ville = (addressType['administrative_area_level_2']) ? addressType['administrative_area_level_2'] : '';
+                                                        }
+
+
+
+                                                        $('#villeP').val(ville);
+
+                                                    });
+
+
+
+
                                                     $(function () {
                                                         // A chaque sélection de fichier
                                                         $('#form-filter').find('input[name="photo"]').on('change', function (e)
@@ -636,6 +683,23 @@
                                                             }
                                                         });
                                                     });
+
+
+                                                    function refuserToucheEntree(event)
+                                                    {       
+                                                        if (!event && window.event) {
+                                                            event = window.event;
+                                                        }
+                                                        if (event.keyCode == 13) {
+                                                            event.returnValue = false;
+                                                            event.cancelBubble = true;
+                                                        }
+                                                        // DOM
+                                                        if (event.which == 13) {
+                                                            event.preventDefault();
+                                                            event.stopPropagation();
+                                                        }
+                                                    }
         </script>
         <script type="text/javascript">
             $(document).ready(function ()

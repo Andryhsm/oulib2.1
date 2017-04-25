@@ -252,7 +252,7 @@
 
                                             <script>
 
-            var liste
+           										 var liste
 
                                             </script>
 
@@ -500,6 +500,8 @@
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap&libraries=places" async defer></script>
 
     <script type="text/javascript">
+
+
                                                 var map;
                                                 var marker;
 
@@ -511,9 +513,75 @@
 
                                                     var element = document.getElementById('lieu_interv');
                                                     if (element) {
-                                                        var autocomplete = new google.maps.places.Autocomplete(element, {types: ['geocode']});
-                                                        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+                                                    	var autocomplete = new google.maps.places.Autocomplete(element, {types:['geocode']});
                                                     }
+
+                                                    var address = document.getElementById("adresse");
+                                                    
+                                                    var autocomplete2 = new google.maps.places.Autocomplete(address, {
+                                                        types: ['address']
+                                                    });
+
+													var place;
+													var componentForm = {
+												        street_number: 'short_name',
+												        route: 'long_name',
+												        locality: 'long_name',
+												        administrative_area_level_1: 'short_name',
+												        country: 'long_name',
+												        postal_code: 'short_name'
+												    };
+
+
+                                                    google.maps.event.addListener(autocomplete2, 'place_changed', function(){
+                                                    	var adres = $("#adresse").val();
+                                                    	var adres2 = adres.split(',');
+                                                    	var adress = adres2[0] + ", " + adres2[1];
+                                                    
+
+                                                    	place = autocomplete2.getPlace();		//On obtient un objet PlaceResult
+	                                                    console.log("Le resultat doit être ici ! ");
+	                                                  
+	                                                    console.log(place);
+
+/*
+	                                                    var numeroRue = place.address_components[0];
+	                                                    var adresse = place.address_components[0];
+	                                                    var pays = place.address_components[4].long_name;
+	                                                    var code_postal = place.adresse
+	                                                    alert(pays);
+*/
+														
+														var addressType = {};
+			
+														for(var i= 0; i < place.address_components.length; i++){
+															addressType[place.address_components[i].types[0]] = place.address_components[i].long_name;
+														}
+													
+														var adresses_pat = (addressType['street_number']) ? addressType['street_number'] + ", " : '';
+
+														adresses_pat += (addressType['route']) ? addressType['route'] + ", " : '';
+														adresses_pat += (addressType['locality']) ? addressType['locality'] : '';
+
+														$("#adresse").val(adresses_pat);
+
+														var codePostal = (addressType['postal_code']) ? addressType['postal_code'] : '';
+
+														$('#cp').val(codePostal);
+
+														if(addressType['administrative_area_level_1']){
+															var ville = (addressType['administrative_area_level_1']) ? addressType['administrative_area_level_1'] : '';
+														}else{
+															var ville = (addressType['administrative_area_level_2']) ? addressType['administrative_area_level_2'] : '';
+														}
+
+
+
+														$('#ville').val(ville);
+
+                                                    });
+
+
                                                 }
 
                                                 $("#lieu_interv").change(function () {
@@ -522,6 +590,24 @@
                                                     }, 1000);
                                                 });
 
+
+                                                function refuserToucheEntree(event)
+                                                {		
+                                                    if (!event && window.event) {
+                                                        event = window.event;
+                                                    }
+                                                    if (event.keyCode == 13) {
+                                                        event.returnValue = false;
+                                                        event.cancelBubble = true;
+                                                        geocodeAddress(map);
+                                                    }
+                                                    if (event.which == 13) {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                        geocodeAddress(map);
+                                                    }
+                                                }
+    
                                                 //Geocodage des adresses
                                                 function geocodeAddress(resultsMap) {
                                                     var address = $("#lieu_interv").val();
@@ -565,27 +651,7 @@
                                                     });
                                                 }
 
-
-                                                function refuserToucheEntree(event)
-                                                {		
-                                                    // Compatibilité IE / Firefox
-                                                    if (!event && window.event) {
-                                                        event = window.event;
-                                                    }
-                                                    // IE
-                                                    if (event.keyCode == 13) {
-                                                        event.returnValue = false;
-                                                        event.cancelBubble = true;
-                                                        geocodeAddress(map);
-                                                    }
-                                                    // DOM
-                                                    if (event.which == 13) {
-                                                        event.preventDefault();
-                                                        event.stopPropagation();
-                                                        geocodeAddress(map);
-                                                    }
-                                                }
-    </script>
+	</script>
 
     <script type="text/javascript" src="./others/main.js.téléchargement"></script>
     <script type="text/javascript">

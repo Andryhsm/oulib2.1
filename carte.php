@@ -98,6 +98,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 outline: none;
                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             }
+            
             #pac-input {
                 position: absolute;
                 z-index: 1;
