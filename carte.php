@@ -82,7 +82,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             }
 
             #map {
-                width: 100%;
+                width: 100vw;
                 height: 102vh;
                 background: white;
             }
