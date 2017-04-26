@@ -226,13 +226,13 @@
                                             <div class="form-group">
                                                 <label for="adresse" class="col-sm-2 control-label">Adresse:</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" id="rueI" required="" placeholder="numéro et nom de rue" class="form-control" name="rueI">
+                                                    <input type="text" id="rueI" onkeypress="refuserToucheEntree2(event);" required="" placeholder="numéro et nom de rue" class="form-control" name="rueI">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="number" id="code-postalI" required="" placeholder="code postal" class="form-control" name="code-postalI">
+                                                    <input type="text" onkeypress="refuserToucheEntree2(event);" id="code-postalI" required="" placeholder="code postal" class="form-control" name="code-postalI">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="text" id="villeI" required="" placeholder="ville" class="form-control" name="villeI">
+                                                    <input type="text" onkeypress="refuserToucheEntree2(event);" id="villeI" required="" placeholder="ville" class="form-control" name="villeI">
                                                 </div>
                                             </div>
 
@@ -492,19 +492,110 @@
                                                                 zoom: 18,
                                                                 center: {lat: 48.862226, lng: 2.340173},
                                                             });
-
+                                                
                                                             var element = document.getElementById('lieu_interv');
                                                             if (element) {
-                                                                var autocomplete = new google.maps.places.Autocomplete(element, {types: ['geocode']});
-                                                                google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+                                                                var autocomplete = new google.maps.places.Autocomplete(element, {types:['geocode']});
                                                             }
+
+                                                            var address = document.getElementById("rueI");
+                                                            
+                                                            var autocomplete2 = new google.maps.places.Autocomplete(address, {
+                                                                types: ['address']
+                                                            });
+
+                                                            var place;
+                                
+                                                            google.maps.event.addListener(autocomplete2, 'place_changed', function(){
+                                                                var adres = $("#rueI").val();
+                                                                var adres2 = adres.split(',');
+                                                                var adress = adres2[0] + ", " + adres2[1];
+                                                            
+
+                                                                place = autocomplete2.getPlace();       //On obtient un objet PlaceResult
+                                                                console.log("Le resultat doit être ici ! ");
+                                                              
+                                                                console.log(place);
+
+                                                                var addressType = {};
+                    
+                                                                for(var i= 0; i < place.address_components.length; i++){
+                                                                    addressType[place.address_components[i].types[0]] = place.address_components[i].long_name;
+                                                                }
+                                                            
+                                                                var adresses_pat = (addressType['street_number']) ? addressType['street_number'] + ", " : '';
+
+                                                                adresses_pat += (addressType['route']) ? addressType['route'] : '';
+                                                                
+                                                                $("#rueI").val(adresses_pat);
+
+                                                                var codePostal = (addressType['postal_code']) ? addressType['postal_code'] : '';
+
+                                                                $('#code-postalI').val(codePostal);
+
+                                                                var ville;
+                                                                if(addressType['locality']){
+                                                                    ville = (addressType['locality']) ? addressType['locality'] : '';
+                                                                }else{
+                                                                    ville = (addressType['administrative_area_level_1']) ? addressType['administrative_area_level_1'] : '';
+                                                                }
+
+                                                                $('#villeI').val(ville);
+
+
+
+                                                            });
+                                                            
+                                                            var cp = document.getElementById("code-postalI");
+                                                            
+                                                            var autocomplete3 = new google.maps.places.Autocomplete(cp , {
+                                                                types: ['geocode']
+                                                            });
+
+                                                            google.maps.event.addListener(autocomplete3, 'place_changed', function(){
+                                                                var place2 = autocomplete3.getPlace();
+                                                                var add = {};
+                    
+                                                                for(var i= 0; i < place2.address_components.length; i++){
+                                                                    add[place2.address_components[i].types[0]] = place2.address_components[i].long_name;
+                                                                }
+
+                                                                var ville = (add['locality']) ? add['locality'] : '';
+                                                                $('#villeI').val(ville);
+
+                                                                $('#code-postalI').val(add['postal_code']);
+                                                                console.log(add);   
+                                                            });
+
+                                                            var villeI = document.getElementById("villeI");
+                                                            
+                                                            var autocomplete4 = new google.maps.places.Autocomplete(villeI , {
+                                                                types: ['geocode']
+                                                            });
+
+                                                            google.maps.event.addListener(autocomplete4, 'place_changed', function(){
+                                                                var place3 = autocomplete4.getPlace();
+                                                                var add2 = {};
+                                                                
+                                                                for(var i= 0; i < place3.address_components.length; i++){
+                                                                    add2[place3.address_components[i].types[0]] = place3.address_components[i].long_name;
+                                                                }
+                                                                console.log(place3);
+                                                                var cp = (add2['postal_code']) ? add2['postal_code'] : '';
+                                                                $('#code-postalI').val(cp);
+
+                                                                $('#code-postalI').val(add2['postal_code']);
+                                                            });                                                            
+                                                            
                                                         }
+                                                        
 
                                                         $("#lieu_interv").change(function () {
                                                             setTimeout(function () {
                                                                 geocodeAddress(map);
                                                             }, 1000);
                                                         });
+                                                        
 
                                                         //Geocodage des adresses
                                                         function geocodeAddress(resultsMap) {
@@ -567,6 +658,25 @@
                                                                 event.preventDefault();
                                                                 event.stopPropagation();
                                                                 geocodeAddress(map);
+                                                            }
+                                                        }
+
+
+                                                        function refuserToucheEntree2(event)
+                                                        {
+                                                            // Compatibilité IE / Firefox
+                                                            if (!event && window.event) {
+                                                                event = window.event;
+                                                            }
+                                                            // IE
+                                                            if (event.keyCode == 13) {
+                                                                event.returnValue = false;
+                                                                event.cancelBubble = true;
+                                                            }
+                                                            // DOM
+                                                            if (event.which == 13) {
+                                                                event.preventDefault();
+                                                                event.stopPropagation();
                                                             }
                                                         }
         </script>
