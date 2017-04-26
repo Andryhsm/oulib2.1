@@ -609,6 +609,10 @@
                                                             
                                                         }
                                                         
+                                                        $("#code-postalI").change(function(event) {
+                                                            var cp = $("#code-postalI").val();
+                                                            geocodeAddress3(map, cp);
+                                                        });
 
                                                         $("#lieu_interv").change(function () {
                                                             setTimeout(function () {
@@ -665,6 +669,28 @@
                                                             var geocoder = new google.maps.Geocoder();
                                                             geocoder.geocode({'address': address}, function (results, status) {
                                                                 if (status === google.maps.GeocoderStatus.OK) {
+                                                                    console.log(results);
+                                                                    resultsMap.panTo(results[0].geometry.location);
+                                                                } else {
+                                                                    alert('Geocode was not successful for the following reason: ' + status);
+                                                                }
+                                                            });
+                                                        }
+
+                                                        function geocodeAddress3(resultsMap, address) {
+                                                            var geocoder = new google.maps.Geocoder();
+                                                            geocoder.geocode({'address': address}, function (results, status) {
+                                                                if (status === google.maps.GeocoderStatus.OK) {
+                                                                    
+                                                                    var addressType = {};
+                    
+                                                                    for(var i= 0; i < results.address_components.length; i++){
+                                                                        addressType[results.address_components[i].types[0]] = results.address_components[i].long_name;
+                                                                    }
+
+                                                                    console.log("adresser : ");
+                                                                    console.log(addressType);
+
                                                                     resultsMap.panTo(results[0].geometry.location);
                                                                 } else {
                                                                     alert('Geocode was not successful for the following reason: ' + status);

@@ -22,7 +22,7 @@
 						    <h4 class='panel-title'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;&nbsp;Réponse à votre demande de soin</h4>
 						  </div>
 						  <div class='panel-body'>
-						    	Votre demande a été annulée par l'infirmière  <b><i>".$valny['nomI']." ".$valny['prenomI']."</i></b>
+						    	Votre demande a été annulée par l'infirmière  <b><i>".utf8_encode($valny['nomI'])." ".utf8_encode($valny['prenomI'])."</i></b>
 						    	<br>
 						    		<input type='hidden' class='{$data['id']}' value='{$data['status']}'>
 						    	<div class='pull-right'>
@@ -39,7 +39,7 @@
 						    <h4 class='panel-title'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;&nbsp;Réponse à votre demande de soin</h4>
 						  </div>
 						  <div class='panel-body'>
-								Votre demande vient d'être accéptée par l'infirmière  <b><i>".$valny['nomI']." ".$valny['prenomI']."</i></b>
+								Votre demande vient d'être accéptée par l'infirmière  <b><i>".utf8_encode($valny['nomI'])." ".utf8_encode($valny['prenomI'])."</i></b>
 						    	<br>
 						    		<input type='hidden' class='{$data['id']}' value='{$data['status']}'>
 						    	<div class='pull-right'>
