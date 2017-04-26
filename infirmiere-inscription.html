@@ -504,7 +504,7 @@
                                                                 types: ['address']
                                                             });
 
-                                                            var place;
+                                                            var place, rueI, codePostalI, villeI, adresseComplet;
                                 
                                                             google.maps.event.addListener(autocomplete2, 'place_changed', function(){
                                                                 var adres = $("#rueI").val();
@@ -542,8 +542,12 @@
 
                                                                 $('#villeI').val(ville);
 
+                                                                rueI = $("#rueI").val();
+                                                                codePostalI = $("#code-postalI").val();
+                                                                villeI = $("#villeI").val();
 
-
+                                                                adresseComplet = rueI + " " + codePostalI + ", " + villeI; 
+                                                                geocodeAddress2(map, adresseComplet);
                                                             });
                                                             
                                                             var cp = document.getElementById("code-postalI");
@@ -565,6 +569,15 @@
 
                                                                 $('#code-postalI').val(add['postal_code']);
                                                                 console.log(add);   
+
+                                                                $('#villeI').val(ville);
+
+                                                                rueI = $("#rueI").val();
+                                                                codePostalI = $("#code-postalI").val();
+                                                                villeI = $("#villeI").val();
+
+                                                                adresseComplet = rueI + " " + codePostalI + ", " + villeI; 
+                                                                geocodeAddress2(map, adresseComplet);
                                                             });
 
                                                             var villeI = document.getElementById("villeI");
@@ -585,6 +598,13 @@
                                                                 $('#code-postalI').val(cp);
 
                                                                 $('#code-postalI').val(add2['postal_code']);
+
+                                                                rueI = $("#rueI").val();
+                                                                codePostalI = $("#code-postalI").val();
+                                                                villeI = $("#villeI").val();
+
+                                                                adresseComplet = rueI + " " + codePostalI + ", " + villeI; 
+                                                                geocodeAddress2(map, adresseComplet);
                                                             });                                                            
                                                             
                                                         }
@@ -640,6 +660,17 @@
                                                             });
                                                         }
 
+
+                                                        function geocodeAddress2(resultsMap, address) {
+                                                            var geocoder = new google.maps.Geocoder();
+                                                            geocoder.geocode({'address': address}, function (results, status) {
+                                                                if (status === google.maps.GeocoderStatus.OK) {
+                                                                    resultsMap.panTo(results[0].geometry.location);
+                                                                } else {
+                                                                    alert('Geocode was not successful for the following reason: ' + status);
+                                                                }
+                                                            });
+                                                        }
 
                                                         function refuserToucheEntree(event)
                                                         {
