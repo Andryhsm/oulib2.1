@@ -231,7 +231,7 @@ $data = $req->fetch();
                                                                 <p><b><?php echo(utf8_encode($data['type-soinI2'])); ?></b></p>
                                                                 <p><b><?php echo(utf8_encode($data['type-soinI3'])); ?></b></p>
                                                                 <p><b><?php echo(utf8_encode($data['type-soinI4'])); ?></b></p>
-                                                                <p>Votre lieu d'intervention : <b><?php echo($data['lieu-intervention']); ?></b></p>
+                                                                <p>Votre lieu d'intervention : <b><?php echo(utf8_encode($data['lieu-intervention'])); ?></b></p>
                                                             </div>
                                                             <div class="btn btn-warning" id="changesoins" onClick="changeSoins();"> Changer mes informations de soins</div>
                                                         </div>
@@ -401,7 +401,7 @@ $data = $req->fetch();
                                                         <div class="form-group">
                                                             <label for="lieu-intervention" class="col-sm-2 control-label">Lieu d'intervention:</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" required="" placeholder="lieu d'intervention" name="lieu-intervention" class="form-control" id="lieu-intervention" value="<?php echo($data['lieu-intervention']); ?>">
+                                                                <input type="text" required="" placeholder="lieu d'intervention" name="lieu-intervention" class="form-control" id="lieu-intervention" value="<?php echo(utf8_encode($data['lieu-intervention'])); ?>">
                                                             </div>
                                                         </div>
                                                     </div>    
@@ -429,7 +429,7 @@ $data = $req->fetch();
                                                             <div class="row col-lg-offset-2">
                                                                 <div id="image_preview">
                                                                     <img class="thumbnail img-responsive" style="vertical-align: center;" width="300px" heigth="300px" src="../image-person/<?php echo($data['photo']); ?>">
-                                                                    <blockqoute id="titre"><?php echo($data['photo']); ?></blockqoute>
+                                                                    <blockqoute id="titre"><?php echo(utf8_encode($data['photo'])); ?></blockqoute>
                                                                 </div><br>
                                                                 <div class="btn btn-warning" id="changeTof" onClick="change();"> Changer ma photo de profil</div>
                                                             </div>
