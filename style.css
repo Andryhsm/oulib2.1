@@ -41,13 +41,12 @@
 #div2
 {
 	position:absolute;
-	top:47%;
+	top:50%;
 	left: 25%;
 	width:50%;
 	z-index:0;
 	font-size: 22px;
 	color:#ffffff;
-	line-height:8vw;
 	text-align: center;
 	font-size: 2vw;
 }

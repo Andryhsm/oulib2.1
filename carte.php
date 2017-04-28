@@ -273,6 +273,8 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                                                 <br>
                                                 Adresse: <label id="adresseI"></label>
                                                 <br>
+                                                Numéro FINESS: <label id="finess"></label>
+                                                <br>
                                                 Type de soin: <label id="typesoinI"></label>
                                                 <br>
                                                 Lieu d'intervention: <label id="lieuI"></label>
@@ -339,6 +341,8 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                                                 Email: <label id="emailI1"></label>
                                                 <br>
                                                 Adresse: <label id="adresseI1"></label>
+                                                <br>
+                                                Numéro FINESS: <label id="finess1"></label>
                                                 <br>
                                                 Type de soin: <label id="typesoinI1"></label>
                                                 <br>
@@ -812,6 +816,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
                             document.getElementById("nomIprenom").innerHTML = infirmier.prenomI + " " + infirmier.nomI;
                             document.getElementById("telI").innerHTML = infirmier.telI;
+                            document.getElementById("finess").innerHTML = infirmier.finess;
                             document.getElementById("emailI").innerHTML = infirmier.emailI;
                             document.getElementById("adresseI").innerHTML = infirmier.rueI + ", " + infirmier.code_postalI + ", " + infirmier.villeI;
                             document.getElementById("typesoinI").innerHTML = infirmier.type_soinI1 + ", " + infirmier.type_soinI2 + ", " + infirmier.type_soinI3 + ", " + infirmier.type_soinI4;
@@ -819,7 +824,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             $('#emailI1').attr('value', infirmier.emailI);
                             document.images["imageI"].src = "./image-person/" + infirmier.photo + "";
 
-
+                            document.getElementById("finess1").innerHTML = infirmier.finess;
                             document.getElementById("nomIprenom1").innerHTML = infirmier.prenomI + " " + infirmier.nomI;
                             document.getElementById("telI1").innerHTML = infirmier.telI;
                             document.getElementById("emailI1").innerHTML = infirmier.emailI;

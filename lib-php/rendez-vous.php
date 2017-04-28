@@ -3,10 +3,10 @@
         
 	require "cnx.php";
 
-	$emailI = ($_POST["emailI"]);
+	$emailI = addslashes($_POST["emailI"]);
 	$date_soin1 = ($_POST["date_soin"]);
-	$heure_soin = ($_POST["heure_soin"]);
-	$commentaire = ($_POST["commentaire"]);
+	$heure_soin = $_POST["heure_soin"];
+	$commentaire = addslashes($_POST["commentaire"]);
 	$latLng = ($_POST["latLng"]) ? $_POST["latLng"] : "null";
 
 //        echo $emailI;
