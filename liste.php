@@ -181,25 +181,6 @@ include_once "./lib-php/cnx.php";
                                             echo '<center><h3>Vous n\'avez pas encore de demande</h3></center>';
                                         }
                                 ?>
-
-                                <!-- a class="btn btn-primary" data-toggle="modal" id="modalCarte" href='#modal-id'>Trigger modal</a>
-                                <div class="modal fade" id="modal-id">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title">Modal title</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div id="map" style="width: 60vw; height: 40vh;"></div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div -->
-
                                 
 
                                   <button class="btn hidden" id="modalCarte" data-toggle="modal" data-target="#carte"></button>
@@ -218,9 +199,13 @@ include_once "./lib-php/cnx.php";
                                         </div>
                                     </div>
                               
-                              <a class="btn btn-primary hide" data-toggle="modal" id="modalResult" href='#modal-id'>Trigger modal</a>
+                              <a class="btn btn-primary hide" data-toggle="modal" id="modalResult" href='#modal-id' >Trigger modal</a>
                                 <div class="modal fade" id="modal-id">
+<<<<<<< HEAD
                                     <div class="modal-dialog" style="margin: 0%; margin-left: 54%;">
+=======
+                                    <div class="modal-dialog" style="margin: 0; margin-left: 54%;">
+>>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -254,7 +239,7 @@ include_once "./lib-php/cnx.php";
 
             
             <div class="modal fade" id="modalCarte">
-                <div class="modal-dialog">
+                <div class="modal-dialog" >
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

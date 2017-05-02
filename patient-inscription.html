@@ -221,14 +221,18 @@
                                             <div class="form-group">
                                                 <label for="tel" class="col-sm-2 control-label">Adresse:</label>
                                                 <div class="col-sm-3">
+<<<<<<< HEAD
                                                     <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
 >>>>>>> 0f36ce13536ecd7424bd424fb01bc5fe67aa73ca
+=======
+                                                    <input type="text" onkeypress="refuserToucheEntree2(event);" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP">
+>>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="number" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP">
+                                                    <input type="number" onkeypress="refuserToucheEntree2(event);" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <input type="text" required="" placeholder="ville" class="form-control" name="villeP" id="villeP">
+                                                    <input type="text" onkeypress="refuserToucheEntree2(event);" required="" placeholder="ville" class="form-control" name="villeP" id="villeP">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -606,6 +610,7 @@
     <script type="text/javascript" src="./others/main.js.téléchargement"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&libraries=places"></script>
     <script type="text/javascript">
+<<<<<<< HEAD
                                                 $(function () {
                                                     // A chaque sélection de fichier
                                                     $('#form-filter').find('input[name="photo"]').on('change', function (e)
@@ -700,16 +705,138 @@
                                                                 window.location.replace("carte.php");
                                                             }
                                                             else
+=======
+
+
+                                                  var address = document.getElementById("rueP");
+                                                            
+                                                            var autocomplete2 = new google.maps.places.Autocomplete(address, {
+                                                                types: ['geocode']
+                                                            });
+
+                                                    google.maps.event.addListener(autocomplete2, 'place_changed', function(){
+                                                                var adres = $("#rueP").val();
+                                                                var adres2 = adres.split(',');
+                                                                var adress = adres2[0] + ", " + adres2[1];
+                                                            
+
+                                                                place = autocomplete2.getPlace();       //On obtient un objet PlaceResult
+                                                                console.log("Le resultat doit être ici ! ");
+                                                              
+                                                                console.log(place);
+
+                                                                var addressType = {};
+                    
+                                                                for(var i= 0; i < place.address_components.length; i++){
+                                                                    addressType[place.address_components[i].types[0]] = place.address_components[i].long_name;
+                                                                }
+                                                            
+                                                                var adresses_pat = (addressType['street_number']) ? addressType['street_number'] + ", " : '';
+
+                                                                adresses_pat += (addressType['route']) ? addressType['route'] : '';
+                                                                
+                                                                $("#rueP").val(adresses_pat);
+
+                                                                var codePostal = (addressType['postal_code']) ? addressType['postal_code'] : '';
+
+                                                                $('#code-postalP').val(codePostal);
+
+                                                                var ville;
+                                                                if(addressType['locality']){
+                                                                    ville = (addressType['locality']) ? addressType['locality'] : '';
+                                                                }else{
+                                                                    ville = (addressType['administrative_area_level_1']) ? addressType['administrative_area_level_1'] : '';
+                                                                }
+
+                                                                $('#villeP').val(ville);
+
+
+
+                                                            });
+
+
+                                                            var cp = document.getElementById("code-postalP");
+                                                            
+                                                            var autocomplete3 = new google.maps.places.Autocomplete(cp , {
+                                                                types: ['geocode']
+                                                            });
+
+                                                            google.maps.event.addListener(autocomplete3, 'place_changed', function(){
+                                                                var place2 = autocomplete3.getPlace();
+                                                                var add = {};
+                    
+                                                                for(var i= 0; i < place2.address_components.length; i++){
+                                                                    add[place2.address_components[i].types[0]] = place2.address_components[i].long_name;
+                                                                }
+
+                                                                var ville = (add['locality']) ? add['locality'] : '';
+                                                                $('#villeP').val(ville);
+
+                                                                $('#code-postalP').val(add['postal_code']);
+                                                                console.log(add);   
+                                                            });
+
+                                                            var villeI = document.getElementById("villeP");
+                                                            
+                                                            var autocomplete4 = new google.maps.places.Autocomplete(villeI , {
+                                                                types: ['geocode']
+                                                            });
+
+                                                            google.maps.event.addListener(autocomplete4, 'place_changed', function(){
+                                                                var place3 = autocomplete4.getPlace();
+                                                                var add2 = {};
+                                                                
+                                                                for(var i= 0; i < place3.address_components.length; i++){
+                                                                    add2[place3.address_components[i].types[0]] = place3.address_components[i].long_name;
+                                                                }
+                                                                console.log(place3);
+                                                                var cp = (add2['postal_code']) ? add2['postal_code'] : '';
+                                                                $('#code-postalP').val(cp);
+
+                                                                $('#code-postalP').val(add2['postal_code']);
+                                                            }); 
+
+                                                        $(function () {
+                                                            // A chaque sélection de fichier
+                                                            $('#form-filter').find('input[name="photo"]').on('change', function (e)
+>>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
                                                             {
-                                                                $('#erreur_inscription').html('<p>' + server_response + '</p>');
-                                                                $('#triggerwarning').trigger('click');
-                                                                setTimeout(function () {
-                                                                    $('#ferme').trigger('click');
-                                                                }, 4000);
-                                                            }
-                                                        },
-                                                        error: function (server_response)
+                                                                var files = $(this)[0].files;
+
+                                                                if (files.length > 0) {
+                                                                    var file = files[0],
+                                                                            $image_preview = $('#image_preview');
+
+                                                                    // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+                                                                    $image_preview.find('.thumbnail').removeClass('hidden');
+                                                                    $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+                                                                    $image_preview.find('h4').html(file.name);
+                                                                    $image_preview.find('#titre').html(file.name);
+                                                                }
+                                                            });
+                                                        });
+
+                                                         function refuserToucheEntree2(event)
+                                                                {
+                                                                    // Compatibilité IE / Firefox
+                                                                    if (!event && window.event) {
+                                                                        event = window.event;
+                                                                    }
+                                                                    // IE
+                                                                    if (event.keyCode == 13) {
+                                                                        event.returnValue = false;
+                                                                        event.cancelBubble = true;
+                                                                    }
+                                                                    // DOM
+                                                                    if (event.which == 13) {
+                                                                        event.preventDefault();
+                                                                        event.stopPropagation();
+                                                                    }
+                                                                }
+
+                                                        $('#insert').click(function (e)
                                                         {
+<<<<<<< HEAD
                                                             alert(server_response.statusText);
                                                         }
                                                     });
@@ -750,6 +877,41 @@
                     $('#returnOnTop').fadeIn();
 =======
                                                 });
+=======
+                                                            e.preventDefault();
+
+                                                            var form = $('#form-filter').get(0);
+                                                            var formData = new FormData(form);// get the form data
+                                                            // on envoi formData vers mail.php
+                                                            $.ajax({
+                                                                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                url: 'lib-php/insert-patient.php', // the url where we want to POST
+                                                                data: formData, // our data object
+                                                                dataType: 'text', // what type of data do we expect back from the server
+                                                                processData: false,
+                                                                contentType: false,
+                                                                success: function (server_response)
+                                                                {
+                                                                    if (server_response === "succes  ")
+                                                                    {
+                                                                        window.location.replace("carte.php");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        $('#erreur_inscription').html('<p>' + server_response + '</p>');
+                                                                        $('#triggerwarning').trigger('click');
+                                                                        setTimeout(function () {
+                                                                            $('#ferme').trigger('click');
+                                                                        }, 4000);
+                                                                    }
+                                                                },
+                                                                error: function (server_response)
+                                                                {
+                                                                    alert(server_response.statusText);
+                                                                }
+                                                            });
+                                                        });
+>>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
     </script>
     <script type="text/javascript">
         $(document).ready(function ()

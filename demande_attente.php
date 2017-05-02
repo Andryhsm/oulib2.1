@@ -20,7 +20,11 @@
 					    <h4 class='panel-title'><span class='glyphicon glyphicon-pause'></span>&nbsp;&nbsp;Demande en attente</h4>
 					  </div>
 					  <div class='panel-body'>
+<<<<<<< HEAD
 							Votre demande envoyée à l'infirmière  <b><i>".$valny['nomI']." ".$valny['prenomI']."</i></b> est en attente de validation.
+=======
+							Votre demande envoyée à l'infirmière  <b><i>".utf8_encode($valny['nomI'])." ".utf8_encode($valny['prenomI'])."</i></b> est en attente de validation
+>>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
 					    	<br>
 					    		<input type='hidden' class='{$data['id']}' value='{$data['status']}'>
 					    	<div class='pull-right'>
