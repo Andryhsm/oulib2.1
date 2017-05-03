@@ -337,7 +337,7 @@ $data = $req->fetch();
                                                         <label for="" class="col-lg-2 control-label"></label>
                                                         <div class="col-lg-5 ">
                                                             <textarea type="text" class="form-control" name="commande" id="detail" rows="3" maxlength="400"
-                                                                      placeholder="Saisissez ici les details de votre commande."  required></textarea>
+                                                                      placeholder="Saisissez ici les détails de votre commande."  required></textarea>
                                                         </div>
                                                         <div class="col-lg-3 alert alert-danger hide" role="alert" id="alert"> Erreur !</div>
                                                     </div>

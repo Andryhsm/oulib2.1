@@ -15,7 +15,7 @@
 			while($valny = $name->fetch()) 
 			{
 				echo("
-					<div class='panel panel-primary notification'>
+					<div class='panel panel-primary Tableau de bord'>
 					  <div class='panel-heading'>
 					    <h4 class='panel-title'><span class='glyphicon glyphicon-pause'></span>&nbsp;&nbsp;Demande en attente</h4>
 					  </div>

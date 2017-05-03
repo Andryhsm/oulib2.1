@@ -17,7 +17,7 @@
 				if ($data['status'] == "refuser") 
 				{
 					echo("
-						<div class='panel panel-danger notification'>
+						<div class='panel panel-danger Tableau de bord'>
 						  <div class='panel-heading'>
 						    <h4 class='panel-title'><span class='glyphicon glyphicon-remove-sign'></span>&nbsp;&nbsp;Réponse à votre demande de soin</h4>
 						  </div>
@@ -34,7 +34,7 @@
 				} elseif ($data['status'] == "accepter") 
 				{
 					echo("
-						<div class='panel panel-success notification'>
+						<div class='panel panel-success Tableau de bord'>
 						  <div class='panel-heading'>
 						    <h4 class='panel-title'><span class='glyphicon glyphicon-ok-sign'></span>&nbsp;&nbsp;Réponse à votre demande de soin</h4>
 						  </div>

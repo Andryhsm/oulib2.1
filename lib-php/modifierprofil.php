@@ -132,7 +132,7 @@ $data = $req->fetch();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="../carte.php">Carte</a></li>
-                            <li><a href="../notification.php"><span id="badges">Notification</span></a></li>
+                            <li><a href="../notification.php"><span id="badges">Tableau de bord</span></a></li>
                             <li><a href="modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="../contact1.php">Contact</a></li>
                             <li><a href="./deconnexion.php">Deconnexion</a></li>
@@ -157,7 +157,7 @@ $data = $req->fetch();
                                                     <div class="col-lg-7">
 
                                                         <div class="form-group">
-                                                            <h4>Vos informations personnels :</h4><br>
+                                                            <h4>Vos informations personnelles :</h4><br>
                                                             <label for="nom" class="col-sm-2 control-label">Nom:</label>
                                                             <div class="col-sm-9">
                                                                 <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP" value="<?php echo($data['nomP']); ?>">

@@ -111,7 +111,7 @@ $data = $req->fetch();
                 display: none;
                 cursor: pointer;
             }
-            /*.notifications
+            /*.Tableau de bords
             {
                 position: absolute;
                 left: 25%; top: 70px;
@@ -160,7 +160,7 @@ $data = $req->fetch();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="./carte.php">Carte</a></li>
-                            <li><a href="./notification.php"   data-toggle='tooltip' data-placement='bottom' title='Des notifications non lus !'><span id="badges">Tableau de bord</span></a></li>
+                            <li><a href="./notification.php"   data-toggle='tooltip' data-placement='bottom' title='Des Tableau de bords non lus !'><span id="badges">Tableau de bord</span></a></li>
                             <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="./contact1.php">Contact</a></li>
                             <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
@@ -183,7 +183,7 @@ $data = $req->fetch();
                             <div class="col-lg-offset-1 col-lg-5 col-md-5 col-sm-10 col-xs-10">
                                     <h4> Demandes approuvées / refusées </h4><br>
                                     <div class="scroll">
-                                        <div id="notifications">
+                                        <div id="Tableau de bords">
                                         </div>
                                     </div>
                             </div>
@@ -252,7 +252,7 @@ $data = $req->fetch();
                                 data: "email=" + email,
                                 success: function (server_response)
                                 {
-                                    $('#notifications').html(server_response);
+                                    $('#Tableau de bords').html(server_response);
                                 },
                                 error: function (server_response)
                                 {
