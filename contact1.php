@@ -123,7 +123,7 @@
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <li><a href="./carte.php">Carte</a></li>
-                      <li><a href="./notification.php"><span id="badges">Notification</span></a></li>
+                      <li><a href="./notification.php"><span id="badges">Tableau de bord</span></a></li>
                       <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                       <li><a href="./contact1.php">Contact</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
