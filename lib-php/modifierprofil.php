@@ -157,7 +157,7 @@ $data = $req->fetch();
                                                     <div class="col-lg-7">
 
                                                         <div class="form-group">
-                                                            <h4>Vos informations personnels :</h4><br>
+                                                            <h4>Vos informations personnelles :</h4><br>
                                                             <label for="nom" class="col-sm-2 control-label">Nom:</label>
                                                             <div class="col-sm-9">
                                                                 <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP" value="<?php echo($data['nomP']); ?>">
