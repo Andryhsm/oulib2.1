@@ -627,21 +627,24 @@
                                                                     if (marker) {
                                                                         marker.setMap(null);
                                                                     }
+                                                                    var latLng = results[0].geometry.location.lat;
+                                                                 
+
                                                                     marker = new google.maps.Marker({
                                                                         map: resultsMap,
                                                                         position: results[0].geometry.location,
                                                                         draggable: true
                                                                     });
 
-                                                                    var latLng = results[0].geometry.location.lat;
-                                                                    var position = marker.getPosition();
+                                                                    	
 
                                                                     var contentString = "Votre emplacement est il vraiment ici ? <br/>";
                                                                     contentString += " Si non, veuillez deplacer le maqueur s'il vous plaît";
 
+
                                                                     var position = marker.getPosition();
                                                                     $("#latLng").val(position);
-
+                                                                    
                                                                     google.maps.event.addListener(marker, "dragend", function (evenement) {
                                                                         var lat = evenement.latLng.lat(),
                                                                                 lng = evenement.latLng.lng();
