@@ -201,11 +201,9 @@ include_once "./lib-php/cnx.php";
                               
                               <a class="btn btn-primary hide" data-toggle="modal" id="modalResult" href='#modal-id' >Trigger modal</a>
                                 <div class="modal fade" id="modal-id">
-<<<<<<< HEAD
+
                                     <div class="modal-dialog" style="margin: 0%; margin-left: 54%;">
-=======
-                                    <div class="modal-dialog" style="margin: 0; margin-left: 54%;">
->>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
+
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
