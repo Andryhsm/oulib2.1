@@ -243,12 +243,6 @@
                                                 </div>
                                             </div>
 
-<<<<<<< HEAD
-                                            <script>
-
-           										 var liste
-=======
->>>>>>> 0f36ce13536ecd7424bd424fb01bc5fe67aa73ca
 
 
                                             <div class="form-group">
@@ -485,120 +479,14 @@
 
 
 
-    <!-- TOUS CE QUI CONCERNE LA CARTE GOOGLE MAP -->
+        <!-- TOUS CE QUI CONCERNE LA CARTE GOOGLE MAP -->
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap&libraries=places" async defer></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap&libraries=places" async defer></script>
 
-    <script type="text/javascript">
-                                                var map;
-                                                var marker;
+        <script type="text/javascript">
+                                                        var map;
+                                                        var marker;
 
-<<<<<<< HEAD
-                                                function initMap() {
-                                                    map = new google.maps.Map(document.getElementById('map'), {
-                                                        zoom: 18,
-                                                        center: {lat: 48.862226, lng: 2.340173},
-                                                    });
-                                                }
-
-                                                var element = document.getElementById('lieu_interv');
-                                                    if (element) {
-                                                        var autocomplete = new google.maps.places.Autocomplete(element, {types:['geocode']});
-                                                    }
-
-                                                    var address = document.getElementById("adresse");
-                                                    
-                                                    var autocomplete2 = new google.maps.places.Autocomplete(address, {
-                                                        types: ['address']
-                                                    });
-
-                                                    var place;
-                                                    var componentForm = {
-                                                        street_number: 'short_name',
-                                                        route: 'long_name',
-                                                        locality: 'long_name',
-                                                        administrative_area_level_1: 'short_name',
-                                                        country: 'long_name',
-                                                        postal_code: 'short_name'
-                                                    };
-
-                                                      google.maps.event.addListener(autocomplete2, 'place_changed', function(){
-                                                        var adres = $("#adresse").val();
-                                                        var adres2 = adres.split(',');
-                                                        var adress = adres2[0] + ", " + adres2[1];
-                                                    
-
-                                                        place = autocomplete2.getPlace();       //On obtient un objet PlaceResult
-                                                        console.log("Le resultat doit être ici ! ");
-                                                      
-                                                        console.log(place);
-
-                                                        var addressType = {};
-            
-                                                        for(var i= 0; i < place.address_components.length; i++){
-                                                            addressType[place.address_components[i].types[0]] = place.address_components[i].long_name;
-                                                        }
-                                                    
-                                                        var adresses_pat = (addressType['street_number']) ? addressType['street_number'] + ", " : '';
-
-                                                        adresses_pat += (addressType['route']) ? addressType['route'] + ", " : '';
-                                                        adresses_pat += (addressType['locality']) ? addressType['locality'] : '';
-
-                                                        $("#adresse").val(adresses_pat);
-
-                                                        var codePostal = (addressType['postal_code']) ? addressType['postal_code'] : '';
-
-                                                        $('#cp').val(codePostal);
-
-                                                        if(addressType['administrative_area_level_1']){
-                                                            var ville = (addressType['administrative_area_level_1']) ? addressType['administrative_area_level_1'] : '';
-                                                        }else{
-                                                            var ville = (addressType['administrative_area_level_2']) ? addressType['administrative_area_level_2'] : '';
-                                                        }
-
-
-
-                                                        $('#ville').val(ville);
-
-                                                    });
-
-                                                $("#lieu_interv").change(function () {
-                                                    setTimeout(function(){
-                                                    	geocodeAddress(map);
-                                                    }, 1000);
-                                                });
-
-                                                //Geocodage des adresses
-                                                function geocodeAddress(resultsMap) {
-                                                    var address = $("#lieu_interv").val();
-                                                    var geocoder = new google.maps.Geocoder();
-                                                    geocoder.geocode({'address': address}, function (results, status) {
-                                                        if (status === google.maps.GeocoderStatus.OK) {
-                                                            resultsMap.panTo(results[0].geometry.location);
-                                                            if (marker) {
-                                                                marker.setMap(null);
-                                                            }
-                                                            marker = new google.maps.Marker({
-                                                                map: resultsMap,
-                                                                position: results[0].geometry.location,
-                                                                draggable: true
-                                                            });
-
-                                                            var latLng = results[0].geometry.location.lat;
-                                                            var position = marker.getPosition();
-
-                                                            var contentString = "Votre emplacement est il vraiment ici ? <br/>";
-                                                            contentString += " Si non, veuillez deplacer le maqueur s'il vous plaît";
-
-                                                            var position = marker.getPosition();
-                                                            $("#latLng").val(position);
-
-                                                            google.maps.event.addListener(marker, "dragend", function (evenement) {
-                                                                var lat = evenement.latLng.lat(),
-                                                                        lng = evenement.latLng.lng();
-                                                                var pos = marker.getPosition();
-                                                                $("#latLng").val(pos);
-=======
                                                         function initMap() {
                                                             map = new google.maps.Map(document.getElementById('map'), {
                                                                 zoom: 18,
@@ -721,10 +609,6 @@
                                                             
                                                         }
                                                         
-                                                        $("#code-postalI").change(function(event) {
-                                                            var cp = $("#code-postalI").val();
-                                                            geocodeAddress3(map, cp);
-                                                        });
 
                                                         $("#lieu_interv").change(function () {
                                                             setTimeout(function () {
@@ -781,28 +665,6 @@
                                                             var geocoder = new google.maps.Geocoder();
                                                             geocoder.geocode({'address': address}, function (results, status) {
                                                                 if (status === google.maps.GeocoderStatus.OK) {
-                                                                    console.log(results);
-                                                                    resultsMap.panTo(results[0].geometry.location);
-                                                                } else {
-                                                                    alert('Geocode was not successful for the following reason: ' + status);
-                                                                }
-                                                            });
-                                                        }
-
-                                                        function geocodeAddress3(resultsMap, address) {
-                                                            var geocoder = new google.maps.Geocoder();
-                                                            geocoder.geocode({'address': address}, function (results, status) {
-                                                                if (status === google.maps.GeocoderStatus.OK) {
-                                                                    
-                                                                    var addressType = {};
-                    
-                                                                    for(var i= 0; i < results.address_components.length; i++){
-                                                                        addressType[results.address_components[i].types[0]] = results.address_components[i].long_name;
-                                                                    }
-
-                                                                    console.log("adresser : ");
-                                                                    console.log(addressType);
-
                                                                     resultsMap.panTo(results[0].geometry.location);
                                                                 } else {
                                                                     alert('Geocode was not successful for the following reason: ' + status);
@@ -849,117 +711,82 @@
                                                             }
                                                         }
         </script>
->>>>>>> 9bd920dfcbf02c60380bcaa6a89fdd79d0b51860
 
-                                                            });
-
-                                                            var infoBull = new google.maps.InfoWindow({
-                                                                content: contentString
-                                                            });
-                                                            infoBull.open(map, marker);
-                                                        } else {
-                                                            alert('Geocode was not successful for the following reason: ' + status);
-                                                        }
-                                                    });
-                                                }
-
-
-                                                function refuserToucheEntree(event)
-                                                {		
-                                                    // Compatibilité IE / Firefox
-                                                    if (!event && window.event) {
-                                                        event = window.event;
-                                                    }
-                                                    // IE
-                                                    if (event.keyCode == 13) {
-                                                        event.returnValue = false;
-                                                        event.cancelBubble = true;
-                                                        geocodeAddress(map);
-                                                    }
-                                                    // DOM
-                                                    if (event.which == 13) {
-                                                        event.preventDefault();
-                                                        event.stopPropagation();
-                                                        geocodeAddress(map);
-                                                    }
-                                                }
-    </script>
-
-    <script type="text/javascript" src="./others/main.js.téléchargement"></script>
-    <script type="text/javascript">
-                                                $(function ()
-                                                {
-                                                    // A chaque sélection de fichier
-                                                    $('#form-filter').find('input[name="photo"]').on('change', function (e) {
-                                                        var files = $(this)[0].files;
-
-                                                        if (files.length > 0) {
-                                                            var file = files[0],
-                                                                    $image_preview = $('#image_preview');
-
-                                                            // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
-                                                            $image_preview.find('.thumbnail').removeClass('hidden');
-                                                            $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
-                                                            $image_preview.find('h4').html(file.name);
-                                                            $image_preview.find('#titre').html(file.name);
-                                                        }
-                                                    });
-                                                });
-
-                                                $('#insert').click(function (e)
-                                                {
-                                                    e.preventDefault();
-
-                                                    var form = $('#form-filter').get(0);
-                                                    var formData = new FormData(form);// get the form data
-                                                    // on envoi formData vers mail.php
-
-                                                    $.ajax({
-                                                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                                                        url: 'lib-php/insert-infirmiere.php', // the url where we want to POST
-                                                        data: formData, // our data object
-                                                        dataType: 'text', // what type of data do we expect back from the server
-                                                        processData: false,
-                                                        contentType: false,
-                                                        success: function (server_response)
+        <script type="text/javascript" src="./others/main.js.téléchargement"></script>
+        <script type="text/javascript">
+                                                        $(function ()
                                                         {
-                                                            if (server_response === "succes  ")
-                                                            {
-                                                                window.location.replace("liste.php");
-                                                            } else
-                                                            {
-                                                                $('#erreur_inscription').html('<p>' + server_response + '</p>');
-                                                                $('#triggerwarning').trigger('click');
-                                                                setTimeout(function ()
+                                                            // A chaque sélection de fichier
+                                                            $('#form-filter').find('input[name="photo"]').on('change', function (e) {
+                                                                var files = $(this)[0].files;
+
+                                                                if (files.length > 0) {
+                                                                    var file = files[0],
+                                                                            $image_preview = $('#image_preview');
+
+                                                                    // Ici on injecte les informations recoltées sur le fichier pour l'utilisateur
+                                                                    $image_preview.find('.thumbnail').removeClass('hidden');
+                                                                    $image_preview.find('img').attr('src', window.URL.createObjectURL(file));
+                                                                    $image_preview.find('h4').html(file.name);
+                                                                    $image_preview.find('#titre').html(file.name);
+                                                                }
+                                                            });
+                                                        });
+
+                                                        $('#insert').click(function (e)
+                                                        {
+                                                            e.preventDefault();
+
+                                                            var form = $('#form-filter').get(0);
+                                                            var formData = new FormData(form);// get the form data
+                                                            // on envoi formData vers mail.php
+
+                                                            $.ajax({
+                                                                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                                                                url: 'lib-php/insert-infirmiere.php', // the url where we want to POST
+                                                                data: formData, // our data object
+                                                                dataType: 'text', // what type of data do we expect back from the server
+                                                                processData: false,
+                                                                contentType: false,
+                                                                success: function (server_response)
                                                                 {
-                                                                    $('#ferme').trigger('click');
-                                                                }, 4000);
-                                                            }
-                                                        },
-                                                        error: function (server_response)
-                                                        {
-                                                            console.log(server_response);
-                                                        }
-                                                    });
-                                                });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function ()
-        {
-            $('#returnOnTop').hide();
-            $('#returnOnTop').click(function () {
-                //e.preventDefault();
-                $('html,body').animate({scrollTop: 0}, 'slow');
+                                                                    if (server_response === "succes  ")
+                                                                    {
+                                                                        window.location.replace("liste.php");
+                                                                    } else
+                                                                    {
+                                                                        $('#erreur_inscription').html('<p>' + server_response + '</p>');
+                                                                        $('#triggerwarning').trigger('click');
+                                                                        setTimeout(function ()
+                                                                        {
+                                                                            $('#ferme').trigger('click');
+                                                                        }, 4000);
+                                                                    }
+                                                                },
+                                                                error: function (server_response)
+                                                                {
+                                                                    console.log(server_response);
+                                                                }
+                                                            });
+                                                        });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $('#returnOnTop').hide();
+                $('#returnOnTop').click(function () {
+                    //e.preventDefault();
+                    $('html,body').animate({scrollTop: 0}, 'slow');
+                });
             });
-        });
 
-        $(window).scroll(function ()
-        {
-            if ($(window).scrollTop() == 0)
-                $('#returnOnTop').fadeOut();
-            else
-                $('#returnOnTop').fadeIn();
-        });
-    </script>
+            $(window).scroll(function ()
+            {
+                if ($(window).scrollTop() == 0)
+                    $('#returnOnTop').fadeOut();
+                else
+                    $('#returnOnTop').fadeIn();
+            });
+        </script>
     </body>
 </html>
