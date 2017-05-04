@@ -6,9 +6,9 @@
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 0.8em;
-  height: 50px;
+  font-size: 0.9em;
   width: 30%;
+  height: 50%;
   transition: all 0.5s;
   cursor: pointer;
 }
