@@ -201,13 +201,11 @@ include_once "./lib-php/cnx.php";
                               
                               <a class="btn btn-primary hide" data-toggle="modal" id="modalResult" href='#modal-id' >Trigger modal</a>
                                 <div class="modal fade" id="modal-id">
-
-                                    <div class="modal-dialog" style="margin: 0%; margin-left: 54%;">
-
+                                    <div class="modal-dialog" style="margin: 0; margin-left: 54%;">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title">Information</h4>
+                                                <h4 class="modal-title">Information de lieu</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div id="result">Je suis le text par default, il faut me supprimer !</div>
@@ -462,7 +460,6 @@ include_once "./lib-php/cnx.php";
 
             function itineraire(latLng, modeI){
                 mode = modeI;
-               
                 if(latLng == "null"){
                     $('#erreur_inscription').html("<p>Désolé, </p><p>Ce patient n'a pas partager sa localisation !</p>");
                             $('#triggerwarning').trigger('click');
