@@ -190,6 +190,9 @@ body{ font-size:14px}#menu-main > li > a > span{ font-size:14px;color: white;}#m
 #alchem-home-sections .alchem-home-section-4 .owl-theme .owl-dots .owl-dot{border: 2px solid ;}#alchem-home-sections .alchem-home-section-10{
     background-color:#efb121;
     background-image:url('../img/imagefoot.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding-top:50px;
     padding-bottom:50px;
 }

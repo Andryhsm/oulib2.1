@@ -344,8 +344,8 @@ $data = $req->fetch();
                                                 </div><br>
                                                 <div class="row">
                                                     <div class="form-group">
-                                                        <label for="" class="col-lg-2 control-label"><textarea name="code" rows="1" cols="5" style="border:none;" placeholder="Code" id="code"></textarea>
-                                                        </label>
+                                                        <!--<label for="" class="col-lg-2 control-label"><textarea name="code" rows="1" cols="5" style="border:none;" placeholder="Code" id="code"></textarea>
+                                                        </label>-->
                                                         <div class="col-lg-5 ">
                                                             <button class="btn btn-danger" type="submit" id="prendre_rdv">
                                                                 Prendre RDV &nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>
@@ -412,7 +412,7 @@ $data = $req->fetch();
                 $('#prendre_rdv').click(function (e) {
                     e.preventDefault();
                     var det = document.getElementById('detail');
-                    var cod = document.getElementById('code');
+                    //var cod = document.getElementById('code');
                     var livreur = $('input[name=livreur]:checked').val();
                     var depart = document.getElementById('selectRegion');
                     var patient = document.getElementById('type_patient');
@@ -431,7 +431,7 @@ $data = $req->fetch();
                     var mail = $('#mail').val();
                     var mobile = $('#mobile').val();
                     var fixe = $('#fixe').val();
-                    var code = cod.value;
+                    //var code = cod.value;
                     var mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
 
                     var nomComplet = '';
@@ -466,7 +466,7 @@ $data = $req->fetch();
                         contact = mobile;
                     }
 
-                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&code=' + code + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact;
+                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact;
 
                     if ((livreur != '') && (departement != ''))
                     {
