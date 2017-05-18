@@ -12,439 +12,200 @@
  * isset($_GET['vuehtml']) is not mandatory
  * it allow to display the result in the HTML format
  */
+    require 'connexion_bdd.php';
+// déclarations et instantiation des variables a envoyer recu par AJAX
+    $departement = utf8_decode($_POST['departement']);
+    $datelivraison = utf8_decode($_POST['datelivraison']);
+    $heure = utf8_decode($_POST['heure']);
+    $livreur = utf8_decode($_POST['livreur']);
+    $mail = utf8_decode($_POST['mail']);
+    $nom = utf8_decode($_POST['nom']);
+    $prenom = utf8_decode($_POST['prenom']);
+    $adresse = utf8_decode($_POST['adresse']);
+    $adresse2 = utf8_decode($_POST['adresse2']);
+    $mobile = utf8_decode($_POST['mobile']);
+    $fixe = utf8_decode($_POST['fixe']);
+    $commande = utf8_decode($_POST['commande']);
+    $genre = utf8_decode($_POST['genre']);
+    $codepostal = utf8_decode($_POST['codepostal']);
+    $ville = utf8_decode($_POST['ville']);
+    $type_patient = utf8_decode($_POST['type_patient']);
+    $code = utf8_decode($_POST['code']);
 
+    $nomComplet = utf8_decode($_POST['nomComplet']);
+    $contact = utf8_decode($_POST['contact']);
+    $adresseComplet = utf8_decode($_POST['adresseComplet']);
+
+
+    $date_insertion = date('Y-m-d');
+
+
+    // déclaration et instanciation des variables a envoyer par mail
+    $message = utf8_decode(nl2br(($_POST['message'])));
     // get the HTML
+    $nomI = (isset($_POST["nomI"])) ? $_POST["nomI"] : "";
+    $prenomI = (isset($_POST["prenomI"])) ? $_POST["prenomI"] : "" ;
+
+    // sujet du mail
+    $sujet = 'Demande de renouvellement ( '.$nom.' - '.$codepostal.' '.$ville.')';
+    // destinataire du mail
+    $destinataire = "fenoheriniainat@gmail.com";
+/*
+    $destinataire = 'rado.ratrimosoa@medsoft-sante.fr; fanou.ralaivao@medsoft-sante.fr; infos@medsoft-sante.fr; renouvellement@medsoft-sante.fr; thierry.halison@medsoft-sante.fr; anny-laure.benga@medsoft-sante.fr';
+*/
+    $header ='Content-Type: text/html; charset="ISO-8859-1"'."\n";
+    $header .='Content-Transfer-Encoding: 8bit';
+
+    try 
+    {
+        /*
+        $requete = $bdd->prepare(" INSERT INTO renouvellements(departement, datelivraison, heure, livreur, mail, nom, adresse, mobile, commande, genre, type_patient, code, date_insertion) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $requete->execute(array($departement, $datelivraison, $heure, $livreur, $mail, $nomComplet, $adresseComplet, $contact, $commande, $genre, $type_patient, $code, $date_insertion)) or die(print_r($requete->errorInfo(), TRUE));
+        */
+        echo "La commande a bien été ajouté ! Vérifier votre boite mail après confirmation. Merci de votre confiance!";
+
+        mail($destinataire, $sujet, $message, $header);
+        //$requete->closeCursor();
+    } 
+    catch (Exception $e) 
+    {
+        echo " Erreur lors de l'ajout de la nouvelle commande !";
+    }
+
+     ob_start();
+    ?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>pdf</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .content{
+                margin: 40px 20px 0px 20px; 
+            }
+            .identification{
+                width: 40%;
+                border: 1px #006dcc solid;
+            }
+            .ambony{
+                margin-top: -30px;
+                 text-align: center;
+            }
+            .to{
+                width: 100px;
+            }
+            .tt{
+                margin-top: 50px;
+                font-size: 15px;
+                border-bottom: 1px #000 solid;
+                border-top: 1px #000 solid;
+                 text-align: center;
+            }
+            .materiel{
+                margin-top: 50px;
+                font-size: 14px;
+
+            }
+            .tot{
+                font-size: 14px;
+                 text-align: center;
+            }
+            .bloc{
+                margin-top: 50px;
+            }
+            #colonne1 {
+                float: left;
+                width: 410px;
+                border: 2px #006dcc solid;
+            }
+            #colonne2 {
+                float: right;
+                width: 410px;
+                border: 2px #006dcc solid;
+            }
+            #centre {
+                margin-left: 420px;
+                margin-right: 420px;
+                margin-bottom: 195px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <table>
+                <tr>
+                    <td width="250px;" class="identification">
+                <p style="color: #777777; font-size: 9px; text-align: center;">IDENTIFICATION DU PRESCRIPTEUR</p>
+                <br><br><br>
+                <div class="tot">
+                    <?php echo $prenom."<br/>".$nom; ?>
+                </div>
+                <br><br><br><br>
+                </td>
+                <td width="180px;" class="">
+                    <div class="ambony">
+                        <img width="100px;" src="./img/cerfa.png">
+                            <p><b><h3 style="color: #006dcc; font-family: Arial; font-size: 13px;">N° 60-3937</h3></b></p>
+                    </div>    
+                </td>
+                <td width="250px;" class="identification">
+                <p style="color: #777777;  font-size: 9px; text-align: center;">IDENTIFICATION DU PATIENT</p>
+                <br><br><br>
+                <div class="tot">
+                    <?php echo $prenomI."<br/>".$nomI; ?>
+                </div>
+                <br><br><br><br>
+                </td>
+                </tr>
+            </table>
+            <div class="tt">    
+                        Prescriptions relatives au traitement de l’affection de longue durée (liste ou hors liste)
+                    <br>
+                    (AFFECTION EXONERANTE)
+            </div>
+    <div class="materiel">
+        <b><?php echo $commande; ?></b>
+    </div>
+</div>
+</body>
+</html>
+
+    <?php
+    $content = ob_get_clean();
+
+    //convert in PDF
+    
+    require_once('../html2pdf-4.4.0/html2pdf.class.php');
+    require_once('../pjmail/pjmail.class.php');
+
+    
+    try
+    {
         $html2pdf = new HTML2PDF('P', 'A4', 'fr');
         $html2pdf->setDefaultFont('Arial');
         $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $contentPDF = $html2pdf->Output('content.pdf');
+        $pdf = $html2pdf->Output('conten.pdf');  
 
-        $mail = new simplemail;
-        $mail -> addrecipient('fenoheriniainat@gmail.com','tetsuo');
-        $mail -> addbcc('ddd@ddd.com','plouf');
-        $mail -> addfrom('gwbush@neobagdad.com','gwbush');
-        $mail -> addsubject('yyy yyy');
-
-        $mail -> text = 'plain text etc. etc. bla bla ...';
-
-
-        // un attachement html ( image jointe afficher ds le html ).
-        $mail -> addhtmlattachement ( $contentPDF,'doc1', 'image/gif' );
-
-        // une piece jointe.
-        $mail -> addattachement ( 'KT400.gif' );
-
-        if ( $mail -> sendmail() ) { echo "envoyé"; } else { echo "erreur"; echo $mail->error_log; } ?>
-
-?>
-
-<?php
-
-class simplemail {
-    
-    var $recipientlist = array();
-    var $subject;
-    var $hfrom;
-    var $hbcc;
-    var $hcc;
-    
-    var $Xsender;
-    var $ErrorsTo;
-    var $XMailer = 'PHP';
-    var $XPriority = 3;
-    
-    var $set_mode='php';
-    
-    var $text;
-    var $html;
-    var $attachement;
-    var $htmlattachement;
-
-    var $recipient; 
-
-    var $body;
-    var $headers;
-    var $error_log;
-        var $connect;
-    
-    var $default_charset = 'iso-8859-1';
-    
-    var $B1B = "----=_001";
-    var $B2B = "----=_002";
-    var $B3B = "----=_003";
-
-    
-    function simplemail() {
-        $this -> attachement = array();
-        $this -> htmlattachement = array();
+        
+        $mail = new PJmail();
+        $mail->setAllFrom('oulibfrsqx@cluster023.hosting.ovh.net', 'oulib.fr');    // mail en cas d'erreur d'envoie
+        $mail->addfrom('oulibfrsqx@cluster023.hosting.ovh.net', 'oulib.fr');       // mail envoyeur
+        $mail->addrecipient('fenoheriniainat@gmail.com');
+        $mail->addrecipient('feno.tolojanahary@imedsoft.fr');
+        $mail->addsubject("Un email de test"); 
+        $mail->text = "Je suis l'email de test ! ";
+        $mail->addbinattachement("content.pdf", $pdf);
+        $mail->sendmail();          
     }
-    
-    function checkaddress($address) {
-        if ( preg_match('`([[:alnum:]]([-_.]?[[:alnum:]])*@[[:alnum:]]([-_.]?[[:alnum:]])*\.([a-z]{2,4}))`', $address) ) {
-            return TRUE;
-        } else {
-            $this->error_log("l'adresse $address est invalide"); return FALSE;
-        }
-    }
-    
-    function checkname($name) {
-        if ( preg_match("`[0-9a-zA-Z\.\-_ ]*`" , $name ) ) {
-            return TRUE;
-        } else {
-            $this->error_log(" le pseudo $name est invalide\n"); return FALSE;
-        }
-    }
-    
-    function makenameplusaddress($address,$name) {
-        if ( !$this->checkaddress($address) ) return FALSE;
-        if ( !$this->checkname($name) ) return FALSE;
-        if ( empty($name) ) { return $address; }
-        else { $tmp=$name." <".$address.">"; return $tmp; }
-    }
-    
-    function addrecipient($newrecipient,$name='') {
-        $tmp=$this->makenameplusaddress($newrecipient,$name);
-        if ( !$tmp ) { $this->error_log(" To: error"); return FALSE; }
-        $this->recipientlist[] = array( 'mail'=>$newrecipient, 'nameplusmail' => $tmp );
-        return TRUE;
-    }
-    
-    function addbcc($bcc,$name='') {
-        $tmp=$this->makenameplusaddress($bcc,$name);
-        if ( !$tmp ) { $this->error_log(" Bcc: error"); return FALSE; }
-        if ( !empty($this->hbcc)) $this->hbcc.= ",";
-        $this->hbcc.= $tmp;
-        return TRUE;
-    }
-    
-    function addcc($cc,$name='') {
-        $tmp=$this->makenameplusaddress($cc,$name);
-        if ( !$tmp ) { $this->error_log(" Cc: error\n"); return FALSE; }
-        if (!empty($this->hcc)) $this->hcc.= ",";
-        $this->hcc.= $tmp;
-        return TRUE;
-    }
-    
-    function addsubject($subject) {
-        if (!empty($subject)) $this->subject = $subject;
-    }
-    
-    function addfrom($from,$name='') {
-        $tmp=$this->makenameplusaddress($from,$name);
-        if ( !$tmp ) { $this->error_log(" From: error"); return FALSE; }
-        $this->hfrom = $tmp;
-        return TRUE;
-    }
-    
-    function addreturnpath($return) {
-        $tmp=$this->makenameplusaddress($return,'');
-        if ( !$tmp ) { $this->error_log("Return-Path: error"); return FALSE; }
-        $this->returnpath = $return;
-        return TRUE;
-    }
-    
-    function addreplyto($replyto) {
-        $tmp=$this->makenameplusaddress($replyto,'');
-        if ( !$tmp ) { $this->error_log(" Reply-To: error"); return FALSE; }
-        $this->returnpath = $tmp;
-        return TRUE;
+    catch(HTML2PDF_exception $e) {
+        echo $e;
+        exit;
     }
 
-    
-    // les attachements
-    function addattachement($filename) {
-        array_push ( $this -> attachement , array ( 'filename'=> $filename ) );
-    }
-    
-    // les attachements html
-    function addhtmlattachement($filename,$cid='',$contenttype='') {
-        array_push ( $this -> htmlattachement ,
-                  array ( 'filename'=>$filename ,
-                    'cid'=>$cid ,
-                    'contenttype'=>$contenttype )
-        );
-    }
-    
-    function writeattachement(&$attachement,$B) {
-        $message = '';
-        if ( !empty($attachement) ) {
-            foreach($attachement as $AttmFile){
-                $patharray = explode ("/", $AttmFile['filename']);
-                $FileName = $patharray[count($patharray)-1];
-                
-                $message .= "\n--".$B."\n";
-                
-                if (!empty($AttmFile['cid'])) {
-                    $message .= "Content-Type: {$AttmFile['contenttype']};\n name=\"".$FileName."\"\n";
-                    $message .= "Content-Transfer-Encoding: base64\n";
-                    $message .= "Content-ID: <{$AttmFile['cid']}>\n";
-                    $message .= "Content-Disposition: inline;\n filename=\"".$FileName."\"\n\n";
-                } else {
-                    $message .= "Content-Type: application/octetstream;\n name=\"".$FileName."\"\n";
-                    $message .= "Content-Transfer-Encoding: base64\n";
-                    $message .= "Content-Disposition: attachment;\n filename=\"".$FileName."\"\n\n";
-                }
-                
-                $fd=fopen ($AttmFile['filename'], "rb");
-                $FileContent=fread($fd,filesize($AttmFile['filename']));
-                fclose ($fd);
-                
-                $FileContent = chunk_split(base64_encode($FileContent));
-                $message .= $FileContent;
-                $message .= "\n\n";
-            }
-            $message .= "\n--".$B."--\n";
-        }
-        return $message;
-    }
-    
-    function BodyLineWrap($Value) {
-        return wordwrap($Value, 78, "\n ");
-    }
-    
-    function makebody() {
-        $message='';
-        if ( !$this->html && $this->text && !empty($this->attachement) ) {
-            
-            //Messages start with text/html alternatives in OB
-            $message ="This is a multi-part message in MIME format.\n";
-            $message.="\n--".$this->B1B."\n";
-            
-            $message.="Content-Type: text/plain; charset=\"iso-8859-1\"\n";
-            $message.="Content-Transfer-Encoding: quoted-printable\n\n";
-            // plaintext goes here
-            $message.=$this->BodyLineWrap($this->text)."\n\n";
-            
-            $message.=$this->writeattachement($this->attachement,$this->B1B);
-            
-        }
-        elseif ( !$this->html && $this->text && empty($this->attachement) ) {
-            
-            // plaintext goes here
-            $message.=$this->BodyLineWrap($this->text)."\n\n";
-        }
-        elseif ( $this->html ) {
-            
-            //Messages start with text/html alternatives in OB
-            $message ="This is a multi-part message in MIME format.\n";
-            $message.="\n--".$this->B1B."\n";
-            
-            $message.="Content-Type: multipart/related;\n\t boundary=\"".$this->B2B."\"\n\n";
-            //plaintext section
-            $message.="\n--".$this->B2B."\n";
-            
-            $message.="Content-Type: multipart/alternative;\n\t boundary=\"".$this->B3B."\"\n\n";
-            //plaintext section
-            $message.="\n--".$this->B3B."\n";
-            
-            $message.="Content-Type: text/plain; charset=\"iso-8859-1\"\n";
-            $message.="Content-Transfer-Encoding: quoted-printable\n\n";
-            // plaintext goes here
-            $message.=$this->BodyLineWrap($this->text)."\n\n";
-            
-            // html section
-            $message.="\n--".$this->B3B."\n";
-            $message.="Content-Type: text/html; charset=\"iso-8859-1\"\n";
-            $message.="Content-Transfer-Encoding: base64\n\n";
-            // html goes here
-            $message.=chunk_split(base64_encode($this->html))."\n\n";
-            
-            // end of text
-            $message.="\n--".$this->B3B."--\n";
-            
-            // attachments html
-            if (empty($this->htmlattachement)) {
-                $message.="\n--".$this->B2B."--\n";
-            } else {
-                $message.=$this->writeattachement( $this->htmlattachement,$this->B2B);
-            }
-            
-            // attachments
-            if (empty($this->attachement)) {
-                $message.="\n--".$this->B1B."--\n";
-            } else {
-                $message.=$this->writeattachement($this->attachement,$this->B1B);
-            }
-                        
-        }
-        
-        $this->body = $message;
-                
-        return $message;
-
-    }
-    
-    // Mail Headers Methods
-        
-    function MakeHeaderField($Field,$Value) {
-        return wordwrap($Field.": ".$Value, 78, "\n ")."\r\n";
-    }
-    
-    function AddField2Header($Field,$Value) {
-        $this->headers .= $this->MakeHeaderField($Field,$Value);
-    }
-    
-    function makeheader() {
-        $this->headers = '';
-    
-        if ( empty($this->recipientlist) ) { $this->error_log("destinataire manquant"); return FALSE; }
-//      else { $this->AddField2Header("To",$this->recipient); }
-        
-        if ( empty($this->subject) ) {
-            $this->error_log("sujet manquant");
-            return FALSE; 
-        } else {
-            if ($this->set_mode!='php' ) {
-                $this->AddField2Header("Subject", $this->subject);
-            }
-        }
-        
-        
-        # Date: Mon, 03 Nov 2003 20:48:06 +0100
-        $this->AddField2Header("Date", date ('r'));
-
-        if ( !empty($this->Xsender) ) { $this->AddField2Header("X-Sender",$this->Xsender); }
-        else { $this->AddField2Header("X-Sender",$this->hfrom); }
-        
-        if ( !empty($this->ErrorsTo) ) { $this->AddField2Header("Errors-To",$this->ErrorsTo); }
-        else { $this->AddField2Header("Errors-To",$this->hfrom); }
-        
-        if ( !empty($this->XMailer) ) $this->AddField2Header("X-Mailer",$this->XMailer);
-        
-        if ( !empty($this->XPriority) ) $this->AddField2Header("X-Priority",$this->XPriority);
-        
-        if ( !empty($this->hfrom) ) $this->AddField2Header("From",$this->hfrom);
-        
-        if ( !empty($this->returnpath) ) $this->AddField2Header("Return-Path",$this->returnpath);
-        
-        if ( !empty($this->replyto) ) $this->AddField2Header("Reply-To",$this->replyto);
-        
-        $this->headers .="MIME-Version: 1.0\r\n";
-        
-        if ( !$this->html && $this->text && !empty($this->attachement) ) {      
-            $this->headers .= "Content-Type: multipart/mixed;\r\n\t boundary=\"".$this->B1B."\"\r\n";
-        } elseif ( !$this->html && $this->text && empty($this->attachement) ) { 
-            $this->headers .="Content-Type: text/plain; charset=us-ascii; format=flowed\r\n";
-            $this->headers .="Content-Transfer-Encoding: 7bit\r\n";
-        } elseif ( $this->html ) {          
-            if ( !$this->text ) { $this->text="HTML only!"; }
-            $this->headers .="Content-Type: multipart/mixed;\r\n\t boundary=\"".$this->B1B."\"\r\n";
-        }
-        
-        if ( !empty($this->hcc) ) $this->AddField2Header("Cc",$this->hcc);
-        if ( !empty($this->hbcc) ) $this->AddField2Header("Bcc",$this->hbcc);
-        
-        return $this->headers;
-    }
-    
-    function sendmail() {
-        $this->makebody();
-        $this->makeheader();
-        switch($this->set_mode) {
-            case 'php' : $this->phpmail(); break;
-            case 'socket': $this->socketmailloop(); break;
-        }
-                return TRUE;
-    }
-    
-    // Mail send by PHPmail
-    
-    function phpmail() {
-
-        while ( list($key, $to) = each($this->recipientlist) ) {
-            $this->recipient = $to['mail'];
-            if ( mail($to['mail'], $this->subject, $this->body, $this->makeheader() ) ) { 
-                $this->error_log("envoie vers {$to['nameplusmail']} réussi");
-            } else { 
-                $this->error_log("envoie vers {$to['nameplusmail']} echoué");
-            }
-        }
-        return TRUE; 
-    }
-    
-    // Socket Function
-        
-    function SocketStart() {
-        if (!$this->connect = fsockopen (ini_get("SMTP"), ini_get("smtp_port"), $errno, $errstr, 30))  { 
-            $this->error_log("Could not talk to the sendmail server!"); return FALSE; 
-        };
-        return fgets($this->connect, 1024);
-    }
-    
-    function SocketStop() {
-        fclose($this->connect);
-        return TRUE;
-    }
-        
-    function SocketSend($in,$wait='') {
-        fputs($this->connect, $in, strlen($in));
-        echo "-"; flush();
-        if(empty($wait)) {
-            $rcv = fgets($this->connect, 1024);
-            return $rcv;
-        }
-        return TRUE;
-    }
-    
-    // Mail Socket  
-    
-    function socketmailstart() {
-                    
-        $this->SocketStart();           
-        if (!isset($_SERVER['SERVER_NAME'])  || empty($_SERVER['SERVER_NAME'])) { $serv = 'unknown'; }
-        else { $serv = $_SERVER['SERVER_NAME']; }
-        $this->SocketSend("HELO $serv\r\n");
-        }
-        
-    function socketmailsend($to) {
-        
-        $this->recipient = $to;
-        $this->error_log("Socket vers $to");
-            
-        $this->SocketSend( "MAIL FROM:{$this->hfrom}\r\n" );
-        $this->SocketSend( "RCPT TO:$to\r\n" );
-        $this->SocketSend( "DATA\r\n" );    
-        $this->SocketSend( $this->CleanMailDataString($this->headers)."\r\n", 'NOWAIT' );   
-        $this->SocketSend( $this->CleanMailDataString($this->body)."\r\n", 'NOWAIT' );  
-        $this->SocketSend( ".\r\n" );
-        $this->SocketSend( "RSET\r\n" );
-            
-        $this->error_log("Fin de l'envoi vers $to");
-
-        return TRUE;        
-    }
-        
-    function socketmailstop() {      
-        $this->SocketSend("QUIT\r\n");
-        $this->SocketStop();
-        return TRUE;
-    }
-        
-    function socketmailloop() {
-        $this->socketmailstart();
-        while ( list($key, $to) = each($this->recipientlist)) {
-            $this->recipient = $to['mail'];
-            $this->makeheader();
-            $this->socketmailsend($to['mail']);
-        }
-        $this->socketmailstop();
-    }
-
-    // Misc.
-
-    function error_log($msg='') {
-        if(!empty($msg)) { 
-                $this->error_log .= $msg . "\r\n--\r\n";
-                return TRUE; 
-        }
-        return " --- Error Log --- \r\n\r\n".$this->error_log;
-    }
-    
-    function CleanMailDataString($data) {
-        $data = preg_replace("/([^\r]{1})\n/", "\\1\r\n", $data);
-        $data = preg_replace("/\n\n/", "\n\r\n", $data);
-        $data = preg_replace("/\n\./", "\n..", $data);
-        return $data;
-    }
-}
 ?>

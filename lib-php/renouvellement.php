@@ -359,7 +359,9 @@ $data = $req->fetch();
                                             </div>
                                         </fieldset>
 
-                <input class="hidden" name="emailP" id="emailP" value="<?php echo($_SESSION['email'] ); ?>" readonly>
+                <input class="hidden" name="emailI" id="emailI" value="<?php echo($_SESSION['email'] ); ?>" readonly>
+                <input class="hidden" name="nomI" id="nomI" value="<?php echo($_SESSION['nomI'] ); ?>" readonly>
+                <input class="hidden" name="prenomI" id="prenomI" value="<?php echo($_SESSION['prenomI'] ); ?>" readonly>
 
                                     </div>
                                 </div>
@@ -431,6 +433,8 @@ $data = $req->fetch();
                     var mail = $('#mail').val();
                     var mobile = $('#mobile').val();
                     var fixe = $('#fixe').val();
+                    var nomI = $('#nomI').val();
+                    var prenomI = $("#prenomI").val();
                     //var code = cod.value;
                     var mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
 
@@ -466,7 +470,7 @@ $data = $req->fetch();
                         contact = mobile;
                     }
 
-                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact;
+                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact + '&nomI=' + nomI + '&prenomI=' + prenomI;
 
                     if ((livreur != '') && (departement != ''))
                     {

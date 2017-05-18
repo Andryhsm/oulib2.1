@@ -9,11 +9,7 @@
  * @version		1.2 - 13/12/2007
  */
 	
-if (!defined('__CLASS_PJ_MAIL__'))
-{
-	define('__CLASS_PJ_MAIL__', true);
-
-	require_once(dirname(__FILE__).'\\_simplemail\\class.mail.php');
+	require_once('class.mail.php');
 	
 	class PJmail extends simplemail
 	{
@@ -79,7 +75,7 @@ if (!defined('__CLASS_PJ_MAIL__'))
 					}
 					else
 					{
-						$message .= "Content-Type: application/octetstream;\n name=\"".$FileName."\"\n";
+						$message .= "Content-Type: application/octetstream; \n  name=\"".$FileName."\"\n";
 						$message .= "Content-Transfer-Encoding: base64\n";
 						$message .= "Content-Disposition: attachment;\n filename=\"".$FileName."\"\n\n";
 					}
@@ -140,5 +136,4 @@ if (!defined('__CLASS_PJ_MAIL__'))
 			return null;
 		}
 	}
-}
 ?>
