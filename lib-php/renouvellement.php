@@ -142,10 +142,10 @@ $data = $req->fetch();
                                             <h5><span class="important">La livraison se fera sous 24 à 48h après le traitement de la commande, 
                                                     sous r&eacute;s&egrave;rve de la disponibilit&eacute; des produits.</span></h5><br>
                                             <p> Cochez le mode de livraison qui vous convient : <br><br>
-                                            <div id="medequipe">
+                                            <!-- <div id="medequipe">
                                                 <input type="radio" name="livreur" value="Equipe Medsoft" id="l1"/> 
                                                 <label for="l1">&nbsp;Equipe Medsoft </label>
-                                            </div>
+                                            </div> -->
                                             <div>
                                                 <input type="radio" name="livreur" value="Transporteur - 24h France express" id="l2" /> 
                                                 <label for="l2">&nbsp;Transporteur - (24h) France express</label>
@@ -171,10 +171,10 @@ $data = $req->fetch();
                                     <div class="separ"></div>
                                 </div>
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <fieldset class="fieldset">
                                         <legend> &nbsp;&nbsp;Choisissez votre d&eacute;partement &nbsp;&nbsp;<span class="glyphicon glyphicon-tags"></span></legend>
-                                        <!-- Choix du lieu de livraison-->
+                                        
                                         <div id="choixL">
                                             <div class="form-group">
                                                 <label class="col-lg-3">Selectionnez ici</label>
@@ -199,7 +199,7 @@ $data = $req->fetch();
                                         </div>
                                     </fieldset>
                                     <div class="separ"></div>
-                                </div>
+                                </div> -->
 
                                 <div class="row" id="dateL" name="ldate">
                                     <fieldset class="fieldset">
@@ -207,7 +207,7 @@ $data = $req->fetch();
                                         <legend>Date de livraison&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span></legend>
                                         <div class="form-group">
                                             <label class="col-lg-3" id="addon-date">Choisissez votre date de livraison</label>
-                                            <div class="col-lg-5 hide" id="datelivraison">
+                                            <div class="col-lg-5" id="datelivraison">
                                                 <input type="text" class="form-control" id="datepicker" aria-describedby="addon-date" name="data[Renouvellement][datelivraison]" placeholder="Votre date de livraison" readonly>
                                             </div>
                                         </div>
