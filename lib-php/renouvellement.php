@@ -361,7 +361,7 @@ $data = $req->fetch();
                                                         <div class="col-lg-5 ">
                                                             <div class="checkbox">
                                                               <label>
-                                                                <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
+                                                                <input type="checkbox" id="avoirNumColis" name="avoirNumColis"> J'aimerais avoir le numéro de suivi de mon colis
                                                               </label>
                                                             </div>
                                                         </div>
@@ -490,10 +490,17 @@ $data = $req->fetch();
                     var cpI = $('#code-postalI').val();
                     var finess = $('#finess').val();
                     var cabinet = $('#cabinet').val();
-
+                    var mes = "";
                     //var code = cod.value;
-                    var mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    if($('#avoirNumColis').prop("checked") == true)
+                    {
+                        var colis = "Le client souhaite avoir le numéro de suivi de son colis ";
+                        mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br>"+colis+"<br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    } else {
+                         mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    }
 
+                    console.log(mes);
                     var nomComplet = '';
                     var adresseComplet = '';
                     var contact = '';
@@ -560,6 +567,7 @@ $data = $req->fetch();
                             $('#ferme').trigger('click');
                         }, 4000);
                     }
+                    
                 });
             });
         </script>
