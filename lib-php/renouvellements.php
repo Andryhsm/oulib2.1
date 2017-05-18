@@ -19,7 +19,7 @@
 	$codepostal = utf8_decode($_POST['codepostal']);
 	$ville = utf8_decode($_POST['ville']);
 	$type_patient = utf8_decode($_POST['type_patient']);
-	$code = utf8_decode($_POST['code']);
+	$code = "";
 
 	$nomComplet = utf8_decode($_POST['nomComplet']);
 	$contact = utf8_decode($_POST['contact']);
