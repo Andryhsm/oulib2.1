@@ -22,6 +22,7 @@ $type_soin2 = htmlspecialchars($_POST['type-soin2']);
 $type_soin3 = htmlspecialchars($_POST['type-soin3']);
 $type_soin4 = htmlspecialchars($_POST['type-soin4']);
 $lieu_intervention = addcslashes($_POST['lieu-intervention'], "'");
+$cabinet = htmlspecialchars($_POST['cabinet']);
 
 
 $mdp = utf8_decode($mdp);
@@ -39,6 +40,7 @@ $type_soin2 = utf8_decode($type_soin2);
 $type_soin3 = utf8_decode($type_soin3);
 $type_soin4 = utf8_decode($type_soin4);
 $lieu_intervention = utf8_decode($lieu_intervention);
+$cabinet = utf8_decode($cabinet);
 
 $dossier = '../image-person/';
 
@@ -58,7 +60,7 @@ if ($fichier == "") {
 
             $inf = $reponse->fetch();
 
-            $bdd->exec("INSERT INTO `oulib_infirmiere` (`photo`,`nomI`,`prenomI`,`emailI`,`mdpI`,`telI`,`rueI`,`code-postalI`,`villeI`,`finess`,`type-soinI1`,`type-soinI2`,`type-soinI3`,`type-soinI4`,`lieu-intervention`, `latLng`) VALUES ('$fichier','$nom','$prenom','$email','$mdp','$tel','$rue','$code_postal','$ville','$finess','$type_soin1','$type_soin2','$type_soin3','$type_soin4','$lieu_intervention','$latLng')") or die(print_r($bdd->ErrorInfo()));
+            $bdd->exec("INSERT INTO `oulib_infirmiere` (`photo`,`nomI`,`prenomI`,`emailI`,`mdpI`,`telI`,`rueI`,`code-postalI`,`villeI`,`finess`,`type-soinI1`,`type-soinI2`,`type-soinI3`,`type-soinI4`,`lieu-intervention`, `cabinet`, `latLng`) VALUES ('$fichier','$nom','$prenom','$email','$mdp','$tel','$rue','$code_postal','$ville','$finess','$type_soin1','$type_soin2','$type_soin3','$type_soin4','$lieu_intervention', '$cabinet','$latLng')") or die(print_r($bdd->ErrorInfo()));
 
             $_SESSION['email'] = $email;
             $_SESSION['nomI'] = $nom;
@@ -109,7 +111,7 @@ if ($fichier == "") {
 
                     $inf = $reponse->fetch();
 
-                    $bdd->exec("INSERT INTO `oulib_infirmiere` (`photo`,`nomI`,`prenomI`,`emailI`,`mdpI`,`telI`,`rueI`,`code-postalI`,`villeI`,`finess`,`type-soinI1`,`type-soinI2`,`type-soinI3`,`type-soinI4`,`lieu-intervention`, `latLng`) VALUES ('$fichier','$nom','$prenom','$email','$mdp','$tel','$rue','$code_postal','$ville','$finess','$type_soin1','$type_soin2','$type_soin3','$type_soin4','$lieu_intervention','$latLng')") or die(print_r($bdd->ErrorInfo()));
+                    $bdd->exec("INSERT INTO `oulib_infirmiere` (`photo`,`nomI`,`prenomI`,`emailI`,`mdpI`,`telI`,`rueI`,`code-postalI`,`villeI`,`finess`,`type-soinI1`,`type-soinI2`,`type-soinI3`,`type-soinI4`,`lieu-intervention`, `cabinet`, `latLng`) VALUES ('$fichier','$nom','$prenom','$email','$mdp','$tel','$rue','$code_postal','$ville','$finess','$type_soin1','$type_soin2','$type_soin3','$type_soin4','$lieu_intervention', '$cabinet', '$latLng')") or die(print_r($bdd->ErrorInfo()));
 
                     $_SESSION['email'] = $email;
                     $_SESSION['nomI'] = $nom;

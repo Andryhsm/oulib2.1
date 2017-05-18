@@ -135,12 +135,12 @@ class simplemail {
 				$message .= "\n--".$B."\n";
 				
 				if (!empty($AttmFile['cid'])) {
-					$message .= "Content-Type: {$AttmFile['contenttype']};\n name=\"".$FileName."\"\n";
+					$message .= "Content-Type: {$AttmFile['contenttype']};\n charset=\"ISO-8859-1\"; \n name=\"".$FileName."\"\n";
 					$message .= "Content-Transfer-Encoding: base64\n";
 					$message .= "Content-ID: <{$AttmFile['cid']}>\n";
 					$message .= "Content-Disposition: inline;\n filename=\"".$FileName."\"\n\n";
 				} else {
-					$message .= "Content-Type: application/octetstream;\n name=\"".$FileName."\"\n";
+					$message .= "Content-Type: text/html;\n name=\"".$FileName."\"\n";
 					$message .= "Content-Transfer-Encoding: base64\n";
 					$message .= "Content-Disposition: attachment;\n filename=\"".$FileName."\"\n\n";
 				}
@@ -170,7 +170,7 @@ class simplemail {
 			$message ="This is a multi-part message in MIME format.\n";
 			$message.="\n--".$this->B1B."\n";
 			
-			$message.="Content-Type: text/plain; charset=\"iso-8859-1\"\n";
+			$message.="Content-Type: text/html; charset=\"iso-8859-1\"\n";
 			$message.="Content-Transfer-Encoding: quoted-printable\n\n";
 			// plaintext goes here
 			$message.=$this->BodyLineWrap($this->text)."\n\n";

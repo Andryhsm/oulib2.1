@@ -34,8 +34,9 @@
                                                 $_SESSION['type-soinI4'] = utf8_encode($val["type-soinI4"]);
                                                 $_SESSION['lieu-intervention'] = utf8_encode($val["lieu-intervention"]);
 												$_SESSION['latLng'] = utf8_encode($val["latLng"]);
+												$_SESSION['finess'] = utf8_encode($val["finess"]);
+												$_SESSION['cabinet'] = utf8_encode($val["cabinet"]);
 						$_SESSION['photo'] = utf8_encode($val['photo']);
-
 
 						echo("Infirmière");
 					} else 

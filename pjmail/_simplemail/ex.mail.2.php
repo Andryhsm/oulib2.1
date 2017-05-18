@@ -3,8 +3,9 @@
 include('class.mail.php');
 
 $mail = new simplemail;
-$mail -> addrecipient('fenoheriniainat@gmail.com','tetsuo');
-$mail -> addbcc('ddd@ddd.com','plouf');
+$mail -> addrecipient('tetsuo@xxx.com','tetsuo');
+$mail -> addrecipient('plouf@xxx.com','plouf');
+$mail -> addbcc('xxx@xxx.com','plouf');
 $mail -> addfrom('gwbush@neobagdad.com','gwbush');
 $mail -> addsubject('yyy yyy');
 

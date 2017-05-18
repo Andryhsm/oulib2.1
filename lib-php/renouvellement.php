@@ -387,6 +387,15 @@ $data = $req->fetch();
 
                 <input class="hidden" name="emailP" id="emailP" value="<?php echo($_SESSION['email'] ); ?>" readonly>
 
+                <input class="hidden" name="emailI" id="emailI" value="<?php echo($_SESSION['email'] ); ?>" readonly>
+                <input class="hidden" name="nomI" id="nomI" value="<?php echo($_SESSION['nomI'] ); ?>" readonly>
+                <input class="hidden" name="prenomI" id="prenomI" value="<?php echo($_SESSION['prenomI'] ); ?>" readonly>
+                <input class="hidden" name="rueI" id="rueI" value="<?php echo($_SESSION['rueI'] ); ?>" readonly>
+                <input class="hidden" name="code-postalI" id="code-postalI" value="<?php echo($_SESSION['code-postalI'] ); ?>" readonly>                                    
+                <input class="hidden" name="villeI" id="villeI" value="<?php echo($_SESSION['villeI'] ); ?>" readonly>
+                <input class="hidden" name="cabinet" id="cabinet" value="<?php echo($_SESSION['cabinet'] ); ?>" readonly>
+                <input class="hidden" name="finess" id="finess" value="<?php echo($_SESSION['finess'] ); ?>" readonly>
+                <input class="hidden" name="telI" id="telI" value="<?php echo($_SESSION['telI'] ); ?>" readonly>
                                     </div>
                                 </div>
 
@@ -473,6 +482,15 @@ $data = $req->fetch();
                     var mail = $('#mail').val();
                     var mobile = $('#mobile').val();
                     var fixe = $('#fixe').val();
+                    var nomI = $('#nomI').val();
+                    var prenomI = $('#prenomI').val();
+                    var emailI = $('#emailI').val();
+                    var rueI = $('#rueI').val();
+                    var villeI = $('#villeI').val();
+                    var cpI = $('#code-postalI').val();
+                    var finess = $('#finess').val();
+                    var cabinet = $('#cabinet').val();
+
                     //var code = cod.value;
                     var mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
 
@@ -508,7 +526,7 @@ $data = $req->fetch();
                         contact = mobile;
                     }
 
-                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact;
+                    var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact + "&nomI=" + nomI + "&prenomI=" + prenomI + "&emailI=" + emailI + "&rueI=" + rueI + "&villeI=" + villeI + "&cpI=" + cpI + "&finess=" + finess + "&cabinet=" + cabinet;
 
                     if (livreur != '' && nom != '' && adresse != '' && mail != '' && codepostal != '' && ville != '' && mobile != '' && ($('#nomP').hasClass('has-success') && $('#adresseP').hasClass('has-success') && $('#mailP').hasClass('has-success') && $('#codepostalP').hasClass('has-success') && $('#villeP').hasClass('has-success') && $('#contactP').hasClass('has-success')))
                     {
