@@ -147,7 +147,7 @@ $data = $req->fetch();
                                                 <label for="l1">&nbsp;Equipe Medsoft </label>
                                             </div> -->
                                             <div>
-                                                <input type="radio" name="livreur" value="Transporteur - 24h France express" id="l2" /> 
+                                                <input type="radio" name="livreur" value="Transporteur - 24h France express" id="l2" checked /> 
                                                 <label for="l2">&nbsp;Transporteur - (24h) France express</label>
                                             </div>
                                             <div>
@@ -342,6 +342,18 @@ $data = $req->fetch();
                                                         <div class="col-lg-3 alert alert-danger hide" role="alert" id="alert"> Erreur !</div>
                                                     </div>
                                                 </div><br>
+
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label for="" class="col-lg-2 control-label"></label>
+                                                        <div class="checkbox">
+                                                          <label>
+                                                            <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
+                                                          </label>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <!--<label for="" class="col-lg-2 control-label"><textarea name="code" rows="1" cols="5" style="border:none;" placeholder="Code" id="code"></textarea>
