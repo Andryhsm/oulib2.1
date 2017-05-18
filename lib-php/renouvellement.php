@@ -345,11 +345,25 @@ $data = $req->fetch();
 
                                                 <div class="row">
                                                     <div class="form-group">
+                                                        <label for="fixe" class="col-lg-2 control-label">A renouveler</label>
+                                                        <div class="col-lg-5 ">
+                                                            <div class="input-group" style = "width:25%;">
+                                                                <input type="number" class="form-control" name="nbrenouv" id="nbrenouv">
+                                                                <span class="input-group-addon">fois</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br>
+
+                                                <div class="row">
+                                                    <div class="form-group">
                                                         <label for="" class="col-lg-2 control-label"></label>
-                                                        <div class="checkbox">
-                                                          <label>
-                                                            <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
-                                                          </label>
+                                                        <div class="col-lg-5 ">
+                                                            <div class="checkbox">
+                                                              <label>
+                                                                <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
+                                                              </label>
+                                                            </div>
                                                         </div>
                                                     </div>  
                                                 </div>
