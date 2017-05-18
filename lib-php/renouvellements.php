@@ -34,7 +34,7 @@
     $ville = utf8_decode($_POST['ville']);
     $type_patient = utf8_decode($_POST['type_patient']);
     $code = utf8_decode($_POST['code']);
-
+    $nbrnouv = utf8_decode($_POST['nbrnouv']); 
 
     $nomComplet = utf8_decode($_POST['nomComplet']);
     $contact = utf8_decode($_POST['contact']);
@@ -140,7 +140,7 @@
                 <tr><br><br><br><br><br><br><br><br>
                     <td style="width: 500px;" colspan="2" ><p>
                     <?php
-                    echo "A rénouveler 11 fois";//. $fois;?></p></td>
+                    echo "A rénouveler ".$nbrnouv." fois";//. $fois;?></p></td>
                 </tr>
             </table>
             </div>
