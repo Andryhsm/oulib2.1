@@ -261,10 +261,10 @@ $data = $req->fetch();
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="nomP">
                                                         <label for="nom" class="col-lg-2 control-label">Nom *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required>
+                                                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" required onBlur="champValide($(this).val(), 'nom', $('#nomP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
@@ -277,10 +277,10 @@ $data = $req->fetch();
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="adresseP">
                                                         <label for="adresse" class="col-lg-2 control-label">Adresse *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Votre adresse" required>
+                                                            <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Votre adresse" required onBlur="champValide($(this).val(), 'adresse', $('#adresseP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
@@ -293,34 +293,34 @@ $data = $req->fetch();
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="codepostalP">
                                                         <label for="codepostal" class="col-lg-2 control-label">Code postal *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Votre code postal" required>
+                                                            <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Votre code postal" required onBlur="champValide($(this).val(), 'codepostal', $('#codepostalP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="villeP">
                                                         <label for="ville" class="col-lg-2 control-label">Ville *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="text" class="form-control" id="ville" name="ville" placeholder="Votre ville" required>
+                                                            <input type="text" class="form-control" id="ville" name="ville" placeholder="Votre ville" required onBlur="champValide($(this).val(), 'ville', $('#villeP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="mailP">
                                                         <label for="mail" class="col-lg-2 control-label">E-mail </label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="email" class="form-control" id="mail" name="mail" placeholder="mail@nomdomaine.fr" required>
+                                                            <input type="email" class="form-control" id="mail" name="mail" placeholder="mail@nomdomaine.fr" required onBlur="champValide($(this).val(), 'email', $('#mailP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
                                                 <div class="row">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="contactP">
                                                         <label for="mobile" class="col-lg-2 control-label">Téléphone 1 *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="tel" class="form-control" id="mobile" name="mobile" required>
+                                                            <input type="tel" class="form-control" id="mobile" name="mobile" required onBlur="champValide($(this).val(), 'contact', $('#contactP'));">
                                                         </div>
                                                     </div>
                                                 </div><br>
@@ -348,7 +348,7 @@ $data = $req->fetch();
                                                         <label for="" class="col-lg-2 control-label"></label>
                                                         <div class="checkbox">
                                                           <label>
-                                                            <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
+                                                            <input type="checkbox"> <span class="important">J'aimerais avoir le numéro de suivi de mon colis</span>
                                                           </label>
                                                         </div>
                                                     </div>  
@@ -400,37 +400,36 @@ $data = $req->fetch();
             </div>          
         </footer>
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
         <script src="../bootstrap/js/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
         <script src="../bootstrap/js/jquery-ui.min.js"></script>
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
-        <!-- Script de modifcation de champ-->
-        <script type="text/javascript" src="../bootstrap/js/script.js"></script>
         <script type="text/javascript" src="../bootstrap/js/datepicker.js"></script>
-        <!-- fin script contentedit-->
         <script type="text/javascript">
             $(document).ready(function () {
 
-                $('#prendre_rdv').click(function (e) {
+                $('#prendre_rdv').click(function(e) {
                     e.preventDefault();
+
+                    var laDate = $('#datepicker').val();
+                    var annee = laDate.substring(6, 10);
+                    var mois = laDate.substring(3, 5);
+                    var jour = laDate.substring(0, 2);
+                    
+                    var datelivraison = annee+"-"+mois+"-"+jour;
+
+                    
+
                     var det = document.getElementById('detail');
                     //var cod = document.getElementById('code');
                     var livreur = $('input[name=livreur]:checked').val();
                     var depart = document.getElementById('selectRegion');
                     var patient = document.getElementById('type_patient');
                     var sexe = document.getElementById('genre');
-                    var departement = depart.options[depart.selectedIndex].value;
-                    var datelivraison = $('#datepicker').val();
+                    //var departement = depart.options[depart.selectedIndex].value;
+                    var departement = "";
+
                     var heure = $('input[name=heure]:checked').val();
                     var type_patient = patient.options[patient.selectedIndex].value;
                     var genre = sexe.options[sexe.selectedIndex].value;
@@ -480,12 +479,12 @@ $data = $req->fetch();
 
                     var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact;
 
-                    if ((livreur != '') && (departement != ''))
+                    if (livreur != '')
                     {
                         if (det.value == '' || det.value.length < 5)
                         {
                             $('#alert').removeClass('hide');
-                            $('#alert').text("Votre commande est trop courte....");
+                            $('#alert').text("Vérifiez si vous avez bien rempli les champs obligatoires");
                         }
                         else if (confirm(" Voulez-vous confirmer votre commande ? "))
                         {
@@ -546,6 +545,55 @@ $data = $req->fetch();
                 else
                     $('#returnOnTop').fadeOut();
             });
+
+
+            function champValide(value, type, champ)
+            {
+                var regex = new RegExp(/^(01|02|03|04|05|06|08)[0-9]{8}/gi);
+                var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+
+                if(type==="nom" || type==="adresse" || type==="ville")
+                {
+                    if(value.length < 2)
+                    {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
+                    } else {
+                        champ.removeClass('has-error');
+                        champ.addClass('has-success');
+                    }   
+                } else if(type==="contact")
+                {
+                    if(value.length < 9 || value.length > 15 || regex.test(value))
+                    {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
+                    } else {
+                        champ.removeClass('has-error');
+                        champ.addClass('has-success');
+                    }  
+                } else if(type==="codepostal")
+                {
+                    if(value.length < 2 || value.length > 10 || regex.test(value))
+                    {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
+                    } else {
+                        champ.removeClass('has-error');
+                        champ.addClass('has-success');
+                    }  
+                } else if (type="email") 
+                {
+                    if(value.length < 5 || reg.test(value))
+                    {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
+                    } else {
+                        champ.removeClass('has-error');
+                        champ.addClass('has-success');
+                    }  
+                }
+            };
         </script>
     </body>
 </html>
