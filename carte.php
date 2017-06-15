@@ -435,7 +435,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
         <script type="text/javascript" src="./others/main.js.téléchargement"></script>
 
-        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap" async defer></script>
 
         <script>
                                         $(document).ready(function () {

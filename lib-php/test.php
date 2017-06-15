@@ -66,6 +66,8 @@
                 margin-left: 20px;
                 margin-top: 20px;
             }
+            
+            
             td{
 
             }
@@ -78,7 +80,7 @@
         <div class="content">
             <table>
                 <tr>
-                    <td style="border-bottom: 1px solid #084FA7;">
+                    <td style="border-bottom: 2px solid #084FA7; width: 200px;">
                         <p>
                             <strong><span style="font-size: 17px;">Prenom + nom </span></strong><br/><br/>
                             Cabinet<br><br/>
@@ -105,8 +107,8 @@
             </table>
         </div>
         <page_footer >
-                <div style="font-family: Times; margin-left: 300px;">
-                    <p  style="margin-left: 250px;" >Signature <br></p><br>
+                <div style="margin-bottom : 100px;font-family: Times; margin-left: 300px;">
+                    <p  style="font-size: 14px; margin-left: 250px;" >Signature <br></p><br>
                     <p style="margin-left: 250px;" >Nom + prenom Prescripteur</p>
                  </div>      
             </page_footer>

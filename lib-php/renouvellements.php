@@ -34,7 +34,7 @@
     $ville = utf8_decode($_POST['ville']);
     $type_patient = utf8_decode($_POST['type_patient']);
     $code = utf8_decode($_POST['code']);
-    $nbrnouv = utf8_decode($_POST['nbrnouv']); 
+    $nbrenouv = utf8_decode($_POST['nbrenouv']); 
 
     $nomComplet = utf8_decode($_POST['nomComplet']);
     $contact = utf8_decode($_POST['contact']);
@@ -102,7 +102,7 @@
                 
             }
               p{
-                color:rgb(0, 107, 159) ;
+                color:rgb(0, 61, 89) ;
             }
         </style>
     </head>
@@ -110,7 +110,7 @@
         <div class="content">
             <table>
                 <tr>
-                    <td style="border-bottom: 3px solid #006B9F;">
+                    <td style="border-bottom: 2px solid #006B9F; width: 200px;">
                         <p>
                             <strong><span style="font-size: 17px;"><?php echo $prenomI." ".$nomI; ?> </span></strong><br/><br/>
                             <?php if($cabinet != "") echo $cabinet."<br><br/>"; ?>
@@ -120,10 +120,10 @@
                         </p> 
                     </td>
                     <td rowspan="2">
-                        <p style="margin-left: 400px;"><br/><br/><br/><br/><br/><br/><br/><br/>
+                        <p style="margin-left: 200px;"><br/><br/><br/><br/><br/><br/><br/><br/>
                             Date : <?php echo $date; ?>
                         </p>
-                        <p style="margin-left: 400px;">
+                        <p style="margin-left: 200px;">
                             <strong style="font-size: 16px;"><?php echo $nom. " ". $prenom;  ?></strong>
                         </p>
                     </td>
@@ -132,22 +132,23 @@
                     <td style="padding-top: 250px;" colspan="2" ></td>
                 </tr>
                 <tr>
-                    <td style="width: 500px; font-size: 17px;" colspan="2" ><p><strong><?php
+                    <td style="width: 500px; font-size: 17px; margin-left: 30px;" colspan="2" ><p><strong><?php
                     echo nl2br(nl2br($commande));
                         ?></strong></p></td>
                 </tr>
                    
-                <tr><br><br><br><br><br><br><br><br>
+                <tr><br><br>
                     <td style="width: 500px;" colspan="2" ><p>
+                    <br><br><br><br><br><br>
                     <?php
-                    echo "A rénouveler ".$nbrnouv." fois";//. $fois;?></p></td>
+                    echo "   A rénouveler ".$nbrenouv." fois";//. $fois;?></p></td>
                 </tr>
             </table>
             </div>
             <page_footer >
-                <div style="font-family: Times; margin-left: 300px;">
-                    <p  style="margin-left: 250px;" >Signature : <br></p><br>
-                    <p style="margin-left: 250px;" ><?php echo $nomI ." ".$prenomI; ?></p>
+                <div style="font-family: Times; margin-bottom: 100px; margin-left: 300px;">
+                    <p  style="margin-left: 250px; font-size: 14px;" >Signature : <br><br><br><br></p><br>
+                    <p style="margin-left: 250px; font-size: 14px;" ><?php echo $nomI ." ".$prenomI; ?></p>
                  </div>      
             </page_footer>
     </body>
@@ -177,7 +178,7 @@
         $mail->addfrom('oulibfrsqx@cluster023.hosting.ovh.net', 'oulib.fr');       // mail envoyeur      
 		//$mail->addrecipient('fenoheriniainat@gmail.com');
         
-    /*   
+       
         $mail->addrecipient('infos@medsoft-sante.fr');
         $mail->addrecipient('renouvellement@medsoft-sante.fr');
         $mail->addrecipient('thierry.halison@medsoft-sante.fr');
@@ -189,8 +190,8 @@
         $mail->addrecipient('sederamihaja@gmail.com');
         $mail->addrecipient('feno.tolojanahary@imedsoft.fr');
         
-*/
-        $mail->addrecipient('fenoheriniainat@gmail.com');
+
+//        $mail->addrecipient('fenoheriniainat@gmail.com');
 
         $mail->addsubject($sujet); 
         $mail->html = $message;
