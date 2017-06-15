@@ -24,15 +24,6 @@
         <link rel="stylesheet" id="parent-style-css" href="./others/style.css" type="text/css" media="all">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/paper.css">
         
-        <!--<script type="text/javascript" src="./others/jquery.js.téléchargement"></script>
-
-        <script type="text/javascript">
-            /* <![CDATA[ */
-            var object = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php"};
-            /* ]]> */
-        </script>
-
-        <script src="js/jssor.slider-22.2.10.min.js" type="text/javascript"></script>-->
        
         <!-- Meta OG tags by Kiwi Social Sharing Plugin -->
         <meta property="og:type" content="article"> 
@@ -234,10 +225,8 @@
 
                         <footer class="">
 
-                            <div class="footer-info-area">
+                            <div class="footer-info-area" style="margin-top: 4vw;">
                                 <div class="container text-center alchem_footer_social_icon_1"> 
-                                    <!-- <ul class="footer-sns"><li><a  rel="" href="http://localhost/wordpress/#" data-placemeynt="top" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="YouTube"><i class="fa fa-youtube"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Email"><i class="fa fa-envelope"></i></a></li></ul>                    <div class="clearfix"></div>
-                                    -->
                                     <div class="site-info">
                                         <img src="./img/logo2.png" class = "logo_footer">
                                         © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
