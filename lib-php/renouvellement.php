@@ -310,7 +310,7 @@ $data = $req->fetch();
                                                 </div><br>
                                                 <div class="row">
                                                     <div class="form-group" id="mailP">
-                                                        <label for="mail" class="col-lg-2 control-label">E-mail </label>
+                                                        <label for="mail" class="col-lg-2 control-label">E-mail *</label>
                                                         <div class="col-lg-5 ">
                                                             <input type="email" class="form-control" id="mail" name="mail" placeholder="mail@nomdomaine.fr" required onBlur="champValide($(this).val(), 'email', $('#mailP'));">
                                                         </div>
@@ -320,7 +320,7 @@ $data = $req->fetch();
                                                     <div class="form-group" id="contactP">
                                                         <label for="mobile" class="col-lg-2 control-label">Téléphone 1 *</label>
                                                         <div class="col-lg-5 ">
-                                                            <input type="tel" class="form-control" id="mobile" name="mobile" required onBlur="champValide($(this).val(), 'contact', $('#contactP'));">
+                                                            <input type="tel" class="form-control" id="mobile" name="mobile" required onBlur="champValide($(this).val(), 'contact', $('#contactP'));" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$">
                                                         </div>
                                                     </div>
                                                 </div><br>
@@ -339,7 +339,7 @@ $data = $req->fetch();
                                                             <textarea type="text" class="form-control" name="commande" id="detail" rows="3" maxlength="400"
                                                                       placeholder="Saisissez ici les détails de votre commande."  required></textarea>
                                                         </div>
-                                                        <div class="col-lg-3 alert alert-danger hide" role="alert" id="alert"> Erreur !</div>
+                                                        <!-- <div class="col-lg-3 alert alert-danger hide" role="alert" id="alert"> Erreur !</div> -->
                                                     </div>
                                                 </div><br>
 
@@ -361,7 +361,7 @@ $data = $req->fetch();
                                                         <div class="col-lg-5 ">
                                                             <div class="checkbox">
                                                               <label>
-                                                                <input type="checkbox"> J'aimerais avoir le numéro de suivi de mon colis
+                                                                <input type="checkbox" id="avoirNumColis" name="avoirNumColis"> J'aimerais avoir le numéro de suivi de mon colis
                                                               </label>
                                                             </div>
                                                         </div>
@@ -409,6 +409,23 @@ $data = $req->fetch();
             <img src="../img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
         </div>
 
+        <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
+        <div class="modal" id="loginerror">
+            <div class="modal-dialog">
+                <div class="modal-content alert alert-dismissible alert-info col-lg-12">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
+                        <h4 class="modal-title" style="text-align: center;">Erreur !</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="warning" id="alert"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <footer class="">
 
             <div class="footer-info-area">
@@ -430,7 +447,7 @@ $data = $req->fetch();
 
         <script type="text/javascript" src="../bootstrap/js/datepicker.js"></script>
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).ready(function() {
 
                 $('#prendre_rdv').click(function(e) {
                     e.preventDefault();
@@ -473,12 +490,23 @@ $data = $req->fetch();
                     var cpI = $('#code-postalI').val();
                     var finess = $('#finess').val();
                     var cabinet = $('#cabinet').val();
+<<<<<<< HEAD
                     var nbrenouv = $('#nbrenouv').val();
                     var telI = $('#telI').val();
 
+=======
+                    var mes = "";
+>>>>>>> 91ecced5f193089bf7a3507476ab60b5de805617
                     //var code = cod.value;
-                    var mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    if($('#avoirNumColis').prop("checked") == true)
+                    {
+                        var colis = "Le client souhaite avoir le numéro de suivi de son colis ";
+                        mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br>"+colis+"<br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    } else {
+                         mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";
+                    }
 
+                    console.log(mes);
                     var nomComplet = '';
                     var adresseComplet = '';
                     var contact = '';
@@ -513,14 +541,9 @@ $data = $req->fetch();
 
                     var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact + "&nomI=" + nomI + "&prenomI=" + prenomI + "&emailI=" + emailI + "&rueI=" + rueI + "&villeI=" + villeI + "&cpI=" + cpI + "&finess=" + finess + "&cabinet=" + cabinet + "&nbrenouv=" + nbrenouv + "&telI=" + telI ;
 
-                    if (livreur != '')
+                    if (livreur != '' && nom != '' && adresse != '' && mail != '' && codepostal != '' && ville != '' && mobile != '' && ($('#nomP').hasClass('has-success') && $('#adresseP').hasClass('has-success') && $('#mailP').hasClass('has-success') && $('#codepostalP').hasClass('has-success') && $('#villeP').hasClass('has-success') && $('#contactP').hasClass('has-success')))
                     {
-                        if (det.value == '' || det.value.length < 5)
-                        {
-                            $('#alert').removeClass('hide');
-                            $('#alert').text("Vérifiez si vous avez bien rempli les champs obligatoires");
-                        }
-                        else if (confirm(" Voulez-vous confirmer votre commande ? "))
+                       if (confirm(" Voulez-vous confirmer votre commande ? "))
                         {
                             $('#alert').addClass('hide');
                             $.ajax({
@@ -534,10 +557,23 @@ $data = $req->fetch();
                                     alert(server_response);
                                 }
                             });
-                        }
+                        };
                         $('#annuler').trigger('click');
+                        $('#nomP').removeClass('has-success');
+                        $('#adresseP').removeClass('has-success');
+                        $('#mailP').removeClass('has-success');
+                        $('#codepostalP').removeClass('has-success');
+                        $('#villeP').removeClass('has-success');
+                        $('#contactP').removeClass('has-success');
+                    } else 
+                    {
+                        $('#alert').html("<p> Vérifiez si vous avez bien rempli les champs obligatoires !</p>");
+                        $('#triggerwarning').trigger('click');
+                        setTimeout(function () {
+                            $('#ferme').trigger('click');
+                        }, 4000);
                     }
-                    ;
+                    
                 });
             });
         </script>
@@ -583,7 +619,7 @@ $data = $req->fetch();
 
             function champValide(value, type, champ)
             {
-                var regex = new RegExp(/^(01|02|03|04|05|06|08)[0-9]{8}/gi);
+                var regex =  /^\d+$/;
                 var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
 
                 if(type==="nom" || type==="adresse" || type==="ville")
@@ -598,33 +634,33 @@ $data = $req->fetch();
                     }   
                 } else if(type==="contact")
                 {
-                    if(value.length < 9 || value.length > 15 || regex.test(value))
+                    if(value.length >= 9 && regex.test(value))
                     {
-                        champ.removeClass('has-success');
-                        champ.addClass('has-error');
-                    } else {
                         champ.removeClass('has-error');
                         champ.addClass('has-success');
+                    } else {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
                     }  
                 } else if(type==="codepostal")
                 {
-                    if(value.length < 2 || value.length > 10 || regex.test(value))
+                    if(value.length >= 2 && regex.test(value))
                     {
-                        champ.removeClass('has-success');
-                        champ.addClass('has-error');
-                    } else {
                         champ.removeClass('has-error');
                         champ.addClass('has-success');
+                    } else {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
                     }  
                 } else if (type="email") 
                 {
-                    if(value.length < 5 || reg.test(value))
+                    if(value.length >= 5 || reg.test(value))
                     {
-                        champ.removeClass('has-success');
-                        champ.addClass('has-error');
-                    } else {
                         champ.removeClass('has-error');
                         champ.addClass('has-success');
+                    } else {
+                        champ.removeClass('has-success');
+                        champ.addClass('has-error');
                     }  
                 }
             };

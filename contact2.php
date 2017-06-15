@@ -34,12 +34,6 @@ $data = $req->fetch();
         
         <script type="text/javascript" src="./others/jquery.js.téléchargement"></script>
 
-        <script type="text/javascript">
-            /* <![CDATA[ */
-            var object = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php"};
-            /* ]]> */
-        </script>
-
         <script src="js/jssor.slider-22.2.10.min.js" type="text/javascript"></script>
        
         <!-- Meta OG tags by Kiwi Social Sharing Plugin -->
@@ -236,10 +230,9 @@ $data = $req->fetch();
 
                         <footer class="">
 
-                            <div class="footer-info-area">
+                            <div class="footer-info-area" style="margin-top: 4vw;">
                                 <div class="container text-center alchem_footer_social_icon_1"> 
-                                    <!-- <ul class="footer-sns"><li><a  rel="" href="http://localhost/wordpress/#" data-placemeynt="top" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="YouTube"><i class="fa fa-youtube"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a></li><li><a  rel="" href="http://localhost/wordpress/#" data-placement="top" data-toggle="tooltip" title="" data-original-title="Email"><i class="fa fa-envelope"></i></a></li></ul>                    <div class="clearfix"></div>
-                                    -->
+                                    
                                     <div class="site-info">
                                         <img src="./img/logo2.png" class = "logo_footer">
                                         © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
@@ -252,9 +245,7 @@ $data = $req->fetch();
                         <script src="./bootstrap/js/bootstrap.min.js"></script>
                     <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
                     <script type="text/javascript">
-            /* <![CDATA[ */
-            var alchem_params = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "themeurl": "http:\/\/localhost\/wordpress\/wp-content\/themes\/alchem", "responsive": "yes", "site_width": "1170px", "sticky_header": "yes", "show_search_icon": "yes", "slider_autoplay": "yes", "slideshow_speed": "3000", "portfolio_grid_pagination_type": "pagination", "blog_pagination_type": "pagination", "global_color": "#fdd200", "admin_ajax_nonce": "2ed3a22947", "admin_ajax": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "isMobile": "0", "footer_sticky": "0"};
-            /* ]]> */
+            
                     </script>
                     <script type="text/javascript" src="./others/main.js.téléchargement"></script>
                         <script type="text/javascript">

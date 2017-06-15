@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HTML2PDF Library - example
  *
@@ -33,8 +34,13 @@
     $codepostal = utf8_decode($_POST['codepostal']);
     $ville = utf8_decode($_POST['ville']);
     $type_patient = utf8_decode($_POST['type_patient']);
+<<<<<<< HEAD
     $code = utf8_decode($_POST['code']);
     $nbrenouv = utf8_decode($_POST['nbrenouv']); 
+=======
+	$code = "";
+    $nbrnouv = utf8_decode($_POST['nbrnouv']); 
+>>>>>>> 91ecced5f193089bf7a3507476ab60b5de805617
 
     $nomComplet = utf8_decode($_POST['nomComplet']);
     $contact = utf8_decode($_POST['contact']);
