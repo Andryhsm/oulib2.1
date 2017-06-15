@@ -309,7 +309,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
                                     </div>    
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer" style="margin-top: -50px;">
                                     <input type='button' class='btn btn-lg btn-primary col-lg-12' style = "background: rgb(142, 68, 173);" name='rdv' onclick='rendezVous();' value='Prendre rendez-vous' />
 
                                 </div>
