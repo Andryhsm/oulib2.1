@@ -109,6 +109,11 @@ include_once "./lib-php/cnx.php";
                 height: 550px;
                 overflow: auto;
             }
+            body {
+                background:url(img/fond3.jpg) fixed;
+                background-repeat:no-repeat;
+                background-size: cover;
+            }
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
@@ -131,10 +136,12 @@ include_once "./lib-php/cnx.php";
           
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="./liste.php">Liste</a></li>
+                      <li><a href="./effectue.php">Terminer</a></li>
+                      <li><a href="./liste.php"><span id="badges">Liste</span></a></li>
                       <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
                       <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="./contact2.php">Contact</a></li>
+                      <li><a href="./commentmarche_inf.php">Comment ça marche</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
                     </ul>
                   </div>
@@ -161,7 +168,7 @@ include_once "./lib-php/cnx.php";
                                     ?>
 
                                     <table class="table table-hover">
-                                        <tbody id="content">
+                                        <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
                                             <tr class="<?php
                                             $b = TRUE;
                                             echo($data['id']);
@@ -184,7 +191,7 @@ include_once "./lib-php/cnx.php";
     <?php echo($data['commentaire']); ?>
                                                     <br><br><br>
                                                     <div class="pull-right">
-                                                        <a class="btn btn-danger terminer">Terminer</a>
+                                                        <a class="btn btn-primary">Terminer</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -242,7 +249,7 @@ include_once "./lib-php/cnx.php";
 
         <script type="text/javascript" src="./others/main.js.téléchargement"></script>
         <script type="text/javascript">
-            $('.table').on('click', '.terminer', function (e) {
+            $('.table').on('click', '.btn-primary', function (e) {
                 e.preventDefault();
 
                 var a = $(this);
@@ -316,5 +323,43 @@ include_once "./lib-php/cnx.php";
                     $('#returnOnTop').fadeIn();
             });
         </script>
+        <script type="text/javascript">
+                          $(document).ready( function () 
+                          {
+                            $('#returnOnTop').hide();
+                            $('#returnOnTop').click( function() {
+                                //e.preventDefault();
+                                $('html,body').animate({scrollTop: 0}, 'slow');
+                            });
+
+				                var auto_refresh = setInterval(
+				                    function() 
+				                    {
+				                        var email = $('#emailP').val();
+
+				                        $.ajax({
+				                            url: "badges_inf.php",
+				                            type: "POST",
+				                            data: "email="+email,
+				                            success: function(server_response) 
+				                            {  
+				                                $('#badges').html(server_response);
+				                            },
+				                            error: function(server_response) 
+				                            {  
+//				                              alert('Erreur :' + server_response);
+				                            }
+				                        });
+				                    }, 1000);
+                          });
+
+                          $(window).scroll(function() 
+                          {
+                              if ( $(window).scrollTop() == 0 )
+                                  $('#returnOnTop').fadeOut();
+                              else
+                                  $('#returnOnTop').fadeIn();
+                          });
+                        </script>
     </body>
 </html>

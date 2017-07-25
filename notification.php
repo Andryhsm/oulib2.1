@@ -49,6 +49,8 @@ $data = $req->fetch();
             {
                 margin-top: 95px;
                 margin-bottom: 85px;
+                background: url(img/fond1.jpg) fixed no-repeat;
+                background-size: cover;
             }
             #about {
                 margin-top:14rem!important
@@ -62,9 +64,9 @@ $data = $req->fetch();
                 top: 35%;
                 left: 5%;
                 z-index: 0;
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,0.81);
                 border-radius: 10px;
-                border-color: rgb(84, 46, 90);
+                border-color: rgba(1,127,175,0.81);
                 font-size: 1.4em;
             }
 
@@ -129,7 +131,6 @@ $data = $req->fetch();
                 position: fixed;
                 bottom: 0;
                 left: 0;
-                right: 0;
                 z-index: 9999;
             }
 
@@ -160,9 +161,10 @@ $data = $req->fetch();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="./carte.php">Carte</a></li>
-                            <li><a href="./notification.php"   data-toggle='tooltip' data-placement='bottom' title='Des Tableau de bords non lus !'><span id="badges">Tableau de bord</span></a></li>
+                            <li><a href="./notification.php"   data-toggle='tooltip' data-placement='bottom' title='Des demandes non lus !'><span id="badges">Tableau de bord</span></a></li>
                             <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="./contact1.php">Contact</a></li>
+                            <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
                             <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
                         </ul>
                     </div>
@@ -171,7 +173,7 @@ $data = $req->fetch();
 
         <!-- CODE VAOVAO -->
                 <div class="container">
-                            <div class="col-lg-5 col-md-5 col-sm-10 col-xs-10">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                                    <h4> Demandes en attente</h4><br>
                                     <div class="scroll">
                                         <input class="hidden" name="emailP" id="emailP" value="<?php echo($_SESSION['email'] ); ?>" readonly>
@@ -180,8 +182,16 @@ $data = $req->fetch();
                                     </div>
                             </div>
 
-                            <div class="col-lg-offset-1 col-lg-5 col-md-5 col-sm-10 col-xs-10">
-                                    <h4> Demandes approuvées / refusées </h4><br>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                                    <h4> Demandes approuvées </h4><br>
+                                    <div class="scroll">
+                                        <div id="Tableau de bords">
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                                    <h4> Demandes refusées </h4><br>
                                     <div class="scroll">
                                         <div id="Tableau de bords">
                                         </div>

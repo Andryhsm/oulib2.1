@@ -100,8 +100,6 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             }
             
             #pac-input {
-                position: absolute;
-                z-index: 1;
                 margin: 0.7% 0% 0% 10%;
                 background-color: #fff;
                 font-family: Roboto;
@@ -123,8 +121,15 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 
             #type-selector {
                 color: #fff;
-                background-color: #4d90fe;
+                background-color: #007EAF;
                 padding: 5px 11px 0px 11px;
+                
+            }
+            #type-selector:hover,
+            #type-selector:active,
+            #type-selector:focus{
+                background-color: #333;
+                color:  #fdd200;
             }
 
             #type-selector label {
@@ -169,17 +174,17 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 color: #6b624d;
             }
             footer .footer-info-area {
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,.81);
                 z-index: 1000;
                 position: fixed;
-                margin-top: -8vh;
+                margin-top: -13vh;
                 height: 20vh;
             }
 
 
             .navbar
             {
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,.81);
             }
 
             #alchem-home-sections
@@ -201,9 +206,9 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 top: 25%;
                 left: 5%;
                 z-index: 0;
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,0.81);
                 border-radius: 10px;
-                border-color: rgb(84, 46, 90);
+                border-color: rgba(1,127,175,0.81);
                 font-size: 1.2em;
             }
 
@@ -242,6 +247,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             <li><a href="./notification.php"><span id="badges">Tableau de bord</span></a></li>
                             <li><a href="lib-php/modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="./contact1.php">Contact</a></li>
+                            <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
                             <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
                         </ul>
                     </div>

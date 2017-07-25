@@ -99,7 +99,15 @@ $data = $req->fetch();
             {
               display: none;
               cursor: pointer;
-            }</style><!-- <meta name="vfb" version="2.9.2" /> -->
+            }
+            .fixed {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+            
+        </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
@@ -124,6 +132,7 @@ $data = $req->fetch();
                       <li><a href="lib-php/renouvellement.php">Passer une commande</a></li>
                       <li><a href="lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="contact2.php">Contact</a></li>
+                      <li><a href="./commentmarche_inf.php">Comment ça marche</a></li>
                       <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
                     </ul>
                   </div>
@@ -154,7 +163,7 @@ $data = $req->fetch();
                                     <div class=" divider divider-border">
                                     </div>
                                     <div class="alchem-animated alchem_section_4_image animated fadeInDown" data-animationduration="1.2" data-animationtype="fadeInDown" data-imageanimation="no" style="visibility: visible; animation-duration: 1.2s;">
-                                        <img src="./img/send-mail.jpg" alt="" style="visibility: visible;"><br>
+                                        <img src="./img/send-mail.png" alt="" style="visibility: visible;"><br>
                                     </div>
                                 </div>
 
@@ -165,32 +174,32 @@ $data = $req->fetch();
                                                 <div class="form-group">
                                                     <label for="nom" class="col-sm-3 control-label">Nom:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="nom" class="form-control" name="nom" id="nom">
+                                                        <input type="text" placeholder="Nom" class="form-control" name="nom" id="nom">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="email" class="col-sm-3 control-label">Email:</label>
+                                                     <label for="email" class="col-sm-3 control-label">Email:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="email" class="form-control" name="email" id="email">
+                                                        <input type="text" placeholder="Email" class="form-control" name="email" id="email">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="sujet" class="col-sm-3 control-label">Sujet:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="sujet" class="form-control" name="sujet" id="sujet">
+                                                        <input type="text" placeholder="Sujet" class="form-control" name="sujet" id="sujet">
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
                                                     <label for="message" class="col-sm-3 control-label">Message:</label>
                                                     <div class="col-sm-9">
-                                                        <textarea placeholder="message" class="form-control" name="message" id="message"></textarea>
+                                                        <textarea placeholder="Message" class="form-control" name="message" id="message"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nom" class="col-sm-2 control-label"></label>
                                                     <div class="col-sm-8">
-                                                        <button type="submit" id="envoyer" class="btn btn-success"> Envoyer </button>
+                                                        <button type="submit" id="envoyer" class="btn btn-success" style="margin-left: auto;"> Envoyer </button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -228,15 +237,12 @@ $data = $req->fetch();
                         </div>
                     <!--Footer-->
 
-                        <footer class="">
-
-                            <div class="footer-info-area" style="margin-top: 4vw;">
+                       <footer class="fixed">
+                            <div class="footer-info-area">
                                 <div class="container text-center alchem_footer_social_icon_1"> 
-                                    
-                                    <div class="site-info">
-                                        <img src="./img/logo2.png" class = "logo_footer">
-                                        © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
-                                    </div>
+                                <div class="clearfix"></div>
+                                <div class="site-info">
+                                    <a href="#" >OUSOFT SAS</a>. 38 Rue de la convention, 94270, Le Kremlin-Bicêtre.</div>
                                 </div>
                             </div>          
                         </footer>
@@ -327,6 +333,36 @@ $data = $req->fetch();
                             });
 
                             
+                        </script>
+                        <script type="text/javascript">
+                            $(document).ready(function ()
+                            {
+                                $('#returnOnTop').hide();
+                                $('#returnOnTop').click(function () {
+                                    //e.preventDefault();
+                                    $('html,body').animate({scrollTop: 0}, 'slow');
+                                });
+                
+                                var auto_refresh = setInterval(
+                                    function() 
+                                    {
+                                        var email = $('#emailP').val();
+                
+                                        $.ajax({
+                                            url: "../badges_inf.php",
+                                            type: "POST",
+                                            data: "email="+email,
+                                            success: function(server_response) 
+                                            {  
+                                                $('#badges').html(server_response);
+                                            },
+                                            error: function(server_response) 
+                                            {  
+//                                              alert('Erreur :' + server_response);
+                            }
+                                        });
+                                    }, 1000);
+                            });
                         </script>
     </body>
 </html>

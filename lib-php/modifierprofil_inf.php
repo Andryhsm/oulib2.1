@@ -54,9 +54,9 @@ $data = $req->fetch();
                 top: 35%;
                 left: 5%;
                 z-index: 0;
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1, 127, 175, 0.61);
                 border-radius: 10px;
-                border-color: rgb(84, 46, 90);
+                border-color: rgba(1, 127, 175, .61);
                 font-size: 1.4em;
             }
             .btn_up
@@ -110,6 +110,20 @@ $data = $req->fetch();
                 display: none;
                 cursor: pointer;
             }
+            
+            .btn-warning, .btn-primary{
+                background-color: #007EAF;
+                color: #fff;
+            }
+            .btn-warning:hover,
+            .btn-warning:active,
+            .btn-warning:focus,
+            .btn-primary:hover,
+            .btn-primary:active,
+            .btn-primary:focus{
+                background-color: #333;
+                color: #FFF;
+            }
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
@@ -132,9 +146,10 @@ $data = $req->fetch();
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="../liste.php"><span id="badges">Liste</span></a></li>
-                            <li><a href="renouvellement.php">Passer une commande</a></li>
+                            <li><a href="renouvellement.php">Commander du matériel</a></li>
                             <li><a href="modifierprofil_inf.php">Modifier mon profil</a></li>
                             <li><a href="../contact2.php">Contact</a></li>
+                            <li><a href="../commentmarche_inf.php">Comment ça marche</a></li>
                             <li><a href="deconnexion.php">Deconnexion</a></li>
                         </ul>
                     </div>

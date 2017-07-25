@@ -91,7 +91,14 @@
             {
               display: none;
               cursor: pointer;
-            }</style><!-- <meta name="vfb" version="2.9.2" /> -->
+            }
+            .fixed {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+        </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
@@ -117,6 +124,7 @@
                       <li><a href="./notification.php"><span id="badges">Tableau de bord</span></a></li>
                       <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                       <li><a href="./contact1.php">Contact</a></li>
+                      <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
                     </ul>
                   </div>
@@ -149,7 +157,7 @@
                                     <div class=" divider divider-border">
                                     </div>
                                     <div class="alchem-animated alchem_section_4_image animated fadeInDown" data-animationduration="1.2" data-animationtype="fadeInDown" data-imageanimation="no" style="visibility: visible; animation-duration: 1.2s;">
-                                        <img src="./img/send-mail.jpg" alt="" style="visibility: visible;"><br>
+                                        <img src="./img/send-mail.png" alt="" style="visibility: visible;"><br>
                                     </div>
                                 </div>
 
@@ -223,7 +231,7 @@
                         </div>
                     <!--Footer-->
 
-                        <footer class="">
+                        <footer class="fixed">
 
                             <div class="footer-info-area" style="margin-top: 4vw;">
                                 <div class="container text-center alchem_footer_social_icon_1"> 
@@ -237,7 +245,7 @@
                     </div>  
                         <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
                         <script src="./bootstrap/js/bootstrap.min.js"></script>
-                    <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
+                        <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
                     
                         <script type="text/javascript">
                           $(document).ready( function () 

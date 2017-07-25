@@ -89,6 +89,16 @@ $data = $req->fetch();
                 display: none;
                 cursor: pointer;
             }
+            .btn-primary{
+                background-color: #007EAF;
+                color: #fff;
+            }
+            .btn-primary:hover,
+            .btn-primary:active,
+            .btn-primary:focus{
+                background-color: #333;
+                color: #fdd200;
+            }
         </style>
     </head>
 
@@ -115,6 +125,7 @@ $data = $req->fetch();
                       <li><a href="renouvellement.php">Passer une commande</a></li>
                       <li><a href="modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="../contact2.php">Contact</a></li>
+                      <li><a href="../commentmarche_inf.php">Comment ça marche</a></li>
                       <li><a href="deconnexion.php">Deconnexion</a></li>
                     </ul>
                   </div>
@@ -128,7 +139,7 @@ $data = $req->fetch();
                     <div class="jumbotron">
                         <div class="row">
                             <div class="titre main">
-                                <h3>Prise de rendez-vous pour une livraison</h3>
+                                <h3 style="color:#fdd200;">Prise de rendez-vous pour une livraison</h3>
                                 <div class="separateur"></div>
                             </div>
                         </div>
@@ -373,7 +384,7 @@ $data = $req->fetch();
                                                         <!--<label for="" class="col-lg-2 control-label"><textarea name="code" rows="1" cols="5" style="border:none;" placeholder="Code" id="code"></textarea>
                                                         </label>-->
                                                         <div class="col-lg-5 ">
-                                                            <button class="btn btn-danger" type="submit" id="prendre_rdv">
+                                                            <button class="btn btn-primary" type="submit" id="prendre_rdv">
                                                                 Prendre RDV &nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>
                                                             </button>
                                                             <button class="btn btn-danger hide" type="reset" id="annuler">
@@ -498,7 +509,7 @@ $data = $req->fetch();
                     var mes = "";
 >>>>>>> 91ecced5f193089bf7a3507476ab60b5de805617
                     //var code = cod.value;
-                    if($('#avoirNumColis').prop("checked") == true)
+                    if($('#avoirNumColis').prop("checked") === true)
                     {
                         var colis = "Le client souhaite avoir le numéro de suivi de son colis ";
                         mes = "<html><head></head><body><p>" + genre + " " + nom + " " + prenom + " ( " + type_patient + " )<br>Nous avons bien reçu votre commande de:<br><b>" + det.value + "</b></p><br><p>Nous livrerons le : <b>" + datelivraison + " " + heure + "</b><br>Mode de livraison choisi : <b>" + livreur + "</b><br>L\'adresse de livraison est : <b>" + adresse + " - " + adresse2 + " " + codepostal + " " + ville + "</b></p><br>"+colis+"<br><p>Merci de votre confiance,<br>Le service client, <br>Medsoft sante <br>01 46 72 10 43 </p><br><p>La livraison se fera sous 24 à 48h après le traitement de la commande,<br> sous résèrve de la disponibilité des produits<br>Medsoft Santé</p>";

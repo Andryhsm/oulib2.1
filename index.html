@@ -147,6 +147,25 @@
               width: 80px;
               padding: 0;
             }
+            /*Css direct in site*/
+            .btn.btn-lg.b{
+                background-color: rgba(0,126,175,0.76); 
+                width:24vw;
+                text-transform: uppercase;
+                font-size: 1.7vw;
+                text-align: center;
+                color: #fff;
+                font-weight: bold;
+                margin-top:1em;
+            }
+
+            .btn.btn-lg.b:hover,
+            .btn.btn-lg.b:focus,
+            .btn.btn-lg.b:active{
+                background-color: rgba(51,51,51,0.83);
+                color: #fff;
+                font-weight: bold;
+            }
 
             #returnOnTop
             {
@@ -198,13 +217,11 @@
                 top: 35%;
                 left: 5%;
                 z-index: 0;
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,0.81);
                 border-radius: 10px;
-                border-color: rgb(84, 46, 90);
+                border-color: rgba(1,127,175,0.81);
                 font-size: 1.4em;
-            }
-
-
+            }         
         </style>
 
         <!-- Meta OG tags by Kiwi Social Sharing Plugin -->
@@ -241,7 +258,7 @@
                                     <li><a href="./index.html">Accueil</a></li>
                                     <li><a href="./login.html">Trouver une infirmière</a></li>
                                     <li><a href="./contact.html">Contact</a></li>
-                                    <li><a href="login.html">Connexion</a></li>
+                                    <li><a href="./index.html">Connexion</a></li>
                                   </ul>
                                 </div>
                               </div>
@@ -258,7 +275,7 @@
                         
                                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
                                       
-                                      <ol class="carousel-indicators">
+                                      <ol class="carousel-indicators" style="display: none;">
                                         <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
                                         <li data-target="#mycarousel" data-slide-to="1"></li>
                                         <li data-target="#mycarousel" data-slide-to="2"></li>
@@ -284,9 +301,6 @@
                                             <img src="img/slider/4.jpg" data-color="lightblue" alt = "oulib_fille">
                                         </div>
 
-                                        <div class="item">
-                                            <img src="img/slider/5.jpg" data-color="lightblue" alt = "ousoft_logo">
-                                        </div>
                                     </div>
                                                              
                                     <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
@@ -301,16 +315,24 @@
                                 </div>
 
                                 
-                                <div id = "div1" class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s">
-                                        OU.LIB
-                                </div>
-                                <div id = "div2" class="wow fadeInUp animated cd-headline slide" data-wow-delay=".9s">
-                                        Trouver facilement les libéraux autour de vous. <br><br>
-
-                                        <!-- Bouton -->
-                                        <button class="button" data-toggle="modal" data-target="#myModal"><span> S'inscrire </span></button>
-                                        <!-- End Bouton -->
+                                <div id="divmere">
+                                    <img id="div1" src="./img/texte_centre.png" alt="logo oulib sur la page d'accueil" data-wow-delay=".4s">
+                                
+                                    <div id = "div2" class="wow fadeInUp animated cd-headline slide" data-wow-delay=".9s">
+                                        En quelques clics, trouver facilement votre infirmière à domicile
+                                    </div>
                                     
+                                    <div id="div3" class="wow fadeInUp animated cd-headline slide" data-wow-delay=".9s"=>
+                                        Je suis<br>
+                                        <img class="clignotement cd-headline slide" id="flechegauche" src="./img/flechegauche1.png">
+                                        <img class="clignotement2 cd-headline slide" id="flechedroite" src="./img/flechedroite1.png">
+                                       
+                                    <div id="div4"> 
+                                        <a href="login.html" style="color: #fff;"><button type="button" class="btn btn-lg b" > Patient</button></a>
+                                        <a href="login_inf.html" style="color: #fff;"><button type="button" class="btn btn-lg b" > Professionnel de santé</button></a>
+                                    </div>
+                                    
+                                    </div>
                                 </div>
                                 
                                 
@@ -390,12 +412,12 @@
                                     <div class="section-content" style="color:#ffffff; margin-bottom: 50px;">
                                         <div class="container alchem_section_10_model">
                                             <div class="alchem-animated animated fadeInDown" data-animationduration="1.2" data-animationtype="fadeInDown" data-imageanimation="no" style="visibility: visible; animation-duration: 1.2s;">
-                                                <h2 style="text-align: center; text-shadow: 2px 2px 20px #000;" class="section-title alchem_section_10_title">Trouver facilement les libéraux autour de vous</h2>
+                                                <h2 style="text-align: center; text-shadow: 2px 2px 20px #000;" class="section-title alchem_section_10_title">En quelques clics, trouver facilement votre infirmière à domicile </h2>
                                                 <div class="divider divider-border center" style="margin-top: 30px;margin-bottom:50px;width:80px;">
                                                     <div class="divider-inner light" style="border-bottom-width:3px; "></div>
                                                 </div>
                                                 <div style="text-align: center" class="alchem_section_10_button_text">
-                                                    <a href="./login.html" style="" class=" magee-btn-normal btn-md btn-line btn-light">Trouver une infirmière</a>  
+                                                    <a href="./login.html" style="" class=" btn-normal btn-lg">Trouver une infirmière</a>  
                                                 </div>
                                             </div>
                                         </div>
@@ -445,5 +467,26 @@
                                       $('#returnOnTop').fadeOut();
                               });
                             </script>
+                            <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+                            <script type="text/javascript" >
+                            <!-- 
+
+                               $(document).ready(function(){
+                                   blink();
+                                   blink2();
+                                });
+   
+                            function blink(){
+                               $(".clignotement").animate({opacity:0},1000).animate({opacity:1}, 1000);
+                               setTimeout("blink()",2000);
+                            }
+                            
+                            function blink2(){
+                               $(".clignotement2").animate({opacity:1},1000).animate({opacity:0}, 1000);
+                               setTimeout("blink2()",2000);
+                            }
+
+-->
+</script>
  </body>
 </html>

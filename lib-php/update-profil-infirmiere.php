@@ -21,7 +21,7 @@
     $dossier = '../image-person/';
 
     $fichier = basename($_FILES['photo']['name']);
-    $taille_maxi = 5000000;
+    $taille_maxi = 7000000;
     $taille = filesize($_FILES['photo']['tmp_name']);
     $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG', '.GIF');
     $extension = strrchr($_FILES['photo']['name'], '.');

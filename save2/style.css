@@ -1,0 +1,102 @@
+.full-screen 
+{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.full-screen > img
+{ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+#top-wrap
+{
+    position: absolute;
+    width: 100%;
+}
+#divmere{
+  top:20%;
+  position: absolute;
+  z-index: 2;
+  left: 15%;
+  width:62%;
+}
+/*Debut position sur le slide*/
+#div1, #div2, #div3{ position: relative; }
+#div1 {
+	left:22.5%;
+	height:17vw;
+}
+#div2 { left: 7%; }
+
+#div3{
+  left: 6%;
+  margin-top: 0em;
+}
+
+/*declaration des fleche*/
+#flechegauche, #flechedroite{
+  position: relative;
+  height: 10vh;
+}
+
+#flechedoite{
+left:20%;
+}
+
+#div4 {
+  left:6%;
+  margin-top: -0.5em;
+}
+/*Fin position sur le slide*/
+
+/*style du texte au centre du slide*/
+#div2, #div3{  
+  text-shadow: 2px 2px 20px #000;
+	color:#fff;
+	text-align: center;
+	font-size: 4vh;
+}
+
+#table_carousel
+{
+	border-style: none; 
+	width: 100%; 
+	color:#000000;
+}
+
+/*Sytle pour device basse résolution entre 400 et 700*/
+@media screen and (min-width: 400px) and (max-width: 700px) {
+  .btn.btn-lg.b{
+    width: 29vw !important;
+    font-size: 2vw !important;
+  }  
+}
+
+/*fleche à 800px*/
+@media screen and (max-width: 800px){
+  #flechegauhce, #flechedroite{
+    height: 8vh;
+  }
+}
+
+/*ecran resolution <= 380px */
+@media screen and (max-width:490px){
+  #flechegauche, #flechedroite{
+    display: none;
+  }
+  .btn.btn-lg.b{
+    width: 60vw !important;
+    font-size: 4vw !important;
+    margin-top:1.5em !important;
+  }
+
+}
+

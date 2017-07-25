@@ -65,7 +65,7 @@ if ($fichier == "") {
     }
 } else {
 
-    $taille_maxi = 5000000;
+    $taille_maxi = 7000000;
     $taille = filesize($_FILES['photo']['tmp_name']);
     $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.PNG', '.GIF', '.JPG', '.JPEG');
     $extension = strrchr($_FILES['photo']['name'], '.');
@@ -74,7 +74,7 @@ if ($fichier == "") {
         $erreur = 'Vous devez uploader un fichier de type png, gif, jpg, jpeg';
     }
     if ($taille > $taille_maxi) {
-        $erreur = 'Le fichier est trop gros!';
+        $erreur = 'Le fichier est trop gros! taille';
     }
 
     if (!isset($erreur)) {

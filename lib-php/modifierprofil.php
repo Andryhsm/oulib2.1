@@ -55,9 +55,9 @@ $data = $req->fetch();
                 top: 35%;
                 left: 5%;
                 z-index: 0;
-                background-color: rgba(84, 46, 90, 0.66);
+                background-color: rgba(1,127,175,.61);
                 border-radius: 10px;
-                border-color: rgb(84, 46, 90);
+                border-color: rgba(1,127,175,.61);
                 font-size: 1.4em;
             }
             .btn_up
@@ -110,7 +110,21 @@ $data = $req->fetch();
             {
                 display: none;
                 cursor: pointer;
-            }</style><!-- <meta name="vfb" version="2.9.2" /> -->
+            }
+            .btn-warning, .btn-primary{
+                background-color: #007EAF;
+                color: #fff;
+            }
+            .btn-warning:hover,
+            .btn-warning:active,
+            .btn-warning:focus,
+            .btn-primary:hover,
+            .btn-primary:active,
+            .btn-primary:focus{
+                background-color: #333;
+                color: #fff;
+            }
+            </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
@@ -135,6 +149,7 @@ $data = $req->fetch();
                             <li><a href="../notification.php"><span id="badges">Tableau de bord</span></a></li>
                             <li><a href="modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="../contact1.php">Contact</a></li>
+                            <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
                             <li><a href="./deconnexion.php">Deconnexion</a></li>
                         </ul>
                     </div>

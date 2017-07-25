@@ -121,6 +121,12 @@ include_once "./lib-php/cnx.php";
                 overflow: hidden;
                 margin: 0% 0% 0% 0%;
             }
+            
+            body {
+                background:url(img/ble_fond.jpg) fixed;
+                background-repeat:no-repeat;
+                background-size: cover;
+            }
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style>
@@ -148,6 +154,7 @@ include_once "./lib-php/cnx.php";
                       <li><a href="./lib-php/renouvellement.php">Commander du matériel</a></li>
                       <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="./contact2.php">Contact</a></li>
+                      <li><a href="./commentmarche_inf.php">Comment ça marche</a></li>
                       <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
                     </ul>
                   </div>
@@ -172,7 +179,7 @@ include_once "./lib-php/cnx.php";
                                             $b = TRUE;
                                             ?>
                                             <table class="table table-hover">
-                                                <tbody id="content">
+                                                <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
                                                     
                                                 </tbody>
                                             </table>
