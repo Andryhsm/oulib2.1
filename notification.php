@@ -154,7 +154,7 @@ $data = $req->fetch();
                             <span class="icon-bar"></span>
                         </button>
                         <div class="logo">
-                            <a href="#"><img src="img/log.png"></a>
+                            <a href="index.html"><img src="img/log.png"></a>
                         </div>
                     </div>
 
@@ -185,7 +185,7 @@ $data = $req->fetch();
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                                     <h4> Demandes approuvées </h4><br>
                                     <div class="scroll">
-                                        <div id="Tableau de bords">
+                                        <div id="approuve">
                                         </div>
                                     </div>
                             </div>
@@ -193,7 +193,7 @@ $data = $req->fetch();
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                                     <h4> Demandes refusées </h4><br>
                                     <div class="scroll">
-                                        <div id="Tableau de bords">
+                                        <div id="refuser">
                                         </div>
                                     </div>
                             </div>
@@ -214,7 +214,7 @@ $data = $req->fetch();
                         -->
                         <div class="site-info">
                             <img src="./img/logo2.png" class = "logo_footer">
-                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                            © Copyright <a href="#">OUSOFT SAS 2017</a> - 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
                         </div>
                     </div>
                 </div>          
@@ -260,9 +260,30 @@ $data = $req->fetch();
                                 url: "notif.php",
                                 type: "POST",
                                 data: "email=" + email,
-                                success: function (server_response)
+                                success: function(server_response)
                                 {
-                                    $('#Tableau de bords').html(server_response);
+                                    $('#approuve').html(server_response);
+                                },
+                                error: function (server_response)
+                                {
+                                    //alert('Erreur :' + server_response);
+                                }
+                            });
+                        }, 2000);
+
+                var refresh_auto = setInterval(
+                        function ()
+                        {
+                            var status = "lu";
+                            var email = $('#emailP').val();
+
+                            $.ajax({
+                                url: "notif_refuser.php",
+                                type: "POST",
+                                data: "email=" + email,
+                                success: function(server_response)
+                                {
+                                    $('#refuser').html(server_response);
                                 },
                                 error: function (server_response)
                                 {

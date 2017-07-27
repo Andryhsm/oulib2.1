@@ -122,7 +122,7 @@ $data = $req->fetch();
                       <span class="icon-bar"></span>
                     </button>
                       <div class="logo">
-                          <a href="#"><img src="img/log.png"></a>
+                          <a href="index.html"><img src="img/log.png"></a>
                       </div>
                   </div>
           
@@ -223,7 +223,7 @@ $data = $req->fetch();
                         <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
                         <div class="modal" id="loginerror">
                               <div class="modal-dialog">
-                                <div class="modal-content alert alert-dismissible alert-info col-lg-12">
+                                <div class="modal-content alert alert-dismissible alert-info col-lg-12" style="background-color: rgba(1,127,175,0.81);">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
                                   </div>

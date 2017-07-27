@@ -114,7 +114,7 @@
                       <span class="icon-bar"></span>
                     </button>
                       <div class="logo">
-                          <a href="#"><img src="img/log.png"></a>
+                          <a href="index.html"><img src="img/log.png"></a>
                       </div>
                   </div>
           
@@ -217,7 +217,7 @@
                         <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
                         <div class="modal" id="loginerror">
                               <div class="modal-dialog">
-                                <div class="modal-content alert alert-dismissible alert-info col-lg-12">
+                                <div class="modal-content alert alert-dismissible alert-info col-lg-12" style="background-color: rgba(1,127,175,0.81);">
                                   <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
                                   </div>
@@ -237,7 +237,7 @@
                                 <div class="container text-center alchem_footer_social_icon_1"> 
                                     <div class="site-info">
                                         <img src="./img/logo2.png" class = "logo_footer">
-                                        © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                                        © Copyright <a href="#">OUSOFT SAS 2017</a> - 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
                                     </div>
                                 </div>
                             </div>          

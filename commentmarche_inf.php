@@ -1,4 +1,5 @@
 <?php
+/*
 session_start();
 if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
     header("Location: ./login.html");
@@ -7,7 +8,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
 include_once "./lib-php/cnx.php";
 
 $req = $bdd->query("SELECT * FROM oulib_infirmiere WHERE emailI = '" . $_SESSION['email'] . "'");
-$data = $req->fetch();
+$data = $req->fetch();*/
 ?>
 
 <!DOCTYPE html>
@@ -140,7 +141,7 @@ $data = $req->fetch();
                 <span class="icon-bar"></span>
               </button>
                 <div class="logo">
-                    <a href="#"><img src="img/log.png"></a>
+                    <a href="index.html"><img src="img/log.png"></a>
                 </div>
             </div>
 
@@ -150,7 +151,7 @@ $data = $req->fetch();
                       <li><a href="./rendez-vous.php">Mes rendez-vous</a></li>
                       <li><a href="lib-php/renouvellement.php">Commander du matériel</a></li>
                       <li><a href="lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
-                      <li><a href="contact2.php">Contact</a></li>
+                      <li><a href="contact.html">Contact</a></li>
                       <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
               </ul>
             </div>
@@ -168,7 +169,7 @@ $data = $req->fetch();
                                 <h2 style="text-align: center" class="section-title alchem_section_4_title"><strong>Comment ça marche</strong></h2>
                                 <div class=" divider divider-border">
                                 </div>
-                                <div class="section-subtitle alchem_section_4_sub_title"><center>Développez sereinement vos activités avec Oulib</center></div>
+                                <div class="section-subtitle alchem_section_4_sub_title"><center><h4><b>Développez sereinement vos activités avec Oulib</b></h4></center></div>
                                 
 
                             </div>
@@ -246,7 +247,7 @@ $data = $req->fetch();
                         -->
                         <div class="site-info">
                             <img src="./img/logo2.png" class = "logo_footer">
-                            © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                            © Copyright <a href="#">OUSOFT SAS 2017</a> - 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
                         </div>
                     </div>
                 </div>          

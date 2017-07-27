@@ -12,10 +12,16 @@
     $rue = utf8_decode($_POST['rueI']);
     $code_postal = $_POST['code-postalI'];
     $ville = utf8_decode($_POST['villeI']);
+    $type_soin0 = utf8_decode(htmlspecialchars($_POST['type-soin0']));
     $type_soin1 = utf8_decode(htmlspecialchars($_POST['type-soin1']));
     $type_soin2 = utf8_decode(htmlspecialchars($_POST['type-soin2']));
     $type_soin3 = utf8_decode(htmlspecialchars($_POST['type-soin3']));
     $type_soin4 = utf8_decode(htmlspecialchars($_POST['type-soin4']));
+    $type_soin5 = utf8_decode(htmlspecialchars($_POST['type-soin5']));
+    $type_soin6 = utf8_decode(htmlspecialchars($_POST['type-soin6']));
+    $type_soin7 = utf8_decode(htmlspecialchars($_POST['type-soin7']));
+    
+    $TypeDeSoin = ($type_soin0.'|'.$type_soin1.'|'.$type_soin2.'|'.$type_soin3.'|'.$type_soin4.'|'.$type_soin5.'|'.$type_soin6.'|'.$type_soin7);
     $lieu_intervention = utf8_decode($_POST['lieu-intervention']);
 
     $dossier = '../image-person/';
@@ -26,7 +32,7 @@
     $extensions = array('.png', '.gif', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG', '.GIF');
     $extension = strrchr($_FILES['photo']['name'], '.');
 
-    if(($type_soin1 == "") && ($type_soin2 == "") && ($type_soin3=="") && ($type_soin4=="") && ($lieu_intervention=="") && ($fichier != ""))
+    if(($TypeDeSoin == "") && ($lieu_intervention=="") && ($fichier != ""))
     {
         $bdd->exec("UPDATE `oulib_infirmiere` SET `photo` = '".$fichier."', `nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
 
@@ -34,13 +40,13 @@
     } 
     else if($fichier == "")
     {
-        if(($type_soin1 == "") && ($type_soin2 == "") && ($type_soin3=="") && ($type_soin4=="") && ($lieu_intervention==""))
+        if(($TypeDeSoin == "") && ($lieu_intervention== ""))
         {
             $bdd->exec("UPDATE `oulib_infirmiere` SET `nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
 
                             echo 'Votre profil a bien été modifié';
         } else {
-            $bdd->exec("UPDATE `oulib_infirmiere` SET `nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."',`type-soinI1` = '".$type_soin1."',`type-soinI2` = '".$type_soin2."',`type-soinI3` = '".$type_soin3."',`type-soinI4` = '".$type_soin4."',`lieu-intervention` = '".$lieu_intervention."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
+            $bdd->exec("UPDATE `oulib_infirmiere` SET `nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."',`TypeDeSoin` = '".$TypeDeSoin."',`lieu-intervention` = '".$lieu_intervention."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
 
                             echo 'Votre profil a bien été modifié';
         }
@@ -55,7 +61,7 @@
         }
         else if ($taille > $taille_maxi) 
         {
-            $erreur = 'Le fichier est trop gros!';
+            $erreur = 'Le fichier est trop volumineux!';
             echo($erreur);
         }
         else if(!isset($erreur))
@@ -67,7 +73,7 @@
                 if ($mdp == $conf_mdp) 
                 {
 
-                    $bdd->exec("UPDATE `oulib_infirmiere` SET `photo` = '".$fichier."',`nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."',`type-soinI1` = '".$type_soin1."',`type-soinI2` = '".$type_soin2."',`type-soinI3` = '".$type_soin3."',`type-soinI4` = '".$type_soin4."',`lieu-intervention` = '".$lieu_intervention."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
+                    $bdd->exec("UPDATE `oulib_infirmiere` SET `photo` = '".$fichier."',`nomI` = '".$nom."',`prenomI` = '".$prenom."',`emailI` = '".$email."',`mdpI` = '".$mdp."',`telI` = '".$tel."',`rueI` = '".$rue."',`code-postalI` = '".$code_postal."',`villeI` = '".$ville."',`TypeDeSoin` = '".$TypeDeSoin."',`lieu-intervention` = '".$lieu_intervention."' WHERE `id`= '".$id."'") or die(print_r($bdd->ErrorInfo()));
 
                     echo 'Votre profil a bien été modifié';
                     //header("Location: ../index.html");

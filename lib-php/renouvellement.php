@@ -115,7 +115,7 @@ $data = $req->fetch();
                       <span class="icon-bar"></span>
                     </button>
                       <div class="logo">
-                          <a href="#"><img src="../img/log.png"></a>
+                          <a href="../index.html"><img src="../img/log.png"></a>
                       </div>
                   </div>
           
@@ -445,7 +445,7 @@ $data = $req->fetch();
                     -->
                     <div class="site-info">
                         <img src="../img/logo2.png" class = "logo_footer">
-                        © Copyright <a href="#">OUSOFT SAS</a>- 2017 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                        © Copyright <a href="#">OUSOFT SAS 2017</a> - 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
                     </div>
                 </div>
             </div>          

@@ -19,7 +19,7 @@ include_once "cnx.php";
     //echo ('mdp ='.$randomString);
     
     //verificaiton existence mail
-    $requete = $bdd->query("SELECT * FROM oulib_patient WHERE emailP = \"".$mail."\"");
+    $requete = $bdd->query("SELECT * FROM oulib_infirmiere WHERE emailI = \"".$mail."\"");
     $data = $requete->fetchAll();
     $res = count($data);
     
@@ -38,7 +38,7 @@ include_once "cnx.php";
     $sujet = "Réinitialisation de mot de passe";
     $message = "<html><head><title></title></head><body><p>D'après votre demande de réinitialisation de votre mot de passe, un nouveau mot de passe vous a été attribué.</p><p>Il est ensuite reccomandé de modifier celui-ci une fois que vous êtes connecté pour une raison de sécurité.</p><br><p>Veuillez donc vous connecter avec ces identifiants : <br><br><b>E-mail : </b>{$email}<br><b>Mot de passe : </b>{$code_aleatoire}</p></body></html>";
 
-	if($bdd->exec("UPDATE `oulib_patient` SET `mdpP` = '".$randomString."' WHERE `emailP` = '".$mail."'"))
+	if($bdd->exec("UPDATE `oulib_infirmiere` SET `mdpI` = '".$randomString."' WHERE `emailI` = '".$mail."'"))
 	{
 		try 
 		{

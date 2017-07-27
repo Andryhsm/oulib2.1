@@ -61,6 +61,11 @@
             .modal{
                 margin-top: 5rem;
             }
+			h6:active,
+			h6:hover,
+			h6:focus{
+				color: #fff;
+			}
 
 		</style>
 	</head>
@@ -77,7 +82,7 @@
                 <span class="icon-bar"></span>
               </button>
                 <div>
-                    <a href="#"><img src="img/log.png" class="logo"></a>
+                    <a href="index.html"><img src="img/log.png" class="logo"></a>
                 </div>
             </div>
 
@@ -86,6 +91,7 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="contact.html">Contact</a></li>
 				<li><a href="login_inf.html">Professionnel de santé</a></li>
+				<li><a href="commentmarche_pat.php">Comment ça marche</a></li>
               </ul>
             </div>
           </div>
@@ -119,7 +125,7 @@
 					        <button class="btn btn-warning" id="connexion" type="submit">Se connecter&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;
 					        <a href="patient-inscription.html"><button class="btn btn-primary" id="inscription">S'inscrire&nbsp;&nbsp;&nbsp; <span class="glyphicon glyphicon-edit" ></span></button></a>
 							<button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
-							<br><a href="#reinitialiser" data-toggle="modal"><h6>Mot de passe oubliée</h6></a>
+							<br><a href="#reinitialiser" data-toggle="modal"><h6>Mot de passe oublié</h6></a>
 					      </div>
 					    </div>
 				</div>
@@ -172,7 +178,7 @@
 				var mdp = $('#mdp').val();
 				var dataString = "email="+email+"&mdp="+mdp;
 
-				if(email != "" && mdp != "")
+				if(email !== "" && mdp !== "")
 				{
 					$.ajax({ 
 		            url: "lib-php/connexion.php",  

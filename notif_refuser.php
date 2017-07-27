@@ -3,7 +3,7 @@
 
 	$mail = ($_POST['email']);
 
-	$req = "SELECT * FROM oulib_liste_demande WHERE emailP ='".$mail."' AND status = 'accepter' ";
+	$req = "SELECT * FROM oulib_liste_demande WHERE emailP ='".$mail."' AND status = 'refuser' ";
 	$enr = $bdd->query($req);
 	$numEnr = $enr->rowCount();
 
@@ -15,7 +15,7 @@
 			while($valny = $name->fetch()) 
 			{/*
 				if ($data['status'] == "refuser") 
-				{
+				{*/
 					echo("
 						<div class='panel panel-danger notification'>
 						  <div class='panel-heading'>
@@ -31,8 +31,8 @@
 						    	</div>
 						  </div>
 						</div>");
-				} elseif ($data['status'] == "accepter") 
-				{*/
+/*				} elseif ($data['status'] == "accepter") 
+				{
 					echo("
 						<div class='panel panel-success notification'>
 						  <div class='panel-heading'>
@@ -48,7 +48,7 @@
 						    	</div>
 						  </div>
 						</div>");
-/*				}*/
+				}*/
 			}
 
 
