@@ -25,6 +25,7 @@ $type_soin4 = htmlspecialchars($_POST['type-soin4']);
 $type_soin5 = htmlspecialchars($_POST['type-soin5']);
 $type_soin6 = htmlspecialchars($_POST['type-soin6']);
 $type_soin7 = htmlspecialchars($_POST['type-soin7']);
+$type_soin8 = htmlspecialchars($_POST['type-soin8']);
 $lieu_intervention = addcslashes($_POST['lieu-intervention'], "'");
 $cabinet = htmlspecialchars($_POST['cabinet']);
 
@@ -47,8 +48,9 @@ $type_soin4 = utf8_decode($type_soin4);
 $type_soin5 = utf8_decode($type_soin5);
 $type_soin6 = utf8_decode($type_soin6);
 $type_soin7 = utf8_decode($type_soin7);
+$type_soin8 = utf8_decode($type_soin8);
 
-$TypeDeSoin = ($type_soin0.'|'.$type_soin1.'|'.$type_soin2.'|'.$type_soin3.'|'.$type_soin4.'|'.$type_soin5.'|'.$type_soin6.'|'.$type_soin7);
+$TypeDeSoin = ($type_soin0.'|'.$type_soin1.'|'.$type_soin2.'|'.$type_soin3.'|'.$type_soin4.'|'.$type_soin5.'|'.$type_soin6.'|'.$type_soin7.'|'$type_soin8);
 
 $lieu_intervention = utf8_decode($lieu_intervention);
 $cabinet = utf8_decode($cabinet);
