@@ -56,7 +56,7 @@ if ($num > 0) {
                         </td>
                         <td width='40%'>
                             <br><br>
-                                {$data['commentaire']}
+                                ".utf8_encode($data['commentaire'])."
                             <br><br><br>
                             <div class='pull-right'>
                                 <div class=\"btn-group\">
