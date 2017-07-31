@@ -3,6 +3,7 @@ session_start();
 if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
     header("Location: login.html");
 }
+include_once "./lib-php/cnx.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>carte</title>
+        <title>liste de demande</title>
 
         <meta name="robots" content="noindex,follow">
         <link rel="stylesheet" href="./others/index.css" type="text/css" media="all">
@@ -25,16 +26,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
         <link rel="stylesheet" id="wds_font-awesome-css" href="./others/font-awesome(1).css" type="text/css" media="all">
         <link rel="stylesheet" id="wonderplugin-slider-css-css" href="./others/wonderpluginsliderengine.css" type="text/css" media="all">
         <link rel="stylesheet" id="parent-style-css" href="./others/style.css" type="text/css" media="all">
-
-        <script type="text/javascript" src="./others/jquery.js.téléchargement"></script>
-
-        <script type="text/javascript">
-            /* <![CDATA[ */
-            var object = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php"};
-            /* ]]> */
-        </script>
-
-        <script src="js/jssor.slider-22.2.10.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/paper.css">
 
 
         <!-- Meta OG tags by Kiwi Social Sharing Plugin -->
@@ -66,121 +58,281 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
             {
                 display: none;
                 cursor: pointer;
-            }</style><!-- <meta name="vfb" version="2.9.2" /> -->
+            }
+            .fixed
+            {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+
+            #alchem-home-sections
+            {
+                padding-top: 50px;
+            }
+
+            .logo
+            {
+                position: absolute;
+                z-index: 9;
+                left: 5%;
+            }
+
+            .logo_footer
+            {
+                width: 10%;
+                height: 20%;
+            }
+
+            li>a:hover
+            {
+                font-size: 1.1em;
+                color:  #fff;
+                text-decoration: none;
+            }
+
+            li>a
+            {
+                background-color: transparent;
+                font-size: 1.1em;
+                color: #fff;
+                text-decoration: none;
+            }
+            .modal{
+                margin-top: 5rem;
+            }
+
+            .liste
+            {
+                width: 100%;
+                overflow: auto;
+            }
+            body {
+                background-repeat:no-repeat;
+                background-size: cover;
+            }
+
+            #map{
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #selection{
+                position: absolute;
+                margin-top: 80px;
+                margin-left: 30px;
+                z-index: 1200;
+                width: 250px;
+            }
+        </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
     <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-40 has-slider">
         <div class="wrapper ">
-            <div class="top-wrap">
-                <header class="header-style-1 header-wrap  logo-left">
 
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                      <div class="logo">
+                          <a href="index.html"><img src="img/log.png"></a>
+                      </div>
+                  </div>
+          
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="./rendez-vous.php">Rendez-vous</a></li>
+                      <li><a href="./effectue.php">Terminer</a></li>
+                      <li><a href="./liste.php"><span id="badges">Liste</span></a></li>
+                      <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
+                      <li><a href="./lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
+                      <li><a href="./contact2.php">Contact</a></li>
+                      <li><a href="./commentmarche_inf.php">Comment ça marche</a></li>
+                      <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+            <div class="clear"></div>
+                <select name="selection" id="selection" onchange="changerMarqueur()">
+                    <?php 
 
-                    <div class="main-header " style="display: block;">
-                        <div class="container">
-                            <div class="logo-box alchem_header_style alchem_default_logo">
-                                <img class="site-logo normal_logo" alt="" src="./others/Logo-ousoft-HD.png">
+                        $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION["email"] . "' AND status='accepter' ORDER BY date_soin DESC");
+                        $date_soin1 = array();
+                        $date_soin = array();
+                        $num = $req->rowCount();
 
-                            </div>
-                            <button class="site-nav-toggle">
-                                <span class="sr-only">Toggle navigation</span>
-                                <i class="fa fa-bars fa-2x"></i>
-                            </button>
-                            <nav class="site-nav" role="navigation" style="">
-                                <ul id="menu-main" class="main-nav">
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./liste.php"><span class="menu-item-label">Liste</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="#"><span class="menu-item-label">Notification</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./lib-php/modifierprofil-infirmier.php"><span class="menu-item-label">Modifier mon profil</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./contact1.php"><span class="menu-item-label">Contact</span></a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./lib-php/deconnexion.php"><span class="menu-item-label">Deconnexion</span></a></li>
-                                </ul>                    
-                            </nav>
-                        </div>
-                    </div>
-                    <!-- sticky header -->
-                    <div class="fxd-header logo-left" style="top: 0px; display: none;">
-                        <div class="container">
-                            <div class="logo-box text-left alchem_header_style alchem_default_logo">
-                                <a href="#">
-                                    <img class="site-logo normal_logo" alt="" src="./others/Logo-ousoft-HD.png">
-                                </a>
+                        while($data = $req->fetch()){
+                            $date_soin1[] = $data["date_soin"];
+                        }
 
-                            </div>
-                            <button class="site-nav-toggle">
-                                <span class="sr-only">Toggle navigation</span>
-                                <i class="fa fa-bars fa-2x"></i>
-                            </button>
-                            <nav class="site-nav" role="navigation" style="">
-                                <ul id="menu-main1" class="main-nav">
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./carte.php"><span class="menu-item-label">Carte</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="#"><span class="menu-item-label">Notification</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./lib-php/modifierprofil.php"><span class="menu-item-label">Modifier mon profil</span></a></li>
-                                    <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./contact1.php"><span class="menu-item-label">Contact</span></a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="./lib-php/deconnexion.php"><span class="menu-item-label">Deconnexion</span></a></li>
-                                </ul>                    
-                            </nav>
-                        </div>
-                    </div>
+                        $date_soin = array_unique($date_soin1);
+                        foreach ($date_soin as $key => $value) {
+                            echo ("<option>".$value."</option>");
+                        }
+                    
+                      ?>
+                </select>
+               <div id="map"></div>
 
-                    <div class="clear"></div>
-                </header>  
-            </div>
-            <div id="alchem-home-sections">
-
-
-                <section class="section magee-section alchem-home-section-4 alchem-home-style-0" id="section-5" style="padding:0%;">
-
-                    djfsugfk sdfkud fksudfk sd
-
-                </section>
-
-
-            </div>
-
-            <div class="btn_up">
-                <img src="img/retour-en-haut.png" class="img-responsive" id="returnOnTop">
-            </div>
 
 
             <!--Footer-->
-            <footer class="">
-
+            <footer class="fixed">
                 <div class="footer-info-area">
                     <div class="container text-center alchem_footer_social_icon_1"> 
+                        <div class="clearfix"></div>
                         <div class="site-info">
-                            <a href="#" >OUSOFT SAS</a>. 38 Rue de la convention, 94270, Le Kremlin-Bicêtre.</div>
+                            <img src="./img/logo2.png" class = "logo_footer">
+                            © Copyright <a href="#">OUSOFT SAS 2017</a> - 38 Rue de la convention, 94270 Le Kremlin-Bicêtre
+                        </div>
                     </div>
                 </div>          
             </footer>
+
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg hidden" data-toggle="modal" id="openModal" data-target="#myModal">Open Modal</button>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   
+                  </div>
+                  <div class="modal-body" id="contenu">
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
         </div>  
         <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+        <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./others/owl.carousel.min.js.téléchargement"></script>
+         <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAFYS6_tY3pkUEhb3cSkRUqiifSbTGOFa4&callback=initMap" async defer></script>
         <script type="text/javascript">
-            /* <![CDATA[ */
-            var alchem_params = {"ajaxurl": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "themeurl": "http:\/\/localhost\/wordpress\/wp-content\/themes\/alchem", "responsive": "yes", "site_width": "1170px", "sticky_header": "yes", "show_search_icon": "yes", "slider_autoplay": "yes", "slideshow_speed": "3000", "portfolio_grid_pagination_type": "pagination", "blog_pagination_type": "pagination", "global_color": "#fdd200", "admin_ajax_nonce": "2ed3a22947", "admin_ajax": "http:\/\/localhost\/wordpress\/wp-admin\/admin-ajax.php", "isMobile": "0", "footer_sticky": "0"};
-            /* ]]> */
-        </script>
-        <script type="text/javascript" src="./others/main.js.téléchargement"></script>
-        <script type="text/javascript">
+            
+            /*La carte*/
+              var map;
+              var liste_marker = [];
+
+            function initMap() {
+                
+                <?php echo  "var latLng = '".$_SESSION["latLng"]."';";?>
+                
+                var latLng = latLng.replace('(', '');
+                latLng = latLng.replace(')', '');
+                
+                latLng = latLng.split(",");
+                var lat = parseFloat(latLng[0]);
+                var lng = parseFloat(latLng[1]);
+
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: lat, lng: lng},
+                    zoom: 18, 
+                    mapTypeControl: true,
+                    mapTypeControlOptions: {
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                        position: google.maps.ControlPosition.LEFT_CENTER
+                    },
+                    zoomControlOptions: {
+                        position: google.maps.ControlPosition.RIGHT_CENTER
+                    },
+                    streetViewControlOptions: {
+                        position: google.maps.ControlPosition.RIGHT_CENTER
+                    }
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat, lng),
+                    map: map
+                });
+
+                marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+
+                changerMarqueur();
+
+                
+              }
+
+
+              function changerMarqueur(){
+
+                if(liste_marker != null){
+                    for (var i = liste_marker.length - 1; i >= 0; i--) {
+                        liste_marker[i].setMap(null);
+                    }
+                }
+
+                var selection = document.getElementById('selection').value;
+
+                <?php echo  "var data = \"emailI=".$_SESSION['email']."&date_soin=\"+selection+\"\";"; ?>
+                $.ajax({
+                    url: 'lib-php/liste_patient_par_date.php',
+                    type: 'POST',
+                    data: data,
+                    success: function(data){
+                        var donnees = JSON.parse(data);
+                        for (var i = donnees.length - 1; i >= 0; i--) {
+                            var patient = JSON.parse(donnees[i]);
+   
+
+                            var latLng = patient.latLng.replace('(', '');
+                            latLng = latLng.replace(')', '');
+                            latLng2 = latLng.split(',');
+                            var lat = parseFloat(latLng2[0]);
+                            var lng = parseFloat(latLng2[1]);
+
+                            var marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(lat, lng),
+                                map : map
+                            });
+
+                            marker.addListener('click', function(){
+                                $("#contenu").html("<p><h3> "+patient.prenomP+" "+patient.nomP+"</h3><br><strong>Adresse: </strong>"+patient.adresseP+"<br><strong>Type de soin : </strong> "+patient.typeSoinP+"<br><strong>Date et heure de soin : </strong>"+patient.date_soin+"  à "+patient.heure_soin+"<br><strong>Tel: </strong>"+patient.telP+"<br><strong>commentaire: </strong>"+patient.commentaire+"</p>");
+                                $('#openModal').trigger('click');   
+                            });
+
+                            liste_marker.push(marker);
+                        }
+                    },
+                    error: function(){
+                        alert("Erreur de renvoie de donnees");
+                    } 
+                });
+              }
+
+
+
+
             $(document).ready(function ()
             {
-                $('#returnOnTop').hide();
-                $('#returnOnTop').click(function () {
-                    //e.preventDefault();
-                    $('html,body').animate({scrollTop: 0}, 'slow');
-                });
+
+                $('#erreur_inscription').html('<p>Ici la date</p>');
+                $('#triggerwarning').trigger('click');
+                setTimeout(function () {
+                        $('#ferme').trigger('click');
+                }, 4000);
+
             });
 
-            $(window).scroll(function ()
-            {
-                if ($(window).scrollTop() == 0)
-                    $('#returnOnTop').fadeOut();
-                else
-                    $('#returnOnTop').fadeIn();
-            });
-
-            function rechercher() {
-                alert("test");
-            }
         </script>
     </body>
 </html>

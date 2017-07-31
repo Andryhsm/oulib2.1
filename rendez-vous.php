@@ -106,7 +106,6 @@ include_once "./lib-php/cnx.php";
             .liste
             {
                 width: 100%;
-                height: 550px;
                 overflow: auto;
             }
             body {
@@ -136,6 +135,7 @@ include_once "./lib-php/cnx.php";
           
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                      <li><a href="./carte_infirmier.php">Ma carte</a></li>
                       <li><a href="./effectue.php">Terminer</a></li>
                       <li><a href="./liste.php"><span id="badges">Liste</span></a></li>
                       <li><a href="./lib-php/renouvellement.php">Passer une commande</a></li>
@@ -156,9 +156,11 @@ include_once "./lib-php/cnx.php";
                 <section class="section magee-section alchem-home-section-4 alchem-home-style-0" id="section-5">
                     <div class="section-content">
                         <div class="container alchem_section_4_model">
+                            <!-- rendez-vous de 00h00 à 08h00 -->
                             <div class="liste">
+                                 <h1>00h00 - 08h00</h1>
                                 <?php
-                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'accepter'");
+                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'accepter' AND heure_soin BETWEEN '00:00' AND '08:00'");
 
                                 $b = FALSE;
 
@@ -171,24 +173,24 @@ include_once "./lib-php/cnx.php";
                                         <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
                                             <tr class="<?php
                                             $b = TRUE;
-                                            echo($data['id']);
+                                            echo(utf8_encode($data['id']));
                                             ?>">
                                                 <td width='15%'>
-                                                    <img class="thumbnail img-responsive" style="vertical-align: center;" width="130px" src="./image-person/<?php echo($data['photo']); ?>">
+                                                    <img class="thumbnail img-responsive" style="vertical-align: center;" width="130px" src="./image-person/<?php echo(utf8_encode($data['photo'])); ?>">
                                                 </td>
                                                 <td width='45%'>
-                                                    <?php echo "<h4><b>" . $data['nomP'] . " " . $data['prenomP'] . "</b></h4>"; ?>
-    <?php echo($data['telP']); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo($data['emailP']); ?><br>
-                                                    <b>Adresse :</b> <?php echo($data['adresseP']); ?> <br>
-                                                    <b>Type de soin:</b> <?php echo($data['typeSoinP']); ?> <br>
-                                                    <b>Fréquence de soin:</b> <?php echo($data['frequenceSoin']); ?> <br>
-                                                    <b>Date de soin:</b> <?php echo($data['date_soin']); ?> <br>
-                                                    <b>Heure de soin:</b> <?php echo($data['heure_soin']); ?> 
+                                                    <?php echo "<h4><b>" . utf8_encode($data['nomP']) . " " . utf8_encode($data['prenomP']) . "</b></h4>"; ?>
+    <?php echo($data['telP']); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo(utf8_encode($data['emailP'])); ?><br>
+                                                    <b>Adresse :</b> <?php echo(utf8_encode($data['adresseP'])); ?> <br>
+                                                    <b>Type de soin:</b> <?php echo(utf8_encode($data['typeSoinP'])); ?> <br>
+                                                    <b>Fréquence de soin:</b> <?php echo(utf8_encode($data['frequenceSoin'])); ?> <br>
+                                                    <b>Date de soin:</b> <?php echo(utf8_encode($data['date_soin'])); ?> <br>
+                                                    <b>Heure de soin:</b> <?php echo(utf8_encode($data['heure_soin'])); ?> 
                                                     
                                                 </td>
                                                 <td width='40%'>
                                                     <br><br>
-    <?php echo($data['commentaire']); ?>
+    <?php echo(utf8_encode($data['commentaire'])); ?>
                                                     <br><br><br>
                                                     <div class="pull-right">
                                                         <a class="btn btn-primary">Terminer</a>
@@ -199,7 +201,161 @@ include_once "./lib-php/cnx.php";
                                     </table>
                                     <?php
                                 } if ($b == FALSE) {
-                                    echo '<center><h3>Vous n\'avez pas de rendez-vous aujourd\'hui</h3></center>';
+                                    echo '<center><h4>Aucun rendez-vous</h4></center>';
+                                }
+                                ?>
+
+                            </div>
+
+                             <!-- rendez-vous de 08h00 à 10h00 -->
+                            <div class="liste">
+                                 <h1>08h00 - 10h00</h1>
+                                <?php
+                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'accepter' AND heure_soin BETWEEN '08:00' AND '10:00'");
+
+                                $b = FALSE;
+
+                                while ($data = $req->fetch()) {
+//                                    $heures = explode(':', $data['heure_soin']);
+//                                    $heure = $heures[0] . ":" . $heures[1];
+                                    ?>
+
+                                    <table class="table table-hover">
+                                        <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
+                                            <tr class="<?php
+                                            $b = TRUE;
+                                            echo(utf8_encode($data['id']));
+                                            ?>">
+                                                <td width='15%'>
+                                                    <img class="thumbnail img-responsive" style="vertical-align: center;" width="130px" src="./image-person/<?php echo(utf8_encode($data['photo'])); ?>">
+                                                </td>
+                                                <td width='45%'>
+                                                    <?php echo "<h4><b>" . utf8_encode($data['nomP']) . " " . utf8_encode($data['prenomP']) . "</b></h4>"; ?>
+    <?php echo($data['telP']); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo(utf8_encode($data['emailP'])); ?><br>
+                                                    <b>Adresse :</b> <?php echo(utf8_encode($data['adresseP'])); ?> <br>
+                                                    <b>Type de soin:</b> <?php echo(utf8_encode($data['typeSoinP'])); ?> <br>
+                                                    <b>Fréquence de soin:</b> <?php echo(utf8_encode($data['frequenceSoin'])); ?> <br>
+                                                    <b>Date de soin:</b> <?php echo(utf8_encode($data['date_soin'])); ?> <br>
+                                                    <b>Heure de soin:</b> <?php echo(utf8_encode($data['heure_soin'])); ?> 
+                                                    
+                                                </td>
+                                                <td width='40%'>
+                                                    <br><br>
+    <?php echo(utf8_encode($data['commentaire'])); ?>
+                                                    <br><br><br>
+                                                    <div class="pull-right">
+                                                        <a class="btn btn-primary">Terminer</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <?php
+                                } if ($b == FALSE) {
+                                    echo '<center><h4>Aucun rendez-vous</h4></center>';
+                                }
+                                ?>
+
+                            </div>
+
+
+                             <!-- rendez-vous de 12h00 à 14h00 -->
+                            <div class="liste">
+                                 <h1>12h00 - 14h00</h1>
+                                <?php
+                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'accepter' AND heure_soin BETWEEN '12:00' AND '14:00'");
+
+                                $b = FALSE;
+
+                                while ($data = $req->fetch()) {
+//                                    $heures = explode(':', $data['heure_soin']);
+//                                    $heure = $heures[0] . ":" . $heures[1];
+                                    ?>
+
+                                    <table class="table table-hover">
+                                        <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
+                                            <tr class="<?php
+                                            $b = TRUE;
+                                            echo(utf8_encode($data['id']));
+                                            ?>">
+                                                <td width='15%'>
+                                                    <img class="thumbnail img-responsive" style="vertical-align: center;" width="130px" src="./image-person/<?php echo(utf8_encode($data['photo'])); ?>">
+                                                </td>
+                                                <td width='45%'>
+                                                    <?php echo "<h4><b>" . utf8_encode($data['nomP']) . " " . utf8_encode($data['prenomP']) . "</b></h4>"; ?>
+    <?php echo($data['telP']); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo(utf8_encode($data['emailP'])); ?><br>
+                                                    <b>Adresse :</b> <?php echo(utf8_encode($data['adresseP'])); ?> <br>
+                                                    <b>Type de soin:</b> <?php echo(utf8_encode($data['typeSoinP'])); ?> <br>
+                                                    <b>Fréquence de soin:</b> <?php echo(utf8_encode($data['frequenceSoin'])); ?> <br>
+                                                    <b>Date de soin:</b> <?php echo(utf8_encode($data['date_soin'])); ?> <br>
+                                                    <b>Heure de soin:</b> <?php echo(utf8_encode($data['heure_soin'])); ?> 
+                                                    
+                                                </td>
+                                                <td width='40%'>
+                                                    <br><br>
+    <?php echo(utf8_encode($data['commentaire'])); ?>
+                                                    <br><br><br>
+                                                    <div class="pull-right">
+                                                        <a class="btn btn-primary">Terminer</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <?php
+                                } if ($b == FALSE) {
+                                    echo '<center><h4>Aucun rendez-vous</h4></center>';
+                                }
+                                ?>
+
+                            </div>
+
+                             <!-- rendez-vous de 14h00 à 17h00 -->
+                            <div class="liste">
+                                 <h1>14h00 - 17h00</h1>
+                                <?php
+                                $req = $bdd->query("SELECT * FROM oulib_liste_demande WHERE emailI = '" . $_SESSION['email'] . "' AND status = 'accepter' AND heure_soin BETWEEN '14:00' AND '17:00'");
+
+                                $b = FALSE;
+
+                                while ($data = $req->fetch()) {
+//                                    $heures = explode(':', $data['heure_soin']);
+//                                    $heure = $heures[0] . ":" . $heures[1];
+                                    ?>
+
+                                    <table class="table table-hover">
+                                        <tbody id="content" style="background-color:rgba(255, 255, 255, 0.66);">
+                                            <tr class="<?php
+                                            $b = TRUE;
+                                            echo(utf8_encode($data['id']));
+                                            ?>">
+                                                <td width='15%'>
+                                                    <img class="thumbnail img-responsive" style="vertical-align: center;" width="130px" src="./image-person/<?php echo(utf8_encode($data['photo'])); ?>">
+                                                </td>
+                                                <td width='45%'>
+                                                    <?php echo "<h4><b>" . utf8_encode($data['nomP']) . " " . utf8_encode($data['prenomP']) . "</b></h4>"; ?>
+    <?php echo($data['telP']); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo(utf8_encode($data['emailP'])); ?><br>
+                                                    <b>Adresse :</b> <?php echo(utf8_encode($data['adresseP'])); ?> <br>
+                                                    <b>Type de soin:</b> <?php echo(utf8_encode($data['typeSoinP'])); ?> <br>
+                                                    <b>Fréquence de soin:</b> <?php echo(utf8_encode($data['frequenceSoin'])); ?> <br>
+                                                    <b>Date de soin:</b> <?php echo(utf8_encode($data['date_soin'])); ?> <br>
+                                                    <b>Heure de soin:</b> <?php echo(utf8_encode($data['heure_soin'])); ?> 
+                                                    
+                                                </td>
+                                                <td width='40%'>
+                                                    <br><br>
+    <?php echo(utf8_encode($data['commentaire'])); ?>
+                                                    <br><br><br>
+                                                    <div class="pull-right">
+                                                        <a class="btn btn-primary">Terminer</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <?php
+                                } if ($b == FALSE) {
+                                    echo '<center><h4>Aucun rendez-vous</h4></center>';
                                 }
                                 ?>
 

@@ -424,7 +424,24 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                 </div>          
             </footer>
 
+            <button class="btn btn-primary hidden btn-lg" id="triggerwarning" data-toggle="modal" data-target="#loginerror"></button>
+            <div class="modal" id="loginerror">
+                <div class="modal-dialog">
+                    <div class="modal-content alert alert-dismissible alert-info col-lg-12">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="ferme">&times;</button>
+                            <h4 class="modal-title" style="text-align: center;">Message</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="warning" id="erreur_inscription"></div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            
            
         </div>  
 
