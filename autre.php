@@ -818,7 +818,7 @@
                                             <div id="type3" style="display: none;">
 											<div class="row">
                                                 <div class="form-group col-sm-5">
-                                                    <label for="type-soin4" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                     <div class="col-sm-7">
                                                         <select name="type-soin4" onchange="type4()" class="form-control" id="select4">
                                                             <option value="">-----choisir-----</option>
@@ -970,7 +970,7 @@
                                             <div id="type4" style="display: none;">
 											<div class="row">
                                                 <div class="form-group col-sm-5">
-                                                    <label for="type-soin5" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                     <div class="col-sm-7">
                                                         <select name="type-soin5" onchange="type5()" class="form-control" id="select5">
                                                             <option value="">-----choisir-----</option>
@@ -1104,7 +1104,7 @@
                                             <div id="type5" style="display: none;">
 											<div class="row">
                                                 <div class="form-group col-sm-5">
-                                                    <label for="type-soin6" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                     <div class="col-sm-7">
                                                         <select name="type-soin6" onchange="type6()" class="form-control" id="select6">
                                                             <option value="">-----choisir-----</option>
@@ -1220,7 +1220,7 @@
                                             <div id="type6" style="display: none;">
 											<div class="row">
                                                 <div class="form-group col-sm-5">
-                                                        <label for="type-soin7" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                        <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                         <div class="col-sm-7">
                                                             <select name="type-soin7" onchange="type7()" class="form-control" id="select7">
                                                                 <option value="">-----choisir-----</option>
@@ -1318,7 +1318,7 @@
                                             <div class="form-group" id="type7" style="display: none;">
 											<div class="row">
                                                 <div class="form-group col-sm-5">
-                                                    <label for="type-soin8" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                    <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                     <div class="col-sm-7">
                                                         <select name="type-soin8" class="form-control">
                                                             <option value="">-----choisir-----</option>

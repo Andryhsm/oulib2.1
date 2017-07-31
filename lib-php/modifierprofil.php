@@ -249,23 +249,29 @@ $data = $req->fetch();
                                                             </div>
                                                             <div class="panel-body">
                                                                 <div class="">
-                                                                    <?php if (!empty($data['TypeDeSoin']) && !empty($data['FrequenceDeSoin']) && !empty($data['Par'])) { ?>
-                                                                        <?php
+                                                                   
+                                                                    <?php
+                                                                    if ($data['TypeDeSoin'] != "") { ?>
+                                                                       <tr>
+                                                                       <?php // ETO TSIKA ZAO
                                                                             $typeSoin = explode("|", utf8_encode($data['TypeDeSoin']));
                                                                             $frequenceSoin = explode("|", $data['FrequenceDeSoin']);
                                                                             $par = explode("|", $data['Par']);
-                                                                        
-                                                                                foreach ($typeSoin as $typeSoin && $frequenceSoin as $frequenceSoin && $par as $par) 
-                                                                                { 
-                                                                                    echo "- "?><b><?php.$typeSoin.?></b><?php" : ".$frequenceSoin." fois par ".$par;
+                                                                            $i = 0;
+                                                                            for ($i=0; $i<9; $i++){
+                                                                                ?>
+                                                                                
+                                                                                    - <?php echo $typeSoin[$i]; ?>
+                                                                                    <?php echo $frequenceSoin[$i]; ?> par
+                                                                                    <?php echo $par[$i]; ?><br>
                                                                                     
-                                                                        ?> <br>
-                                                                         <?php; } ?>
-                                                                        <p>
-                                                                            <b><?php //echo(utf8_encode($data['type-soinP1'])); ?></b> : <?php //echo($data['frequence-soin1']); ?> <?php // fois par echo($data['par1']); ?>
-                                                                        </p>
+                                                                                <?php
+                                                                            }
+                                                                            
+                                                                                
+                                                                       ?>
+                                                                       </tr>
                                                                     <?php } ?>
-                                                                    
                                                                 </div>
                                                                 <div class="btn btn-warning" id="changesoins" onClick="changeSoins();"> Changer mes informations de soins</div>
                                                             </div>
@@ -275,7 +281,7 @@ $data = $req->fetch();
                                                             <h4>Changer vos informations de soins :</h4><br>
                                                                 <div class="row">
                                                                     <div class="form-group col-sm-5">
-                                                                        <label for="type-soin" class="col-sm-5 control-label">Type de soin:</label>
+                                                                        <label for="tel" class="col-sm-5 control-label">Type de soin:</label>
                                                                         <div class="col-sm-7">
                                                                             <select name="type-soin0" required="" onchange="type0()" class="form-control" id="select0">
                                                                                 <option value="">-----choisir-----</option>
@@ -292,8 +298,8 @@ $data = $req->fetch();
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group col-sm-7">
-                                                                        <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                        <div class="col-sm-4">
+                                                                        <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                        <div class="col-sm-3">
                                                                             <select name="frequence-soin0" required="" class="form-control">
                                                                                 <option value="">-----choisir-----</option>
                                                                                 <option value="1">X 1</option>
@@ -311,7 +317,7 @@ $data = $req->fetch();
                                                                             </select>                    
                                                                         </div>
                                                                         <div class="col-sm-6">
-                                                                            <select name="par0" required="" class="form-control">
+                                                                            <select name="par0" class="form-control">
                                                                                 <option value="">-----choisir-----</option>
                                                                                 <option value="jour"> / jour</option>
                                                                                 <option value="semaine"> / semaine</option>
@@ -327,7 +333,10 @@ $data = $req->fetch();
                                                                     </div>-->
                         
                                                                     <script>
-                        
+                                                                        $(document).ready(function () //ITO LE TSY FANTATRA
+                                                                        {
+                                                                            $('[name="TypeDeSoin"]').val("<?php echo($data['TypeDeSoin']) ?>");
+                                                                        });
                                                                         function type0() {
                                                                             var selection = document.getElementById("select0").value;
                                                                             if (selection === "Soins de stomie")
@@ -524,8 +533,8 @@ $data = $req->fetch();
                                                                         </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin1" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -737,8 +746,8 @@ $data = $req->fetch();
                                                                         </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin2" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -932,8 +941,8 @@ $data = $req->fetch();
                                                                         </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin3" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -1093,7 +1102,7 @@ $data = $req->fetch();
                                                                     <div id="type3" style="display: none;">
                                                                     <div class="row">
                                                                         <div class="form-group col-sm-5">
-                                                                            <label for="type-soin4" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                                            <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                                             <div class="col-sm-7">
                                                                                 <select name="type-soin4" onchange="type4()" class="form-control" id="select4">
                                                                                     <option value="">-----choisir-----</option>
@@ -1110,8 +1119,8 @@ $data = $req->fetch();
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin4" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -1245,7 +1254,7 @@ $data = $req->fetch();
                                                                     <div id="type4" style="display: none;">
                                                                     <div class="row">
                                                                         <div class="form-group col-sm-5">
-                                                                            <label for="type-soin5" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                                            <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                                             <div class="col-sm-7">
                                                                                 <select name="type-soin5" onchange="type5()" class="form-control" id="select5">
                                                                                     <option value="">-----choisir-----</option>
@@ -1262,8 +1271,8 @@ $data = $req->fetch();
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin5" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -1379,7 +1388,7 @@ $data = $req->fetch();
                                                                     <div id="type5" style="display: none;">
                                                                     <div class="row">
                                                                         <div class="form-group col-sm-5">
-                                                                            <label for="type-soin6" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                                            <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                                             <div class="col-sm-7">
                                                                                 <select name="type-soin6" onchange="type6()" class="form-control" id="select6">
                                                                                     <option value="">-----choisir-----</option>
@@ -1396,8 +1405,8 @@ $data = $req->fetch();
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin6" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -1495,7 +1504,7 @@ $data = $req->fetch();
                                                                     <div id="type6" style="display: none;">
                                                                     <div class="row">
                                                                         <div class="form-group col-sm-5">
-                                                                                <label for="type-soin7" class="col-sm-2 control-label">Autre type de soin:</label>
+                                                                                <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
                                                                                 <div class="col-sm-7">
                                                                                     <select name="type-soin7" onchange="type7()" class="form-control" id="select7">
                                                                                         <option value="">-----choisir-----</option>
@@ -1512,8 +1521,8 @@ $data = $req->fetch();
                                                                                 </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-7">
-                                                                            <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                            <div class="col-sm-4">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
                                                                                 <select name="frequence-soin7" class="form-control">
                                                                                     <option value="">-----choisir-----</option>
                                                                                     <option value="1">X 1</option>
@@ -1591,56 +1600,103 @@ $data = $req->fetch();
                         
                                                                     </script>
                                                                     <div class="form-group" id="type7" style="display: none;">
-                                                        <div class="row">
-                                                            <div class="form-group col-sm-5">
-                                                                <label for="type-soin8" class="col-sm-2 control-label">Autre type de soin:</label>
-                                                                <div class="col-sm-7">
-                                                                    <select name="type-soin8" class="form-control">
-                                                                        <option value="">-----choisir-----</option>
-                                                                        <option id="stomie7" value="Soins de stomie">Soins de stomie</option>
-                                                                        <option id="plaies7" value="Soins des plaies">Soins des plaies </option>
-                                                                        <option id="oncologie7" value="Soins d’oncologie et traitement de chimiothérapie">Soins d’oncologie et traitement de chimiothérapie</option>
-                                                                        <option id="perfusion7" value="Perfusion">Perfusion </option>
-                                                                        <option id="sang7" value="Prise de sang">Prise de sang</option>
-                                                                        <option id="injection7" value="Injection sous cutané, intramusculaire, intraveineuse">Injection sous cutané, intramusculaire, intraveineuse</option>
-                                                                        <option id="diabetique7" value="Prise en charge des patients diabétiques">Prise en charge des patients diabétiques </option>
-                                                                        <option id="toilette7" value="Aide à la toilette">Aide à la toilette</option>
-                                                                        <option id="prepa7" value="Préparation et distribution des traitements">Préparation et distribution des traitements </option>
-                                                                    </select>                    
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-sm-7">
-                                                                <label for="tel" class="col-sm-4 control-label">Fréquence des soins:</label>
-                                                                <div class="col-sm-4">
-                                                                    <select name="frequence-soin8" class="form-control">
-                                                                        <option value="">-----choisir-----</option>
-                                                                        <option value="1">X 1</option>
-                                                                        <option value="2">X 2</option>
-                                                                        <option value="3">X 3</option>
-                                                                        <option value="4">X 4</option>
-                                                                        <option value="5">X 5</option>
-                                                                        <option value="6">X 6</option>
-                                                                        <option value="7">X 7</option>
-                                                                        <option value="8">X 8</option>
-                                                                        <option value="9">X 9</option>
-                                                                        <option value="10">X 10</option>
-                                                                        <option value="11">X 11</option>
-                                                                        <option value="12">X 12</option>
-                                                                    </select>                    
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                    <select name="par8" class="form-control">
-                                                                        <option value="">-----choisir-----</option>
-                                                                        <option value="jour"> / jour</option>
-                                                                        <option value="semaine"> / semaine</option>
-                                                                    </select>                    
-                                                                </div>
-                                                            </div>
-                                                            </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group col-sm-5">
+                                                                            <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                                            <div class="col-sm-7">
+                                                                                <select name="type-soin8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option id="stomie7" value="Soins de stomie">Soins de stomie</option>
+                                                                                    <option id="plaies7" value="Soins des plaies">Soins des plaies </option>
+                                                                                    <option id="oncologie7" value="Soins d’oncologie et traitement de chimiothérapie">Soins d’oncologie et traitement de chimiothérapie</option>
+                                                                                    <option id="perfusion7" value="Perfusion">Perfusion </option>
+                                                                                    <option id="sang7" value="Prise de sang">Prise de sang</option>
+                                                                                    <option id="injection7" value="Injection sous cutané, intramusculaire, intraveineuse">Injection sous cutané, intramusculaire, intraveineuse</option>
+                                                                                    <option id="diabetique7" value="Prise en charge des patients diabétiques">Prise en charge des patients diabétiques </option>
+                                                                                    <option id="toilette7" value="Aide à la toilette">Aide à la toilette</option>
+                                                                                    <option id="prepa7" value="Préparation et distribution des traitements">Préparation et distribution des traitements </option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-sm-7">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
+                                                                                <select name="frequence-soin8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option value="1">X 1</option>
+                                                                                    <option value="2">X 2</option>
+                                                                                    <option value="3">X 3</option>
+                                                                                    <option value="4">X 4</option>
+                                                                                    <option value="5">X 5</option>
+                                                                                    <option value="6">X 6</option>
+                                                                                    <option value="7">X 7</option>
+                                                                                    <option value="8">X 8</option>
+                                                                                    <option value="9">X 9</option>
+                                                                                    <option value="10">X 10</option>
+                                                                                    <option value="11">X 11</option>
+                                                                                    <option value="12">X 12</option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <select name="par8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option value="jour"> / jour</option>
+                                                                                    <option value="semaine"> / semaine</option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group col-sm-5">
+                                                                            <label for="tel" class="col-sm-5 control-label">Autre type de soin:</label>
+                                                                            <div class="col-sm-7">
+                                                                                <select name="type-soin8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option id="stomie7" value="Soins de stomie">Soins de stomie</option>
+                                                                                    <option id="plaies7" value="Soins des plaies">Soins des plaies </option>
+                                                                                    <option id="oncologie7" value="Soins d’oncologie et traitement de chimiothérapie">Soins d’oncologie et traitement de chimiothérapie</option>
+                                                                                    <option id="perfusion7" value="Perfusion">Perfusion </option>
+                                                                                    <option id="sang7" value="Prise de sang">Prise de sang</option>
+                                                                                    <option id="injection7" value="Injection sous cutané, intramusculaire, intraveineuse">Injection sous cutané, intramusculaire, intraveineuse</option>
+                                                                                    <option id="diabetique7" value="Prise en charge des patients diabétiques">Prise en charge des patients diabétiques </option>
+                                                                                    <option id="toilette7" value="Aide à la toilette">Aide à la toilette</option>
+                                                                                    <option id="prepa7" value="Préparation et distribution des traitements">Préparation et distribution des traitements </option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-sm-7">
+                                                                            <label for="tel" class="col-sm-3 control-label">Fréquence des soins:</label>
+                                                                            <div class="col-sm-3">
+                                                                                <select name="frequence-soin8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option value="1">X 1</option>
+                                                                                    <option value="2">X 2</option>
+                                                                                    <option value="3">X 3</option>
+                                                                                    <option value="4">X 4</option>
+                                                                                    <option value="5">X 5</option>
+                                                                                    <option value="6">X 6</option>
+                                                                                    <option value="7">X 7</option>
+                                                                                    <option value="8">X 8</option>
+                                                                                    <option value="9">X 9</option>
+                                                                                    <option value="10">X 10</option>
+                                                                                    <option value="11">X 11</option>
+                                                                                    <option value="12">X 12</option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <select name="par8" class="form-control">
+                                                                                    <option value="">-----choisir-----</option>
+                                                                                    <option value="jour"> / jour</option>
+                                                                                    <option value="semaine"> / semaine</option>
+                                                                                </select>                    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                         </div> 
-                                                        </div>
-
                                                     </div>
+
+                                        
 
                                                         <br>
                                                         <div class="form-group">
@@ -1649,7 +1705,7 @@ $data = $req->fetch();
                                                                 <button type="submit" id="insert" class="btn btn-primary">Valider les changements&nbsp;&nbsp;&nbsp; <i class="glyphicon glyphicon-edit"></i> </button>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                        
 
                                                     <div class="col-lg-5">
                                                         <div class="panel panel-info">
@@ -1676,12 +1732,13 @@ $data = $req->fetch();
 
                                                 </fieldset>
                                             </form>
-                                        </div>
+                                        </div>   
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+    
                 </section>
 
             </div>
