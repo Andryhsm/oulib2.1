@@ -309,7 +309,7 @@ include_once "./lib-php/cnx.php";
                                 $("#contenu").html("<p><h3> "+patient.prenomP+" "+patient.nomP+"</h3><br><strong>Adresse: </strong>"+patient.adresseP+"<br><strong>Type de soin : </strong> "+patient.typeSoinP+"<br><strong>Date et heure de soin : </strong>"+patient.date_soin+"  à "+patient.heure_soin+"<br><strong>Tel: </strong>"+patient.telP+"<br><strong>commentaire: </strong>"+patient.commentaire+"</p>");
                                 $('#openModal').trigger('click');   
                             });
-
+                            marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
                             liste_marker.push(marker);
                         }
                     },
