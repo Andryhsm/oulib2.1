@@ -3,16 +3,17 @@
     require_once 'cnx.php';
 
     $id = $_POST['idI'];
-    $mdp = $_POST['mdpI'];
-    $conf_mdp = $_POST['conf-mdpI'];
-    $nom = utf8_decode($_POST['nomI']);
-    $prenom = utf8_decode($_POST['prenomI']);
-    $email = utf8_decode($_POST['emailI']);
+    $mdp = addslashes(utf8_decode($_POST['mdpI']));
+    $conf_mdp = addslashes(utf8_decode($_POST['conf-mdpI']));
+    $nom =  addslashes(utf8_decode($_POST['nomI']));
+    $prenom = addslashes(utf8_decode($_POST['prenomI']));
+    $email = addslashes(utf8_decode($_POST['emailI']));
     $tel = $_POST['telI'];
-    $rue = utf8_decode($_POST['rueI']);
+    $rue = addslashes(utf8_decode($_POST['rueI']));
     $code_postal = $_POST['code-postalI'];
-    $ville = utf8_decode($_POST['villeI']);
-    $type_soin0 = utf8_decode(htmlspecialchars($_POST['type-soin0']));
+    $ville = addslashes(utf8_decode($_POST['villeI']));
+
+/*    $type_soin0 = utf8_decode(htmlspecialchars($_POST['type-soin0']));
     $type_soin1 = utf8_decode(htmlspecialchars($_POST['type-soin1']));
     $type_soin2 = utf8_decode(htmlspecialchars($_POST['type-soin2']));
     $type_soin3 = utf8_decode(htmlspecialchars($_POST['type-soin3']));
@@ -21,9 +22,10 @@
     $type_soin6 = utf8_decode(htmlspecialchars($_POST['type-soin6']));
     $type_soin7 = utf8_decode(htmlspecialchars($_POST['type-soin7']));
     $type_soin8 = utf8_decode(htmlspecialchars($_POST['type-soin8']));
-    
-    $TypeDeSoin = ($type_soin0.'|'.$type_soin1.'|'.$type_soin2.'|'.$type_soin3.'|'.$type_soin4.'|'.$type_soin5.'|'.$type_soin6.'|'.$type_soin7'|'$type_soin8);
-    $lieu_intervention = utf8_decode($_POST['lieu-intervention']);
+*/    
+    $TypeDeSoin = utf8_decode($_POST["TypeDeSoin"]);
+
+    $lieu_intervention = addslashes(utf8_decode($_POST['lieu-intervention']));
 
     $dossier = '../image-person/';
 

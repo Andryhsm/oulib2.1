@@ -16,7 +16,7 @@ $code_acces = utf8_decode($_POST['code-acces']);
 $etage = utf8_decode($_POST['etage']);
 $info_sup = utf8_decode($_POST['info-sup']);
 
-$type_soin0 = ($_POST['type-soin0']);
+/*$type_soin0 = ($_POST['type-soin0']);
 $type_soin1 = ($_POST['type-soin1']);
 $type_soin2 = ($_POST['type-soin2']);
 $type_soin3 = ($_POST['type-soin3']);
@@ -25,9 +25,11 @@ $type_soin5 = ($_POST['type-soin5']);
 $type_soin6 = ($_POST['type-soin6']);
 $type_soin7 = ($_POST['type-soin7']);
 $type_soin8 = ($_POST['type-soin8']);
-$TypeDeSoin = ($type_soin0'|'$type_soin1'|'$type_soin2'|'$type_soin3'|'$type_soin4'|'$type_soin5'|'$type_soin6'|'$type_soin7'|'$type_soin8);
+$TypeDeSoin = ($type_soin0'|'$type_soin1'|'$type_soin2'|'$type_soin3'|'$type_soin4'|'$type_soin5'|'$type_soin6'|'$type_soin7'|'$type_soin8);*/
+$TypeDeSoin = utf8_decode($_POST['TypeDeSoin']);
 
-$frequence_soin0 = htmlspecialchars($_POST['frequence-soin0']);
+
+/*$frequence_soin0 = htmlspecialchars($_POST['frequence-soin0']);
 $frequence_soin1 = htmlspecialchars($_POST['frequence-soin1']);
 $frequence_soin2 = htmlspecialchars($_POST['frequence-soin2']);
 $frequence_soin3 = htmlspecialchars($_POST['frequence-soin3']);
@@ -37,8 +39,10 @@ $frequence_soin6 = htmlspecialchars($_POST['frequence-soin6']);
 $frequence_soin7 = htmlspecialchars($_POST['frequence-soin7']);
 $frequence_soin8 = htmlspecialchars($_POST['frequence-soin8']);
 $FrequenceDeSoin = ($frequence_soin0'|'$frequence_soin1'|'$frequence_soin2'|'$frequence_soin3'|'$frequence_soin4'|'$frequence_soin5'|'$frequence_soin6'|'$frequence_soin7'|'$frequence_soin8);
+*/
+$FrequenceDeSoin = utf8_decode($_POST['FrequenceDeSoin']);
 
-$par1 = htmlspecialchars($_POST['par1']);
+/*$par1 = htmlspecialchars($_POST['par1']);
 $par1 = htmlspecialchars($_POST['par1']);
 $par2 = htmlspecialchars($_POST['par2']);
 $par3 = htmlspecialchars($_POST['par3']);
@@ -48,6 +52,8 @@ $par6 = htmlspecialchars($_POST['par6']);
 $par7 = htmlspecialchars($_POST['par7']);
 $par8 = htmlspecialchars($_POST['par8']);
 $Par = ($par0'|'$par1'|'$par2'|'$par3'|'$par4'|'$par5'|'$par6'|'$par7'|'$par8);
+*/
+$Par = utf8_decode($_POST['Par']);
 
 $dossier = '../image-person/';
 
@@ -118,16 +124,10 @@ if ($fichier == "") {
             } else {
 
                 if ($mdp == $conf_mdp) {
-
-                    if (($TypeDeSoin == "") && ($FrequenceDeSoin == "")) {
-                        $bdd->exec("UPDATE `oulib_patient` SET `photo` = '" . $fichier . "',`nomP` = '" . $nom . "',`prenomP` = '" . $prenom . "',`emailP` = '" . $email . "',`mdpP` = '" . $mdp . "',`telP` = '" . $tel . "',`rueP` = '" . $rue . "',`code-postalP` = '" . $code_postal . "',`villeP` = '" . $ville . "',`code-acces` = '" . $code_acces . "',`etage` = '" . $etage . "',`info-sup` = '" . $info_sup . "' WHERE `id`= '" . $id . "'") or die(print_r($bdd->ErrorInfo()));
-
-                        echo 'Profil mise à jour';
-                    } else {
                         $bdd->exec("UPDATE `oulib_patient` SET `photo` = '" . $fichier . "',`nomP` = '" . $nom . "',`prenomP` = '" . $prenom . "',`emailP` = '" . $email . "',`mdpP` = '" . $mdp . "',`telP` = '" . $tel . "',`rueP` = '" . $rue . "',`code-postalP` = '" . $code_postal . "',`villeP` = '" . $ville . "',`code-acces` = '" . $code_acces . "',`etage` = '" . $etage . "',`info-sup` = '" . $info_sup . "',`TypeDeSoin` ='" . $TypeDeSoin . "',`FrequenceDeSoin` = '" . $FrequenceDeSoin . "', `Par` = '" . $Par . "' WHERE `id`= '" . $id . "'") or die(print_r($bdd->ErrorInfo()));
 
                         echo 'Profil mise à jour';
-                    }
+                    
                 } else {
                     echo "Mot de passe non identique";
                 }
