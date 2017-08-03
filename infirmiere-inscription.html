@@ -269,12 +269,6 @@
                                                 </div>
                                             </div>
 
-                                             <div class="hidden form-group">
-                                                <div class="col-sm-9">
-                                                    <input type="text" name="TypeDeSoin" id="TypeDeSoin" class="form-control">
-                                                </div>
-                                            </div>
-
                                             <div class="form-group">
                                                 <label for="finess" class="col-sm-2 control-label">Numéro ADELI/RPPS:</label>
                                                 <div class="col-sm-9">
@@ -714,6 +708,7 @@
                                                             var TypeDeSoin = typeSoin.join("|");
                                                             $("#TypeDeSoin").val(TypeDeSoin);
 
+                                                            alert("Attendez ! voir ton console ! ");
                                                             console.log($("#TypeDeSoin").val());
 
                                                             e.preventDefault();
