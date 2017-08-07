@@ -134,6 +134,11 @@ $data = $req->fetch();
                 background-color: white;
             }
 
+            section{
+                font-size: 1.1em;
+            }
+
+
         </style><!-- <meta name="vfb" version="2.9.2" /> -->
         <style type="text/css">
         </style></head>
@@ -296,7 +301,7 @@ $data = $req->fetch();
 
                                                              $TypeSoin = array("Soins de stomie", "Soins des plaies","Soins d’oncologie et traitement de chimiothérapie", "Perfusion", "Prise de sang",  "Injection sous cutané, intramusculaire, intraveineuse", "Prise en charge des patients diabétiques",  "Aide à la toilette", "Préparation et distribution des traitements");
 
-                                                            echo '<table class="table table-striped table-hover">
+                                                            echo '<table class="table table-hover">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>Type de soin</th>
