@@ -126,7 +126,7 @@ $data = $req->fetch();
                       <li><a href="modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="../contact2.php">Contact</a></li>
                       <li><a href="../commentmarche_inf.php">Comment ça marche</a></li>
-                      <li><a href="deconnexion.php">Deconnexion</a></li>
+                      <li><a href="deconnexion.php">Déconnexion</a></li>
                     </ul>
                   </div>
                 </div>

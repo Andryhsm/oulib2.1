@@ -151,7 +151,7 @@ $data = $req->fetch();*/
                 <li><a href="./notification.php"><span id="badges">Tableau de bord</span></a></li>
                 <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                 <li><a href="./contact1.php">Contact</a></li>
-                <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
+                <li><a href="lib-php/deconnexion.php">Déconnexion</a></li>
               </ul>
             </div>
           </div>

@@ -248,7 +248,7 @@ if ((!isset($_SESSION['email'])) || (empty($_SESSION['email']))) {
                             <li><a href="lib-php/modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="./contact1.php">Contact</a></li>
                             <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
-                            <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
+                            <li><a href="lib-php/deconnexion.php">Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>

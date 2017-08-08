@@ -119,7 +119,7 @@ $data = $req->fetch();
                       <li><a href="lib-php/renouvellement.php">Commander matériel</a></li>
                       <li><a href="lib-php/modifierprofil_inf.php">Modifier mon profil</a></li>
                       <li><a href="contact2.php">Contact</a></li>
-                      <li><a href="lib-php/deconnexion.php">Deconnexion</a></li>
+                      <li><a href="lib-php/deconnexion.php">Déconnexion</a></li>
                     </ul>
                   </div>
                 </div>

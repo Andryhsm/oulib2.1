@@ -125,7 +125,7 @@
                       <li><a href="./lib-php/modifierprofil.php">Modifier mon profil</a></li>
                       <li><a href="./contact1.php">Contact</a></li>
                       <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
-                      <li><a href="./lib-php/deconnexion.php">Deconnexion</a></li>
+                      <li><a href="./lib-php/deconnexion.php">Déconnexion</a></li>
                     </ul>
                   </div>
                 </div>
@@ -168,19 +168,19 @@
                                                 <div class="form-group">
                                                     <label for="nom" class="col-sm-3 control-label">Nom:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="nom" class="form-control" name="nom" id="nom">
+                                                        <input type="text" placeholder="Nom" class="form-control" name="nom" id="nom">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email" class="col-sm-3 control-label">Email:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="email" class="form-control" name="email" id="email">
+                                                        <input type="text" placeholder="Email" class="form-control" name="email" id="email">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="sujet" class="col-sm-3 control-label">Sujet:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" placeholder="sujet" class="form-control" name="sujet" id="sujet">
+                                                        <input type="text" placeholder="Sujet" class="form-control" name="sujet" id="sujet">
                                                         <input type="hidden" id="emailP" value="<?php echo($_SESSION['email']); ?>">
                                                     </div>
                                                 </div>
@@ -188,7 +188,7 @@
                                                 <div class="form-group">
                                                     <label for="message" class="col-sm-3 control-label">Message:</label>
                                                     <div class="col-sm-9">
-                                                        <textarea placeholder="message" class="form-control" name="message" id="message"></textarea>
+                                                        <textarea placeholder="Message" class="form-control" name="message" id="message"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

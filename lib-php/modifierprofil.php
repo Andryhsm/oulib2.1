@@ -160,7 +160,7 @@ $data = $req->fetch();
                             <li><a href="modifierprofil.php">Modifier mon profil</a></li>
                             <li><a href="../contact1.php">Contact</a></li>
                             <li><a href="./commentmarche_pat.php">Comment ça marche</a></li>
-                            <li><a href="./deconnexion.php">Deconnexion</a></li>
+                            <li><a href="./deconnexion.php">Déconnexion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -211,14 +211,14 @@ $data = $req->fetch();
                                                         <div class="form-group">
                                                             <label for="mdp" class="col-sm-2 control-label">Mot de passe:</label>
                                                             <div class="col-sm-9">
-                                                                <input type="password" placeholder="mot de passe" class="form-control" name="mdpP" id="mdpP">
+                                                                <input type="password" placeholder="Mot de passe" class="form-control" name="mdpP" id="mdpP">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="conf-mdp" class="col-sm-2 control-label"></label>
                                                             <div class="col-sm-9">
-                                                                <input type="password" placeholder="confirmation du mot de passe" class="form-control" name="conf-mdp" id="conf-mdp">
+                                                                <input type="password" placeholder="Confirmation du mot de passe" class="form-control" name="conf-mdp" id="conf-mdp">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
