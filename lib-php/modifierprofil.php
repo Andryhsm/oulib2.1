@@ -185,7 +185,7 @@ $data = $req->fetch();
                                                             <h4>Vos informations personnelles :</h4><br>
                                                             <label for="nom" class="col-sm-2 control-label">Nom:</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP" value="<?php echo($data['nomP']); ?>">
+                                                                <input type="text" placeholder="nom" required="" class="form-control" name="nomP" id="nomP" value="<?php echo(utf8_encode($data['nomP'])); ?>">
                                                             </div>
                                                         </div>
 
@@ -198,7 +198,7 @@ $data = $req->fetch();
                                                         <div class="form-group">
                                                             <label for="prenom" class="col-sm-2 control-label">Prenom:</label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" placeholder="prenom" required="" class="form-control" name="prenomP" id="prenomP" value="<?php echo($data['prenomP']); ?>">
+                                                                <input type="text" placeholder="prenom" required="" class="form-control" name="prenomP" id="prenomP" value="<?php echo(utf8_encode($data['prenomP'])); ?>">
                                                             </div>
                                                         </div>
 
@@ -230,13 +230,13 @@ $data = $req->fetch();
                                                         <div class="form-group">
                                                             <label for="tel" class="col-sm-2 control-label">Adresse:</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP" value="<?php echo($data['rueP']); ?>">
+                                                                <input type="text" required="" placeholder="numéro et nom de rue" class="form-control" name="rueP" id="rueP" value="<?php echo(utf8_encode($data['rueP'])); ?>">
                                                             </div>
                                                             <div class="col-sm-3">
                                                                 <input type="number" required="" placeholder="code postal" class="form-control" name="code-postalP" id="code-postalP" value="<?php echo($data['code-postalP']); ?>">
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <input type="text" required="" placeholder="ville" class="form-control" name="villeP" id="villeP" value="<?php echo($data['villeP']); ?>">
+                                                                <input type="text" required="" placeholder="ville" class="form-control" name="villeP" id="villeP" value="<?php echo(utf8_encode($data['villeP'])); ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -245,7 +245,7 @@ $data = $req->fetch();
                                                                 <input type="text" placeholder="code d'accès" class="form-control" name="code-acces" id="code-acces" value="<?php echo($data['code-acces']); ?>">
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <input type="text" placeholder="etage" class="form-control" name="etage" id="etage" value="<?php echo($data['etage']); ?>">
+                                                                <input type="text" placeholder="etage" class="form-control" name="etage" id="etage" value="<?php echo(utf8_encode($data['etage'])); ?>">
                                                             </div>
                                                             <div class="col-sm-3">
                                                                 <input type="text" placeholder="info supplémentaire" class="form-control" name="info-sup" id="info-sup" value="<?php echo($data['info-sup']); ?>">
