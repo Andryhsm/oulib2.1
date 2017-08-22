@@ -99,6 +99,9 @@ $data = $req->fetch();
                 background-color: #333;
                 color: #fdd200;
             }
+            .form-control.obli {
+                display: block !important;
+            }
         </style>
     </head>
 
@@ -218,8 +221,9 @@ $data = $req->fetch();
                                         <legend>Date de livraison&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span></legend>
                                         <div class="form-group">
                                             <label class="col-lg-3" id="addon-date">Choisissez votre date de livraison</label>
-                                            <div class="col-lg-5" id="datelivraison">
-                                                <input type="text" class="form-control" id="datepicker" aria-describedby="addon-date" name="data[Renouvellement][datelivraison]" placeholder="Votre date de livraison" readonly>
+                                            <br><br>
+                                            <div class="col-lg-3" id="datelivraison">
+                                                <input type="text" class="form-control obli" id="datepicker" aria-describedby="addon-date" name="data[Renouvellement][datelivraison]" placeholder="Votre date de livraison" readonly>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -475,7 +479,7 @@ $data = $req->fetch();
                     var det = document.getElementById('detail');
                     //var cod = document.getElementById('code');
                     var livreur = $('input[name=livreur]:checked').val();
-                    var depart = document.getElementById('selectRegion');
+                    //var depart = document.getElementById('selectRegion');
                     var patient = document.getElementById('type_patient');
                     var sexe = document.getElementById('genre');
                     //var departement = depart.options[depart.selectedIndex].value;
@@ -501,13 +505,13 @@ $data = $req->fetch();
                     var cpI = $('#code-postalI').val();
                     var finess = $('#finess').val();
                     var cabinet = $('#cabinet').val();
-<<<<<<< HEAD
+//<<<<<<< HEAD
                     var nbrenouv = $('#nbrenouv').val();
                     var telI = $('#telI').val();
 
-=======
+//=======
                     var mes = "";
->>>>>>> 91ecced5f193089bf7a3507476ab60b5de805617
+//>>>>>>> 91ecced5f193089bf7a3507476ab60b5de805617
                     //var code = cod.value;
                     if($('#avoirNumColis').prop("checked") === true)
                     {
@@ -522,7 +526,7 @@ $data = $req->fetch();
                     var adresseComplet = '';
                     var contact = '';
 
-                    if (prenom != '')
+                    if (prenom !== '')
                     {
                         nomComplet = nom + ' ' + prenom;
                     }
@@ -531,7 +535,7 @@ $data = $req->fetch();
                         nomComplet = nom;
                     }
 
-                    if (adresse2 != '')
+                    if (adresse2 !== '')
                     {
                         adresseComplet = adresse + ' ' + adresse2 + ' - ' + codepostal + ' ' + ville;
                     }
@@ -541,7 +545,7 @@ $data = $req->fetch();
                     }
 
 
-                    if (fixe != '')
+                    if (fixe !== '')
                     {
                         contact = mobile + ' - ' + fixe;
                     }
@@ -552,7 +556,7 @@ $data = $req->fetch();
 
                     var params = 'livreur=' + livreur + '&departement=' + departement + '&datelivraison=' + datelivraison + '&heure=' + heure + '&type_patient=' + type_patient + '&genre=' + genre + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&adresse2=' + adresse2 + '&codepostal=' + codepostal + '&ville=' + ville + '&mail=' + mail + '&mobile=' + mobile + '&fixe=' + fixe + '&commande=' + det.value + '&message=' + mes + '&nomComplet=' + nomComplet + '&adresseComplet=' + adresseComplet + '&contact=' + contact + "&nomI=" + nomI + "&prenomI=" + prenomI + "&emailI=" + emailI + "&rueI=" + rueI + "&villeI=" + villeI + "&cpI=" + cpI + "&finess=" + finess + "&cabinet=" + cabinet + "&nbrenouv=" + nbrenouv + "&telI=" + telI ;
 
-                    if (livreur != '' && nom != '' && adresse != '' && mail != '' && codepostal != '' && ville != '' && mobile != '' && ($('#nomP').hasClass('has-success') && $('#adresseP').hasClass('has-success') && $('#mailP').hasClass('has-success') && $('#codepostalP').hasClass('has-success') && $('#villeP').hasClass('has-success') && $('#contactP').hasClass('has-success')))
+                    if (livreur !== '' && nom !== '' && adresse !== '' && mail !== '' && codepostal !== '' && ville !== '' && mobile !== '' && ($('#nomP').hasClass('has-success') && $('#adresseP').hasClass('has-success') && $('#mailP').hasClass('has-success') && $('#codepostalP').hasClass('has-success') && $('#villeP').hasClass('has-success') && $('#contactP').hasClass('has-success')))
                     {
                        if (confirm(" Voulez-vous confirmer votre commande ? "))
                         {
@@ -568,7 +572,7 @@ $data = $req->fetch();
                                     alert(server_response);
                                 }
                             });
-                        };
+                        }
                         $('#annuler').trigger('click');
                         $('#nomP').removeClass('has-success');
                         $('#adresseP').removeClass('has-success');
@@ -674,7 +678,7 @@ $data = $req->fetch();
                         champ.addClass('has-error');
                     }  
                 }
-            };
+            }
         </script>
     </body>
 </html>
