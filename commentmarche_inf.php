@@ -206,6 +206,7 @@ $data = $req->fetch();*/
                                             <h4>Oulib vous facilite la vie : </h4>
                                                 <li>Trouver facilement une prise en charge à domicile dans votre secteur.</li>
                                                 <li>Commandez directement et gratuitement les matériels nécessaires via oulib</li>
+                                                <li>Lors de votre commande, l’ordonnance sera éditée automatiquement. </li>
                                                 <li>Type de soins triés et ciblés par rapport à votre convenance et votre préférence</li>
                                                 <li>Données et systèmes d’information de santé (SIS) sécurisées</li>
                                             <h4>Restez connecté avec Oulib :</h4>
